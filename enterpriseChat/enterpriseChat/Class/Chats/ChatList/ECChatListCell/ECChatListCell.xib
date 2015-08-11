@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="63" id="KGk-i7-Jjw" customClass="ECChatListCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NMX-cx-Kvl">
+                        <rect key="frame" x="10" y="7" width="48" height="48"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="48" id="vb5-om-Qxi"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Samantha Thomas" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qh6-kx-4uR">
+                        <rect key="frame" x="65" y="10" width="171" height="22"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2015-07-30" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dvc-L7-8Io">
+                        <rect key="frame" x="244" y="10" width="65" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="65" id="Xjb-NX-0Fk"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请问这款鞋子多久能发货？发的什么快递？" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ALH-ci-HYH">
+                        <rect key="frame" x="65" y="34" width="244" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BDO-jl-lOP">
+                        <rect key="frame" x="16" y="56" width="328" height="8"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailingMargin" secondItem="ALH-ci-HYH" secondAttribute="trailing" constant="3" id="0Pc-Jd-ppQ"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="BDO-jl-lOP" secondAttribute="trailing" constant="-32" id="4ft-SP-xDu"/>
+                    <constraint firstItem="BDO-jl-lOP" firstAttribute="top" secondItem="NMX-cx-Kvl" secondAttribute="bottom" constant="1" id="9dt-Ca-amG"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="BDO-jl-lOP" secondAttribute="bottom" constant="-9" id="JjJ-Gt-4YP"/>
+                    <constraint firstItem="NMX-cx-Kvl" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="OgX-lt-I2j"/>
+                    <constraint firstItem="Dvc-L7-8Io" firstAttribute="top" secondItem="qh6-kx-4uR" secondAttribute="top" id="RBz-re-cMv"/>
+                    <constraint firstItem="ALH-ci-HYH" firstAttribute="trailing" secondItem="Dvc-L7-8Io" secondAttribute="trailing" id="XeZ-TU-rea"/>
+                    <constraint firstItem="Dvc-L7-8Io" firstAttribute="leading" secondItem="qh6-kx-4uR" secondAttribute="trailing" constant="8" symbolic="YES" id="YdX-T6-7w1"/>
+                    <constraint firstItem="ALH-ci-HYH" firstAttribute="top" secondItem="qh6-kx-4uR" secondAttribute="bottom" constant="2" id="a0P-Kq-KOc"/>
+                    <constraint firstItem="NMX-cx-Kvl" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="dY7-k0-YTl"/>
+                    <constraint firstItem="BDO-jl-lOP" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="8" id="dxl-Lu-lsb"/>
+                    <constraint firstItem="ALH-ci-HYH" firstAttribute="leading" secondItem="NMX-cx-Kvl" secondAttribute="trailing" constant="7" id="i73-qT-lhZ"/>
+                    <constraint firstItem="NMX-cx-Kvl" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="k2T-QX-YBw"/>
+                    <constraint firstItem="ALH-ci-HYH" firstAttribute="top" secondItem="Dvc-L7-8Io" secondAttribute="bottom" constant="9" id="naP-j4-u6k"/>
+                    <constraint firstItem="BDO-jl-lOP" firstAttribute="top" secondItem="ALH-ci-HYH" secondAttribute="bottom" constant="6" id="sAj-Lq-axA"/>
+                    <constraint firstItem="ALH-ci-HYH" firstAttribute="leading" secondItem="qh6-kx-4uR" secondAttribute="leading" id="w0K-4i-4pC"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="headImageView" destination="NMX-cx-Kvl" id="6wn-I3-tBJ"/>
+                <outlet property="lineView" destination="BDO-jl-lOP" id="tW5-fP-ILC"/>
+                <outlet property="msgInfoLabel" destination="ALH-ci-HYH" id="WMm-kS-avg"/>
+                <outlet property="showNameLabel" destination="qh6-kx-4uR" id="Q2L-Xc-2Vm"/>
+                <outlet property="timeLabel" destination="Dvc-L7-8Io" id="Qn3-mT-3va"/>
+            </connections>
+            <point key="canvasLocation" x="401" y="311"/>
+        </tableViewCell>
+    </objects>
+</document>
