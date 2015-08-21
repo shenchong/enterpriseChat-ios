@@ -58,15 +58,6 @@
 }
 
 #pragma mark - searchBarDelegate
-
-- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar{
-    self.tempDatasource = [self.datasource mutableCopy];
-}
-
-- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar{
-    self.datasource = [self.tempDatasource mutableCopy];
-}
-
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
     __weak typeof(self) weakSelf = self;
     [[RealtimeSearchUtil currentUtil] realtimeSearchWithSource:self.tempDatasource
@@ -74,15 +65,15 @@
                                        collationStringSelector:@selector(searchKey)
                                                    resultBlock:^(NSArray *results)
      {
-        if (results) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [weakSelf.datasource removeAllObjects];
-                [weakSelf.datasource addObjectsFromArray:results];
-                weakSelf.searchController.resultsSource = [self.datasource copy];
-                [weakSelf.searchController.searchResultsTableView reloadData];
-            });
-        }
-    }];
+         if (results) {
+             dispatch_async(dispatch_get_main_queue(), ^{
+                 [weakSelf.datasource removeAllObjects];
+                 [weakSelf.datasource addObjectsFromArray:results];
+                 weakSelf.searchController.resultsSource = [self.datasource copy];
+                 [weakSelf.searchController.searchResultsTableView reloadData];
+             });
+         }
+     }];
 }
 
 #pragma mark - getter
@@ -100,16 +91,31 @@
         __weak typeof(self) weakSelf = self;
         _searchController = [[EMSearchDisplayController alloc] initWithSearchBar:self.searchBar
                                                               contentsController:self];
-        [_searchController setCellForRowAtIndexPathCompletion:^UITableViewCell *(UITableView *tableView, NSIndexPath *indexPath) {
-            return [weakSelf tableView:tableView cellForRowAtIndexPath:indexPath];
+        [_searchController setCellForRowAtIndexPathCompletion:^UITableViewCell *(UITableView *tableView,
+                                                                                 NSIndexPath *indexPath)
+         {
+             return [weakSelf tableView:tableView cellForRowAtIndexPath:indexPath];
+         }];
+        
+        [_searchController setHeightForRowAtIndexPathCompletion:^CGFloat(UITableView *tableView,
+                                                                         NSIndexPath *indexPath)
+         {
+             return [weakSelf tableView:tableView heightForRowAtIndexPath:indexPath];
+         }];
+        
+        [_searchController setDidSelectRowAtIndexPathCompletion:^(UITableView *tableView,
+                                                                  NSIndexPath *indexPath)
+         {
+             [weakSelf tableView:tableView didSelectRowAtIndexPath:indexPath];
+         }];
+        
+        [_searchController setSearchDisplayControllerWillBeginSearch:^(UISearchDisplayController *searchController) {
+            weakSelf.tempDatasource = [weakSelf.datasource mutableCopy];
         }];
         
-        [_searchController setHeightForRowAtIndexPathCompletion:^CGFloat(UITableView *tableView, NSIndexPath *indexPath) {
-            return [weakSelf tableView:tableView heightForRowAtIndexPath:indexPath];
-        }];
-        
-        [_searchController setDidSelectRowAtIndexPathCompletion:^(UITableView *tableView, NSIndexPath *indexPath) {
-            [weakSelf tableView:tableView didSelectRowAtIndexPath:indexPath];
+        [_searchController setSearchDisplayControllerDidEndSearch:^(UISearchDisplayController *searchController)
+         {
+            weakSelf.datasource = [weakSelf.tempDatasource mutableCopy];
         }];
     }
     
