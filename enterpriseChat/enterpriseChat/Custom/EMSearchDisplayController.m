@@ -40,8 +40,11 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // Return the number of rows in the section.
-    return [self.resultsSource count];
+    if (_numberOfRowsInSection) {
+      return _numberOfRowsInSection(tableView, section);
+    }else {
+        return self.resultsSource.count;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -106,16 +109,14 @@
     }
 }
 
+
 #pragma mark - UISearchDisplayDelegate
-- (void) searchDisplayControllerWillBeginSearch:(UISearchDisplayController *)controlle{
-
+- (void) searchDisplayControllerWillBeginSearch:(UISearchDisplayController *)controller{
+    if (_searchDisplayControllerWillBeginSearch) {
+        _searchDisplayControllerWillBeginSearch(controller);
+    }
 }
 
-
-
-- (void) searchDisplayControllerWillEndSearch:(UISearchDisplayController *)controller{
-
-}
 
 -(void)searchDisplayControllerDidEndSearch:(UISearchDisplayController *)controller{
     if (_searchDisplayControllerDidEndSearch) {

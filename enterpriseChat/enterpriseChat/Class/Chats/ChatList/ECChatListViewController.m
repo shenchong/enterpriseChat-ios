@@ -28,6 +28,7 @@
         model.msgInfo = @"请问这个鞋子什么时候能到货？发什么快递？请问这个鞋子什么时候能到货？发什么快递？";
         [self.datasource addObject:model];
     }
+    [self setupBadgeValue:@"1"];
 }
 
 #pragma mark - UITableViewDataSource,UITableViewDelegate
@@ -53,8 +54,6 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    ECChatListCellModel *model = [self.datasource objectAtIndex:indexPath.row];
-    NSLog(@"showName -- %@",model.showName);
 }
 
 @end

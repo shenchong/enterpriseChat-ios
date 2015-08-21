@@ -13,10 +13,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //    self.edgesForExtendedLayout = UIRectEdgeNone;
-    // 为了纠正navigationBar显示
-    //    [self.navigationController setNavigationBarHidden:YES animated:NO];
-    //    [self.navigationController setNavigationBarHidden:NO animated:NO];
     self.navigationItem.rightBarButtonItem = [self rightBarButtonItem];
     self.navigationItem.leftBarButtonItem = [self leftBarButtonItem];
 }
@@ -51,6 +47,10 @@ withFinishedUnselectedImage:(UIImage *)unselectedImage
 
 -(UIBarButtonItem *)leftBarButtonItem{
     return nil;
+}
+
+-(void)setupBadgeValue:(NSString *)badgeValue{
+    self.tabBarItem.badgeValue = badgeValue;
 }
 
 @end

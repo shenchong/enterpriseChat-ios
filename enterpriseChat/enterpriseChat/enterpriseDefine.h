@@ -16,7 +16,7 @@
 #define TABBAR_TINTCOLOR [UIColor colorWithRed: 0 green: 0 blue: 1 alpha: 0.6]
 #define TABBAR_BARTINTCOLOR [UIColor whiteColor]
 #define TABBAR_TEXT_FONT_SIZE 10
-#define TABBAR_NORMAL_TEXT_COLOR [UIColor blackColor]
+#define TABBAR_NORMAL_TEXT_COLOR [UIColor darkGrayColor]
 #define TABBAR_SELECTED_TEXT_COLOR TABBAR_TINTCOLOR
 
 // nav
