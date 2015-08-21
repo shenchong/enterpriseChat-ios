@@ -111,10 +111,6 @@
         [_searchController setDidSelectRowAtIndexPathCompletion:^(UITableView *tableView, NSIndexPath *indexPath) {
             [weakSelf tableView:tableView didSelectRowAtIndexPath:indexPath];
         }];
-        
-//        [_searchController setSearchDisplayControllerDidEndSearch:^(UISearchDisplayController *controller) {
-//            [weakSelf.tableView setContentOffset:CGPointMake(0, -64) animated:YES];
-//        }];
     }
     
     return _searchController;
@@ -122,7 +118,7 @@
 
 -(UITableView *)tableView{
     if (!_tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height - 49)];
+        _tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.tableFooterView = [[UIView alloc] init];
