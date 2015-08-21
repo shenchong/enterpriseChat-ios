@@ -11,4 +11,5 @@
 @interface ECChatListCellModel : ECBaseCellModel
 @property (nonatomic, strong) NSString *time;
 @property (nonatomic, strong) NSString *msgInfo;
+@property (nonatomic) NSInteger unreadCount;
 @end

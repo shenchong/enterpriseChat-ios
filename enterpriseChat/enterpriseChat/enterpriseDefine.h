@@ -9,6 +9,20 @@
 #ifndef enterpriseChat_enterpriseDefine_h
 #define enterpriseChat_enterpriseDefine_h
 
+
+#if DEBUG
+#ifndef DLog
+#define DLog(format, args...) \
+NSLog(@"[%s  line : %d]: " format "\n", __PRETTY_FUNCTION__, __LINE__, ## args);
+//          NSLog(@"%s %s, line %d: " format "\n",__PRETTY_FUNCTION__, __func__, __LINE__, ## args);
+#endif
+#else
+#ifndef DLog
+#define DLog(format, args...) do {} while(0)
+#endif
+#endif
+
+
 // window
 #define WINDOW_BACKCOLOR [UIColor whiteColor]
 

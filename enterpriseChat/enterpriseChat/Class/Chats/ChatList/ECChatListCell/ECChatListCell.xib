@@ -17,9 +17,6 @@
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NMX-cx-Kvl">
                         <rect key="frame" x="10" y="7" width="48" height="48"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="48" id="vb5-om-Qxi"/>
-                        </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Samantha Thomas" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qh6-kx-4uR">
                         <rect key="frame" x="65" y="10" width="171" height="22"/>
@@ -28,42 +25,52 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2015-07-30" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dvc-L7-8Io">
-                        <rect key="frame" x="244" y="10" width="65" height="15"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="65" id="Xjb-NX-0Fk"/>
-                        </constraints>
+                        <rect key="frame" x="244" y="10" width="72" height="15"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请问这款鞋子多久能发货？发的什么快递？" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ALH-ci-HYH">
-                        <rect key="frame" x="65" y="34" width="244" height="16"/>
+                        <rect key="frame" x="65" y="34" width="251" height="16"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BDO-jl-lOP">
-                        <rect key="frame" x="16" y="56" width="328" height="8"/>
+                        <rect key="frame" x="16" y="55" width="335" height="8"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                     </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="23e-bc-zPZ">
+                        <rect key="frame" x="47" y="2" width="17" height="17"/>
+                        <color key="backgroundColor" red="0.98039221759999995" green="0.15686275059999999" blue="0.16862745579999999" alpha="1" colorSpace="deviceRGB"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailingMargin" secondItem="ALH-ci-HYH" secondAttribute="trailing" constant="3" id="0Pc-Jd-ppQ"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="BDO-jl-lOP" secondAttribute="trailing" constant="-32" id="4ft-SP-xDu"/>
-                    <constraint firstItem="BDO-jl-lOP" firstAttribute="top" secondItem="NMX-cx-Kvl" secondAttribute="bottom" constant="1" id="9dt-Ca-amG"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="BDO-jl-lOP" secondAttribute="bottom" constant="-9" id="JjJ-Gt-4YP"/>
-                    <constraint firstItem="NMX-cx-Kvl" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="OgX-lt-I2j"/>
-                    <constraint firstItem="Dvc-L7-8Io" firstAttribute="top" secondItem="qh6-kx-4uR" secondAttribute="top" id="RBz-re-cMv"/>
-                    <constraint firstItem="ALH-ci-HYH" firstAttribute="trailing" secondItem="Dvc-L7-8Io" secondAttribute="trailing" id="XeZ-TU-rea"/>
-                    <constraint firstItem="Dvc-L7-8Io" firstAttribute="leading" secondItem="qh6-kx-4uR" secondAttribute="trailing" constant="8" symbolic="YES" id="YdX-T6-7w1"/>
-                    <constraint firstItem="ALH-ci-HYH" firstAttribute="top" secondItem="qh6-kx-4uR" secondAttribute="bottom" constant="2" id="a0P-Kq-KOc"/>
-                    <constraint firstItem="NMX-cx-Kvl" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="dY7-k0-YTl"/>
-                    <constraint firstItem="BDO-jl-lOP" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="8" id="dxl-Lu-lsb"/>
-                    <constraint firstItem="ALH-ci-HYH" firstAttribute="leading" secondItem="NMX-cx-Kvl" secondAttribute="trailing" constant="7" id="i73-qT-lhZ"/>
-                    <constraint firstItem="NMX-cx-Kvl" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="k2T-QX-YBw"/>
-                    <constraint firstItem="ALH-ci-HYH" firstAttribute="top" secondItem="Dvc-L7-8Io" secondAttribute="bottom" constant="9" id="naP-j4-u6k"/>
-                    <constraint firstItem="BDO-jl-lOP" firstAttribute="top" secondItem="ALH-ci-HYH" secondAttribute="bottom" constant="6" id="sAj-Lq-axA"/>
-                    <constraint firstItem="ALH-ci-HYH" firstAttribute="leading" secondItem="qh6-kx-4uR" secondAttribute="leading" id="w0K-4i-4pC"/>
+                    <constraint firstItem="ALH-ci-HYH" firstAttribute="leading" secondItem="NMX-cx-Kvl" secondAttribute="trailing" constant="7" id="8I7-Oc-XRs"/>
+                    <constraint firstItem="ALH-ci-HYH" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="65" id="E5Y-LR-15C"/>
+                    <constraint firstItem="Dvc-L7-8Io" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="244" id="FeJ-n2-fdb"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="BDO-jl-lOP" secondAttribute="trailing" constant="-39" id="Gcm-Fk-EcY"/>
+                    <constraint firstItem="23e-bc-zPZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="47" id="HA6-Ij-Z9E"/>
+                    <constraint firstItem="BDO-jl-lOP" firstAttribute="top" secondItem="ALH-ci-HYH" secondAttribute="bottom" constant="5" id="IBu-fw-mzL"/>
+                    <constraint firstItem="ALH-ci-HYH" firstAttribute="trailing" secondItem="Dvc-L7-8Io" secondAttribute="trailing" id="JpB-aO-vJb"/>
+                    <constraint firstItem="BDO-jl-lOP" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="LEd-8H-RKv"/>
+                    <constraint firstItem="qh6-kx-4uR" firstAttribute="leading" secondItem="23e-bc-zPZ" secondAttribute="trailing" constant="1" id="MYv-8o-vYs"/>
+                    <constraint firstItem="BDO-jl-lOP" firstAttribute="top" secondItem="NMX-cx-Kvl" secondAttribute="bottom" id="O85-Bh-zS9"/>
+                    <constraint firstItem="ALH-ci-HYH" firstAttribute="top" secondItem="Dvc-L7-8Io" secondAttribute="bottom" constant="9" id="Q34-c0-der"/>
+                    <constraint firstItem="Dvc-L7-8Io" firstAttribute="leading" secondItem="qh6-kx-4uR" secondAttribute="trailing" constant="8" symbolic="YES" id="QMX-Wv-cMh"/>
+                    <constraint firstItem="NMX-cx-Kvl" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="V4Z-cy-ffe"/>
+                    <constraint firstItem="Dvc-L7-8Io" firstAttribute="top" secondItem="qh6-kx-4uR" secondAttribute="top" id="VJ5-gf-J7A"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="ALH-ci-HYH" secondAttribute="trailing" constant="-4" id="VsO-AR-vv9"/>
+                    <constraint firstItem="ALH-ci-HYH" firstAttribute="top" secondItem="qh6-kx-4uR" secondAttribute="bottom" constant="2" id="X5S-x1-qCb"/>
+                    <constraint firstItem="BDO-jl-lOP" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="55" id="Y3V-9R-UXh"/>
+                    <constraint firstItem="BDO-jl-lOP" firstAttribute="top" secondItem="23e-bc-zPZ" secondAttribute="bottom" constant="36" id="bQW-Xu-cZA"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="BDO-jl-lOP" secondAttribute="bottom" constant="-8" id="hLo-9E-NdE"/>
+                    <constraint firstItem="qh6-kx-4uR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="65" id="pCp-fY-5TF"/>
+                    <constraint firstItem="23e-bc-zPZ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-6" id="vAb-iG-8Ko"/>
+                    <constraint firstItem="NMX-cx-Kvl" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="xic-cq-PqZ"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
@@ -72,6 +79,7 @@
                 <outlet property="msgInfoLabel" destination="ALH-ci-HYH" id="WMm-kS-avg"/>
                 <outlet property="showNameLabel" destination="qh6-kx-4uR" id="Q2L-Xc-2Vm"/>
                 <outlet property="timeLabel" destination="Dvc-L7-8Io" id="Qn3-mT-3va"/>
+                <outlet property="unreadCountLabel" destination="23e-bc-zPZ" id="7h9-y1-x3F"/>
             </connections>
             <point key="canvasLocation" x="401" y="311"/>
         </tableViewCell>
