@@ -20,7 +20,6 @@
 @implementation ECChatListCell
 
 - (void)awakeFromNib {
-    // Initialization code
     [self.headImageView radius:self.headImageView.width/2 color:nil border:0];
 }
 

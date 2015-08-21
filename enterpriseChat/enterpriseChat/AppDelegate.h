@@ -7,11 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ECNavigationController.h"
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-@property (strong, nonatomic) ECNavigationController *rootNav;
-
 @end
 

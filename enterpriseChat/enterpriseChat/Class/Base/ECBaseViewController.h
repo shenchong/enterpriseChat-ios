@@ -10,10 +10,10 @@
 
 @interface ECBaseViewController : UIViewController
 
-- (void)setupWithItemTitle:(NSString *)title
-     finishedSelectedImage:(UIImage *)finishImage
+- (void)setupWithTitle:(NSString *)title
+ finishedSelectedImage:(UIImage *)finishImage
 withFinishedUnselectedImage:(UIImage *)unselectedImage
-                       tag:(NSInteger)tag;
+                   tag:(NSInteger)tag;
 
 -(UIBarButtonItem *)rightBarButtonItem;
 -(UIBarButtonItem *)leftBarButtonItem;

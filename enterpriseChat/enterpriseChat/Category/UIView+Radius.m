@@ -17,4 +17,5 @@
     [[self layer] setCornerRadius:radius];//圆角
     [[self layer] setMasksToBounds:YES];
 }
+
 @end

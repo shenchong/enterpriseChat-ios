@@ -112,9 +112,9 @@
             [weakSelf tableView:tableView didSelectRowAtIndexPath:indexPath];
         }];
         
-        [_searchController setSearchDisplayControllerDidEndSearch:^(UISearchDisplayController *controller) {
-            [weakSelf.tableView setContentOffset:CGPointMake(0, -64) animated:YES];
-        }];
+//        [_searchController setSearchDisplayControllerDidEndSearch:^(UISearchDisplayController *controller) {
+//            [weakSelf.tableView setContentOffset:CGPointMake(0, -64) animated:YES];
+//        }];
     }
     
     return _searchController;

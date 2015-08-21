@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import "ECNavigationController.h"
 #import "ECMainViewController.h"
 
 @interface AppDelegate ()
@@ -20,10 +19,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = WINDOW_BACKCOLOR;
-    _rootNav = [[ECNavigationController alloc]
-                initWithRootViewController:[[ECMainViewController alloc] init]];
-    
-    self.window.rootViewController = _rootNav;
+    self.window.rootViewController  = [[ECMainViewController alloc] init];
     [self.window makeKeyAndVisible];
     return YES;
 }

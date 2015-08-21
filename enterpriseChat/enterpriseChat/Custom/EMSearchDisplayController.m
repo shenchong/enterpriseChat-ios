@@ -108,17 +108,13 @@
 
 #pragma mark - UISearchDisplayDelegate
 - (void) searchDisplayControllerWillBeginSearch:(UISearchDisplayController *)controlle{
-    [[UIApplication sharedApplication] setStatusBarHidden:YES];
-    [self.searchContentsController.navigationController setNavigationBarHidden:YES
-                                                 animated:YES];
+
 }
 
 
 
 - (void) searchDisplayControllerWillEndSearch:(UISearchDisplayController *)controller{
-    [[UIApplication sharedApplication] setStatusBarHidden:NO];
-    [self.searchContentsController.navigationController setNavigationBarHidden:NO
-                                                                      animated:YES];
+
 }
 
 -(void)searchDisplayControllerDidEndSearch:(UISearchDisplayController *)controller{

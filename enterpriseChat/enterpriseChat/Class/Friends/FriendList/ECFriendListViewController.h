@@ -8,6 +8,6 @@
 
 #import "ECBaseViewController.h"
 #import "ECBaseTableViewController.h"
-@interface ECFriendListViewController : ECBaseTableViewController
 
+@interface ECFriendListViewController : ECBaseTableViewController
 @end
