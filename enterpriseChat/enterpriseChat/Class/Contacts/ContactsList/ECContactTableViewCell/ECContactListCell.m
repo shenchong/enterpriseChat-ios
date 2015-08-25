@@ -1,20 +1,20 @@
 //
-//  ECFriendListCell.m
+//  ECContactListCell.m
 //  enterpriseChat
 //
 //  Created by dujiepeng on 15/7/31.
 //  Copyright (c) 2015年 easemob. All rights reserved.
 //
 
-#import "ECFriendListCell.h"
+#import "ECContactListCell.h"
 
-@interface ECFriendListCell ()
+@interface ECContactListCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *headImageView;
 @property (weak, nonatomic) IBOutlet UILabel *showNameLabel;
 
 @end
 
-@implementation ECFriendListCell
+@implementation ECContactListCell
 
 - (void)awakeFromNib {
     // Initialization code
@@ -29,7 +29,7 @@
     [super setSelected:selected animated:animated];
 }
 
--(void)setCellModel:(ECFriendListCellModel *)cellModel{
+-(void)setCellModel:(ECContactListCellModel *)cellModel{
     _cellModel = cellModel;
     [self.headImageView sd_setImageWithURL:[NSURL URLWithString:_cellModel.headerRemotePath]
                           placeholderImage:[UIImage imageNamed:@"chatListCellHead"]];

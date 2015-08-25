@@ -1,5 +1,5 @@
 //
-//  EMFMDatabasePool.h
+//  FMDatabasePool.h
 //  fmdb
 //
 //  Created by August Mueller on 6/22/11.
@@ -9,18 +9,18 @@
 #import <Foundation/Foundation.h>
 #import "sqlite3.h"
 
-@class EMFMDatabase;
+@class FMDatabase;
 
-/** Pool of `<EMFMDatabase>` objects.
+/** Pool of `<FMDatabase>` objects.
 
  ### See also
  
- - `<EMFMDatabaseQueue>`
- - `<EMFMDatabase>`
+ - `<FMDatabaseQueue>`
+ - `<FMDatabase>`
 
- @warning Before using `EMFMDatabasePool`, please consider using `<EMFMDatabaseQueue>` instead.
+ @warning Before using `FMDatabasePool`, please consider using `<FMDatabaseQueue>` instead.
 
- If you really really really know what you're doing and `EMFMDatabasePool` is what
+ If you really really really know what you're doing and `FMDatabasePool` is what
  you really really need (ie, you're using a read only database), OK you can use
  it.  But just be careful not to deadlock!
 
@@ -29,7 +29,7 @@
  in the main.m file.
  */
 
-@interface EMFMDatabasePool : NSObject {
+@interface FMDatabasePool : NSObject {
     NSString            *_path;
     
     dispatch_queue_t    _lockQueue;
@@ -68,7 +68,7 @@
 
  @param aPath The file path of the database.
 
- @return The `EMFMDatabasePool` object. `nil` on error.
+ @return The `FMDatabasePool` object. `nil` on error.
  */
 
 + (instancetype)databasePoolWithPath:(NSString*)aPath;
@@ -78,7 +78,7 @@
  @param aPath The file path of the database.
  @param openFlags Flags passed to the openWithFlags method of the database
 
- @return The `EMFMDatabasePool` object. `nil` on error.
+ @return The `FMDatabasePool` object. `nil` on error.
  */
 
 + (instancetype)databasePoolWithPath:(NSString*)aPath flags:(int)openFlags;
@@ -87,7 +87,7 @@
 
  @param aPath The file path of the database.
 
- @return The `EMFMDatabasePool` object. `nil` on error.
+ @return The `FMDatabasePool` object. `nil` on error.
  */
 
 - (instancetype)initWithPath:(NSString*)aPath;
@@ -97,7 +97,7 @@
  @param aPath The file path of the database.
  @param openFlags Flags passed to the openWithFlags method of the database
 
- @return The `EMFMDatabasePool` object. `nil` on error.
+ @return The `FMDatabasePool` object. `nil` on error.
  */
 
 - (instancetype)initWithPath:(NSString*)aPath flags:(int)openFlags;
@@ -137,68 +137,68 @@
 
 /** Synchronously perform database operations in pool.
 
- @param block The code to be run on the `EMFMDatabasePool` pool.
+ @param block The code to be run on the `FMDatabasePool` pool.
  */
 
-- (void)inDatabase:(void (^)(EMFMDatabase *db))block;
+- (void)inDatabase:(void (^)(FMDatabase *db))block;
 
 /** Synchronously perform database operations in pool using transaction.
 
- @param block The code to be run on the `EMFMDatabasePool` pool.
+ @param block The code to be run on the `FMDatabasePool` pool.
  */
 
-- (void)inTransaction:(void (^)(EMFMDatabase *db, BOOL *rollback))block;
+- (void)inTransaction:(void (^)(FMDatabase *db, BOOL *rollback))block;
 
 /** Synchronously perform database operations in pool using deferred transaction.
 
- @param block The code to be run on the `EMFMDatabasePool` pool.
+ @param block The code to be run on the `FMDatabasePool` pool.
  */
 
-- (void)inDeferredTransaction:(void (^)(EMFMDatabase *db, BOOL *rollback))block;
+- (void)inDeferredTransaction:(void (^)(FMDatabase *db, BOOL *rollback))block;
 
 #if SQLITE_VERSION_NUMBER >= 3007000
 
 /** Synchronously perform database operations in pool using save point.
 
- @param block The code to be run on the `EMFMDatabasePool` pool.
+ @param block The code to be run on the `FMDatabasePool` pool.
  
  @return `NSError` object if error; `nil` if successful.
 
- @warning You can not nest these, since calling it will pull another database out of the pool and you'll get a deadlock. If you need to nest, use `<[EMFMDatabase startSavePointWithName:error:]>` instead.
+ @warning You can not nest these, since calling it will pull another database out of the pool and you'll get a deadlock. If you need to nest, use `<[FMDatabase startSavePointWithName:error:]>` instead.
 */
 
-- (NSError*)inSavePoint:(void (^)(EMFMDatabase *db, BOOL *rollback))block;
+- (NSError*)inSavePoint:(void (^)(FMDatabase *db, BOOL *rollback))block;
 #endif
 
 @end
 
 
-/** EMFMDatabasePool delegate category
+/** FMDatabasePool delegate category
  
- This is a category that defines the protocol for the EMFMDatabasePool delegate
+ This is a category that defines the protocol for the FMDatabasePool delegate
  */
 
-@interface NSObject (EMFMDatabasePoolDelegate)
+@interface NSObject (FMDatabasePoolDelegate)
 
 /** Asks the delegate whether database should be added to the pool. 
  
- @param pool     The `EMFMDatabasePool` object.
- @param database The `EMFMDatabase` object.
+ @param pool     The `FMDatabasePool` object.
+ @param database The `FMDatabase` object.
  
  @return `YES` if it should add database to pool; `NO` if not.
  
  */
 
-- (BOOL)databasePool:(EMFMDatabasePool*)pool shouldAddDatabaseToPool:(EMFMDatabase*)database;
+- (BOOL)databasePool:(FMDatabasePool*)pool shouldAddDatabaseToPool:(FMDatabase*)database;
 
 /** Tells the delegate that database was added to the pool.
  
- @param pool     The `EMFMDatabasePool` object.
- @param database The `EMFMDatabase` object.
+ @param pool     The `FMDatabasePool` object.
+ @param database The `FMDatabase` object.
 
  */
 
-- (void)databasePool:(EMFMDatabasePool*)pool didAddDatabase:(EMFMDatabase*)database;
+- (void)databasePool:(FMDatabasePool*)pool didAddDatabase:(FMDatabase*)database;
 
 @end
 

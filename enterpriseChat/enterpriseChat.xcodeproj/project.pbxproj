@@ -12,18 +12,19 @@
 		9011DFD81B6A3F9900FFFFFB /* ECChatListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9011DFD41B6A3F9900FFFFFB /* ECChatListCell.m */; };
 		9011DFD91B6A3F9900FFFFFB /* ECChatListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9011DFD51B6A3F9900FFFFFB /* ECChatListCell.xib */; };
 		9011DFDA1B6A3F9900FFFFFB /* ECChatListCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9011DFD71B6A3F9900FFFFFB /* ECChatListCellModel.m */; };
-		90127DBB1B8C2018007534A6 /* EMFMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 90127DB11B8C2018007534A6 /* EMFMDatabase.m */; };
-		90127DBC1B8C2018007534A6 /* EMFMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 90127DB31B8C2018007534A6 /* EMFMDatabaseAdditions.m */; };
-		90127DBD1B8C2018007534A6 /* EMFMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 90127DB51B8C2018007534A6 /* EMFMDatabasePool.m */; };
-		90127DBE1B8C2018007534A6 /* EMFMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 90127DB71B8C2018007534A6 /* EMFMDatabaseQueue.m */; };
-		90127DBF1B8C2018007534A6 /* EMFMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 90127DBA1B8C2018007534A6 /* EMFMResultSet.m */; };
 		90127DC21B8C22CC007534A6 /* ECDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 90127DC11B8C22CC007534A6 /* ECDBManager.m */; };
-		90127DCF1B8C2375007534A6 /* ECFriendListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90127DC71B8C2375007534A6 /* ECFriendListCell.m */; };
-		90127DD01B8C2375007534A6 /* ECFriendListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90127DC81B8C2375007534A6 /* ECFriendListCell.xib */; };
-		90127DD11B8C2375007534A6 /* ECFriendListCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 90127DCA1B8C2375007534A6 /* ECFriendListCellModel.m */; };
+		90127DCF1B8C2375007534A6 /* ECContactListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90127DC71B8C2375007534A6 /* ECContactListCell.m */; };
+		90127DD01B8C2375007534A6 /* ECContactListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90127DC81B8C2375007534A6 /* ECContactListCell.xib */; };
+		90127DD11B8C2375007534A6 /* ECContactListCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 90127DCA1B8C2375007534A6 /* ECContactListCellModel.m */; };
 		90127DD21B8C2375007534A6 /* ECDepartmentListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90127DCC1B8C2375007534A6 /* ECDepartmentListViewController.m */; };
 		90127DD31B8C2375007534A6 /* ECContactsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90127DCE1B8C2375007534A6 /* ECContactsListViewController.m */; };
 		90127DD51B8C23BC007534A6 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 90127DD41B8C23BC007534A6 /* libsqlite3.dylib */; };
+		90127DE41B8C27BB007534A6 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 90127DDA1B8C27BB007534A6 /* FMDatabase.m */; };
+		90127DE51B8C27BB007534A6 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 90127DDC1B8C27BB007534A6 /* FMDatabaseAdditions.m */; };
+		90127DE61B8C27BB007534A6 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 90127DDE1B8C27BB007534A6 /* FMDatabasePool.m */; };
+		90127DE71B8C27BB007534A6 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 90127DE01B8C27BB007534A6 /* FMDatabaseQueue.m */; };
+		90127DE81B8C27BB007534A6 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 90127DE31B8C27BB007534A6 /* FMResultSet.m */; };
+		90127DED1B8C2E7C007534A6 /* ECContactModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 90127DEC1B8C2E7C007534A6 /* ECContactModel.m */; };
 		901D61DB1B86E992004CE921 /* tabbar_chats.png in Resources */ = {isa = PBXBuildFile; fileRef = 901D61C31B86E992004CE921 /* tabbar_chats.png */; };
 		901D61DC1B86E992004CE921 /* tabbar_chats@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 901D61C41B86E992004CE921 /* tabbar_chats@2x.png */; };
 		901D61DD1B86E992004CE921 /* tabbar_chats@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 901D61C51B86E992004CE921 /* tabbar_chats@3x.png */; };
@@ -93,6 +94,13 @@
 		906CAA3D1B6903E300BC6D2F /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 906CAA2B1B6903E300BC6D2F /* UIImageView+HighlightedWebCache.m */; };
 		906CAA3E1B6903E300BC6D2F /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 906CAA2D1B6903E300BC6D2F /* UIImageView+WebCache.m */; };
 		906CAA3F1B6903E300BC6D2F /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 906CAA2F1B6903E300BC6D2F /* UIView+WebCacheOperation.m */; };
+		909D95C11B8C70E1002F5160 /* KxMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 909D95C01B8C70E1002F5160 /* KxMenu.m */; };
+		909D95C81B8C7F84002F5160 /* menu_item_chat.png in Resources */ = {isa = PBXBuildFile; fileRef = 909D95C21B8C7F84002F5160 /* menu_item_chat.png */; };
+		909D95C91B8C7F84002F5160 /* menu_item_chat@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 909D95C31B8C7F84002F5160 /* menu_item_chat@2x.png */; };
+		909D95CA1B8C7F84002F5160 /* menu_item_chat@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 909D95C41B8C7F84002F5160 /* menu_item_chat@3x.png */; };
+		909D95CB1B8C7F84002F5160 /* menu_item_groupChat.png in Resources */ = {isa = PBXBuildFile; fileRef = 909D95C51B8C7F84002F5160 /* menu_item_groupChat.png */; };
+		909D95CC1B8C7F84002F5160 /* menu_item_groupChat@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 909D95C61B8C7F84002F5160 /* menu_item_groupChat@2x.png */; };
+		909D95CD1B8C7F84002F5160 /* menu_item_groupChat@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 909D95C71B8C7F84002F5160 /* menu_item_groupChat@3x.png */; };
 		90E921D81B68EFDA00FFB4D7 /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E921D51B68EFDA00FFB4D7 /* UIView+Frame.m */; };
 /* End PBXBuildFile section */
 
@@ -106,29 +114,32 @@
 		9011DFD51B6A3F9900FFFFFB /* ECChatListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ECChatListCell.xib; sourceTree = "<group>"; };
 		9011DFD61B6A3F9900FFFFFB /* ECChatListCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECChatListCellModel.h; sourceTree = "<group>"; };
 		9011DFD71B6A3F9900FFFFFB /* ECChatListCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECChatListCellModel.m; sourceTree = "<group>"; };
-		90127DB01B8C2018007534A6 /* EMFMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMFMDatabase.h; sourceTree = "<group>"; };
-		90127DB11B8C2018007534A6 /* EMFMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMFMDatabase.m; sourceTree = "<group>"; };
-		90127DB21B8C2018007534A6 /* EMFMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMFMDatabaseAdditions.h; sourceTree = "<group>"; };
-		90127DB31B8C2018007534A6 /* EMFMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMFMDatabaseAdditions.m; sourceTree = "<group>"; };
-		90127DB41B8C2018007534A6 /* EMFMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMFMDatabasePool.h; sourceTree = "<group>"; };
-		90127DB51B8C2018007534A6 /* EMFMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMFMDatabasePool.m; sourceTree = "<group>"; };
-		90127DB61B8C2018007534A6 /* EMFMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMFMDatabaseQueue.h; sourceTree = "<group>"; };
-		90127DB71B8C2018007534A6 /* EMFMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMFMDatabaseQueue.m; sourceTree = "<group>"; };
-		90127DB81B8C2018007534A6 /* EMFMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMFMDB.h; sourceTree = "<group>"; };
-		90127DB91B8C2018007534A6 /* EMFMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMFMResultSet.h; sourceTree = "<group>"; };
-		90127DBA1B8C2018007534A6 /* EMFMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMFMResultSet.m; sourceTree = "<group>"; };
 		90127DC01B8C22CC007534A6 /* ECDBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECDBManager.h; sourceTree = "<group>"; };
 		90127DC11B8C22CC007534A6 /* ECDBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECDBManager.m; sourceTree = "<group>"; };
-		90127DC61B8C2375007534A6 /* ECFriendListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECFriendListCell.h; sourceTree = "<group>"; };
-		90127DC71B8C2375007534A6 /* ECFriendListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECFriendListCell.m; sourceTree = "<group>"; };
-		90127DC81B8C2375007534A6 /* ECFriendListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ECFriendListCell.xib; sourceTree = "<group>"; };
-		90127DC91B8C2375007534A6 /* ECFriendListCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECFriendListCellModel.h; sourceTree = "<group>"; };
-		90127DCA1B8C2375007534A6 /* ECFriendListCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECFriendListCellModel.m; sourceTree = "<group>"; };
+		90127DC61B8C2375007534A6 /* ECContactListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECContactListCell.h; sourceTree = "<group>"; };
+		90127DC71B8C2375007534A6 /* ECContactListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECContactListCell.m; sourceTree = "<group>"; };
+		90127DC81B8C2375007534A6 /* ECContactListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ECContactListCell.xib; sourceTree = "<group>"; };
+		90127DC91B8C2375007534A6 /* ECContactListCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECContactListCellModel.h; sourceTree = "<group>"; };
+		90127DCA1B8C2375007534A6 /* ECContactListCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECContactListCellModel.m; sourceTree = "<group>"; };
 		90127DCB1B8C2375007534A6 /* ECDepartmentListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECDepartmentListViewController.h; sourceTree = "<group>"; };
 		90127DCC1B8C2375007534A6 /* ECDepartmentListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECDepartmentListViewController.m; sourceTree = "<group>"; };
 		90127DCD1B8C2375007534A6 /* ECContactsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECContactsListViewController.h; sourceTree = "<group>"; };
 		90127DCE1B8C2375007534A6 /* ECContactsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECContactsListViewController.m; sourceTree = "<group>"; };
 		90127DD41B8C23BC007534A6 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		90127DD71B8C2614007534A6 /* ECErrorDefs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ECErrorDefs.h; sourceTree = "<group>"; };
+		90127DD91B8C27BB007534A6 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		90127DDA1B8C27BB007534A6 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		90127DDB1B8C27BB007534A6 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		90127DDC1B8C27BB007534A6 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		90127DDD1B8C27BB007534A6 /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
+		90127DDE1B8C27BB007534A6 /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
+		90127DDF1B8C27BB007534A6 /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+		90127DE01B8C27BB007534A6 /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
+		90127DE11B8C27BB007534A6 /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
+		90127DE21B8C27BB007534A6 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		90127DE31B8C27BB007534A6 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		90127DEB1B8C2E7C007534A6 /* ECContactModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECContactModel.h; sourceTree = "<group>"; };
+		90127DEC1B8C2E7C007534A6 /* ECContactModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECContactModel.m; sourceTree = "<group>"; };
 		901D61C31B86E992004CE921 /* tabbar_chats.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_chats.png; sourceTree = "<group>"; };
 		901D61C41B86E992004CE921 /* tabbar_chats@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_chats@2x.png"; sourceTree = "<group>"; };
 		901D61C51B86E992004CE921 /* tabbar_chats@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_chats@3x.png"; sourceTree = "<group>"; };
@@ -239,6 +250,14 @@
 		906CAA2D1B6903E300BC6D2F /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		906CAA2E1B6903E300BC6D2F /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		906CAA2F1B6903E300BC6D2F /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
+		909D95BF1B8C70E1002F5160 /* KxMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KxMenu.h; sourceTree = "<group>"; };
+		909D95C01B8C70E1002F5160 /* KxMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KxMenu.m; sourceTree = "<group>"; };
+		909D95C21B8C7F84002F5160 /* menu_item_chat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu_item_chat.png; sourceTree = "<group>"; };
+		909D95C31B8C7F84002F5160 /* menu_item_chat@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu_item_chat@2x.png"; sourceTree = "<group>"; };
+		909D95C41B8C7F84002F5160 /* menu_item_chat@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu_item_chat@3x.png"; sourceTree = "<group>"; };
+		909D95C51B8C7F84002F5160 /* menu_item_groupChat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu_item_groupChat.png; sourceTree = "<group>"; };
+		909D95C61B8C7F84002F5160 /* menu_item_groupChat@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu_item_groupChat@2x.png"; sourceTree = "<group>"; };
+		909D95C71B8C7F84002F5160 /* menu_item_groupChat@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu_item_groupChat@3x.png"; sourceTree = "<group>"; };
 		90E921D41B68EFDA00FFB4D7 /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
 		90E921D51B68EFDA00FFB4D7 /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
 		90E921DA1B68F01D00FFB4D7 /* enterpriseChat.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = enterpriseChat.pch; sourceTree = "<group>"; };
@@ -268,27 +287,10 @@
 			path = ECChatListCell;
 			sourceTree = "<group>";
 		};
-		90127DAF1B8C2018007534A6 /* fmdb203 */ = {
-			isa = PBXGroup;
-			children = (
-				90127DB01B8C2018007534A6 /* EMFMDatabase.h */,
-				90127DB11B8C2018007534A6 /* EMFMDatabase.m */,
-				90127DB21B8C2018007534A6 /* EMFMDatabaseAdditions.h */,
-				90127DB31B8C2018007534A6 /* EMFMDatabaseAdditions.m */,
-				90127DB41B8C2018007534A6 /* EMFMDatabasePool.h */,
-				90127DB51B8C2018007534A6 /* EMFMDatabasePool.m */,
-				90127DB61B8C2018007534A6 /* EMFMDatabaseQueue.h */,
-				90127DB71B8C2018007534A6 /* EMFMDatabaseQueue.m */,
-				90127DB81B8C2018007534A6 /* EMFMDB.h */,
-				90127DB91B8C2018007534A6 /* EMFMResultSet.h */,
-				90127DBA1B8C2018007534A6 /* EMFMResultSet.m */,
-			);
-			path = fmdb203;
-			sourceTree = "<group>";
-		};
 		90127DC31B8C2375007534A6 /* Contacts */ = {
 			isa = PBXGroup;
 			children = (
+				90127DE91B8C2E5B007534A6 /* ContactInfo */,
 				90127DC41B8C2375007534A6 /* ContactsList */,
 			);
 			path = Contacts;
@@ -309,13 +311,48 @@
 		90127DC51B8C2375007534A6 /* ECContactTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				90127DC61B8C2375007534A6 /* ECFriendListCell.h */,
-				90127DC71B8C2375007534A6 /* ECFriendListCell.m */,
-				90127DC81B8C2375007534A6 /* ECFriendListCell.xib */,
-				90127DC91B8C2375007534A6 /* ECFriendListCellModel.h */,
-				90127DCA1B8C2375007534A6 /* ECFriendListCellModel.m */,
+				90127DC61B8C2375007534A6 /* ECContactListCell.h */,
+				90127DC71B8C2375007534A6 /* ECContactListCell.m */,
+				90127DC81B8C2375007534A6 /* ECContactListCell.xib */,
+				90127DC91B8C2375007534A6 /* ECContactListCellModel.h */,
+				90127DCA1B8C2375007534A6 /* ECContactListCellModel.m */,
 			);
 			path = ECContactTableViewCell;
+			sourceTree = "<group>";
+		};
+		90127DD81B8C27BB007534A6 /* fmdb */ = {
+			isa = PBXGroup;
+			children = (
+				90127DD91B8C27BB007534A6 /* FMDatabase.h */,
+				90127DDA1B8C27BB007534A6 /* FMDatabase.m */,
+				90127DDB1B8C27BB007534A6 /* FMDatabaseAdditions.h */,
+				90127DDC1B8C27BB007534A6 /* FMDatabaseAdditions.m */,
+				90127DDD1B8C27BB007534A6 /* FMDatabasePool.h */,
+				90127DDE1B8C27BB007534A6 /* FMDatabasePool.m */,
+				90127DDF1B8C27BB007534A6 /* FMDatabaseQueue.h */,
+				90127DE01B8C27BB007534A6 /* FMDatabaseQueue.m */,
+				90127DE11B8C27BB007534A6 /* FMDB.h */,
+				90127DE21B8C27BB007534A6 /* FMResultSet.h */,
+				90127DE31B8C27BB007534A6 /* FMResultSet.m */,
+			);
+			path = fmdb;
+			sourceTree = "<group>";
+		};
+		90127DE91B8C2E5B007534A6 /* ContactInfo */ = {
+			isa = PBXGroup;
+			children = (
+				90127DEA1B8C2E6A007534A6 /* ContactModel */,
+			);
+			path = ContactInfo;
+			sourceTree = "<group>";
+		};
+		90127DEA1B8C2E6A007534A6 /* ContactModel */ = {
+			isa = PBXGroup;
+			children = (
+				90127DEB1B8C2E7C007534A6 /* ECContactModel.h */,
+				90127DEC1B8C2E7C007534A6 /* ECContactModel.m */,
+			);
+			path = ContactModel;
 			sourceTree = "<group>";
 		};
 		901D61C21B86E992004CE921 /* tabbar */ = {
@@ -352,6 +389,12 @@
 		9034B3BE1B6A1932000D0107 /* chatList */ = {
 			isa = PBXGroup;
 			children = (
+				909D95C21B8C7F84002F5160 /* menu_item_chat.png */,
+				909D95C31B8C7F84002F5160 /* menu_item_chat@2x.png */,
+				909D95C41B8C7F84002F5160 /* menu_item_chat@3x.png */,
+				909D95C51B8C7F84002F5160 /* menu_item_groupChat.png */,
+				909D95C61B8C7F84002F5160 /* menu_item_groupChat@2x.png */,
+				909D95C71B8C7F84002F5160 /* menu_item_groupChat@3x.png */,
 				9034B3BF1B6A1932000D0107 /* chatListCellHead.png */,
 				9034B3C01B6A1932000D0107 /* chatListCellHead@2x.png */,
 			);
@@ -445,6 +488,7 @@
 				90519B8E1B6657750048A081 /* main.m */,
 				90519C2F1B665EDC0048A081 /* enterpriseDefine.h */,
 				90E921DA1B68F01D00FFB4D7 /* enterpriseChat.pch */,
+				90127DD71B8C2614007534A6 /* ECErrorDefs.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -571,6 +615,7 @@
 		90519C211B665BDA0048A081 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				909D95BE1B8C70E1002F5160 /* kxmenu */,
 				904226D31B82F3B900EE8B0E /* DTNavigationController */,
 			);
 			path = Common;
@@ -590,7 +635,7 @@
 		906CAA0D1B6903E300BC6D2F /* 3thPart */ = {
 			isa = PBXGroup;
 			children = (
-				90127DAF1B8C2018007534A6 /* fmdb203 */,
+				90127DD81B8C27BB007534A6 /* fmdb */,
 				906CAA0E1B6903E300BC6D2F /* SDWebImage */,
 			);
 			path = 3thPart;
@@ -634,6 +679,15 @@
 				906CAA2F1B6903E300BC6D2F /* UIView+WebCacheOperation.m */,
 			);
 			path = SDWebImage;
+			sourceTree = "<group>";
+		};
+		909D95BE1B8C70E1002F5160 /* kxmenu */ = {
+			isa = PBXGroup;
+			children = (
+				909D95BF1B8C70E1002F5160 /* KxMenu.h */,
+				909D95C01B8C70E1002F5160 /* KxMenu.m */,
+			);
+			path = kxmenu;
 			sourceTree = "<group>";
 		};
 		90E921D31B68EFDA00FFB4D7 /* Category */ = {
@@ -707,6 +761,7 @@
 				901D61E11B86E992004CE921 /* tabbar_contacts.png in Resources */,
 				904226EC1B82F3B900EE8B0E /* ActionBtn.png in Resources */,
 				901D61DB1B86E992004CE921 /* tabbar_chats.png in Resources */,
+				909D95CA1B8C7F84002F5160 /* menu_item_chat@3x.png in Resources */,
 				904226F31B82F3B900EE8B0E /* FolderItemBgImage@2x.png in Resources */,
 				904226EE1B82F3B900EE8B0E /* ActionBtnPress.png in Resources */,
 				901D61F21B86E992004CE921 /* tabbar_socialHL@3x.png in Resources */,
@@ -718,13 +773,16 @@
 				9034B3D21B6A1932000D0107 /* chatListCellHead.png in Resources */,
 				901D61F11B86E992004CE921 /* tabbar_socialHL@2x.png in Resources */,
 				901D61EC1B86E992004CE921 /* tabbar_settingHL@3x.png in Resources */,
+				909D95CD1B8C7F84002F5160 /* menu_item_groupChat@3x.png in Resources */,
 				904226F11B82F3B900EE8B0E /* FolderBar@2x.png in Resources */,
 				904226F41B82F3B900EE8B0E /* Home.png in Resources */,
+				909D95C91B8C7F84002F5160 /* menu_item_chat@2x.png in Resources */,
 				901D61E01B86E992004CE921 /* tabbar_chatsHL@3x.png in Resources */,
 				901D61E71B86E992004CE921 /* tabbar_setting.png in Resources */,
 				904226F51B82F3B900EE8B0E /* Home@2x.png in Resources */,
 				901D61F01B86E992004CE921 /* tabbar_socialHL.png in Resources */,
 				901D61EA1B86E992004CE921 /* tabbar_settingHL.png in Resources */,
+				909D95CB1B8C7F84002F5160 /* menu_item_groupChat.png in Resources */,
 				901D61ED1B86E992004CE921 /* tabbar_social.png in Resources */,
 				901D61EB1B86E992004CE921 /* tabbar_settingHL@2x.png in Resources */,
 				9011DFD91B6A3F9900FFFFFB /* ECChatListCell.xib in Resources */,
@@ -735,14 +793,16 @@
 				904226ED1B82F3B900EE8B0E /* ActionBtn@2x.png in Resources */,
 				901D61E51B86E992004CE921 /* tabbar_contactsHL@2x.png in Resources */,
 				901D61DE1B86E992004CE921 /* tabbar_chatsHL.png in Resources */,
-				90127DD01B8C2375007534A6 /* ECFriendListCell.xib in Resources */,
+				90127DD01B8C2375007534A6 /* ECContactListCell.xib in Resources */,
 				90519B9A1B6657750048A081 /* Images.xcassets in Resources */,
 				901D61E81B86E992004CE921 /* tabbar_setting@2x.png in Resources */,
 				901D61EE1B86E992004CE921 /* tabbar_social@2x.png in Resources */,
+				909D95CC1B8C7F84002F5160 /* menu_item_groupChat@2x.png in Resources */,
 				901D61EF1B86E992004CE921 /* tabbar_social@3x.png in Resources */,
 				904226F01B82F3B900EE8B0E /* FolderBar.png in Resources */,
 				901D61DD1B86E992004CE921 /* tabbar_chats@3x.png in Resources */,
 				901D61E41B86E992004CE921 /* tabbar_contactsHL.png in Resources */,
+				909D95C81B8C7F84002F5160 /* menu_item_chat.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -753,30 +813,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90127DED1B8C2E7C007534A6 /* ECContactModel.m in Sources */,
 				906CAA3A1B6903E300BC6D2F /* UIImage+GIF.m in Sources */,
-				90127DBE1B8C2018007534A6 /* EMFMDatabaseQueue.m in Sources */,
 				90519C1C1B665B470048A081 /* ECChatViewController.m in Sources */,
 				90E921D81B68EFDA00FFB4D7 /* UIView+Frame.m in Sources */,
 				906CAA3C1B6903E300BC6D2F /* UIImage+WebP.m in Sources */,
 				906CAA311B6903E300BC6D2F /* NSData+ImageContentType.m in Sources */,
-				90127DBD1B8C2018007534A6 /* EMFMDatabasePool.m in Sources */,
 				904226E91B82F3B900EE8B0E /* DTFolderBar.m in Sources */,
-				90127DBC1B8C2018007534A6 /* EMFMDatabaseAdditions.m in Sources */,
 				90519C2E1B665CFE0048A081 /* ECSettingsListViewController.m in Sources */,
+				90127DE51B8C27BB007534A6 /* FMDatabaseAdditions.m in Sources */,
 				904226EB1B82F3B900EE8B0E /* DTNavigationController.m in Sources */,
+				90127DE41B8C27BB007534A6 /* FMDatabase.m in Sources */,
+				90127DE81B8C27BB007534A6 /* FMResultSet.m in Sources */,
 				90519C381B6660600048A081 /* ECViewManager.m in Sources */,
 				906CAA341B6903E300BC6D2F /* SDWebImageDecoder.m in Sources */,
 				9011DFC21B6A3C8700FFFFFB /* ECBaseTableViewController.m in Sources */,
 				906CAA391B6903E300BC6D2F /* UIButton+WebCache.m in Sources */,
-				90127DBF1B8C2018007534A6 /* EMFMResultSet.m in Sources */,
 				90127DC21B8C22CC007534A6 /* ECDBManager.m in Sources */,
 				906CAA371B6903E300BC6D2F /* SDWebImageManager.m in Sources */,
+				909D95C11B8C70E1002F5160 /* KxMenu.m in Sources */,
 				90127DD21B8C2375007534A6 /* ECDepartmentListViewController.m in Sources */,
 				9063A39D1B6B5251007D4ED8 /* EMSearchDisplayController.m in Sources */,
 				90519B921B6657750048A081 /* AppDelegate.m in Sources */,
 				906CAA3E1B6903E300BC6D2F /* UIImageView+WebCache.m in Sources */,
-				90127DCF1B8C2375007534A6 /* ECFriendListCell.m in Sources */,
+				90127DCF1B8C2375007534A6 /* ECContactListCell.m in Sources */,
 				9063A39A1B6B50A5007D4ED8 /* RealtimeSearchUtil.m in Sources */,
+				90127DE61B8C27BB007534A6 /* FMDatabasePool.m in Sources */,
 				90519C181B665B030048A081 /* ECChatListViewController.m in Sources */,
 				90519B8F1B6657750048A081 /* main.m in Sources */,
 				90519C321B665F450048A081 /* ECNavigationController.m in Sources */,
@@ -784,12 +846,12 @@
 				9011DFC31B6A3C8700FFFFFB /* ECBaseViewController.m in Sources */,
 				906CAA351B6903E300BC6D2F /* SDWebImageDownloader.m in Sources */,
 				906CAA381B6903E300BC6D2F /* SDWebImagePrefetcher.m in Sources */,
-				90127DBB1B8C2018007534A6 /* EMFMDatabase.m in Sources */,
 				9034B3E61B6A1B5F000D0107 /* UIView+Radius.m in Sources */,
 				906CAA321B6903E300BC6D2F /* SDImageCache.m in Sources */,
 				906CAA361B6903E300BC6D2F /* SDWebImageDownloaderOperation.m in Sources */,
 				906CAA301B6903E300BC6D2F /* MKAnnotationView+WebCache.m in Sources */,
 				906CAA3B1B6903E300BC6D2F /* UIImage+MultiFormat.m in Sources */,
+				90127DE71B8C27BB007534A6 /* FMDatabaseQueue.m in Sources */,
 				906CAA3F1B6903E300BC6D2F /* UIView+WebCacheOperation.m in Sources */,
 				906CAA331B6903E300BC6D2F /* SDWebImageCompat.m in Sources */,
 				90519C2B1B665CE50048A081 /* ECEnterpriseListViewController.m in Sources */,
@@ -799,7 +861,7 @@
 				904226EA1B82F3B900EE8B0E /* DTFolderItem.m in Sources */,
 				90127DD31B8C2375007534A6 /* ECContactsListViewController.m in Sources */,
 				9011DFDA1B6A3F9900FFFFFB /* ECChatListCellModel.m in Sources */,
-				90127DD11B8C2375007534A6 /* ECFriendListCellModel.m in Sources */,
+				90127DD11B8C2375007534A6 /* ECContactListCellModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

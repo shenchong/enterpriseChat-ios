@@ -1,5 +1,5 @@
 //
-//  EMFMDatabaseAdditions.h
+//  FMDatabaseAdditions.h
 //  fmdb
 //
 //  Created by August Mueller on 10/30/05.
@@ -7,17 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "EMFMDatabase.h"
+#import "FMDatabase.h"
 
 
-/** Category of additions for `<EMFMDatabase>` class.
+/** Category of additions for `<FMDatabase>` class.
  
  ### See also
 
- - `<EMFMDatabase>`
+ - `<FMDatabase>`
  */
 
-@interface EMFMDatabase (EMFMDatabaseAdditions)
+@interface FMDatabase (FMDatabaseAdditions)
 
 ///----------------------------------------
 /// @name Return results of SQL to variable
@@ -29,6 +29,8 @@
  @param ... A list of parameters that will be bound to the `?` placeholders in the SQL query.
 
  @return `int` value.
+ 
+ @note To use this method from Swift, you must include `FMDatabaseAdditionsVariadic.swift` in your project.
  */
 
 - (int)intForQuery:(NSString*)query, ...;
@@ -39,6 +41,8 @@
  @param ... A list of parameters that will be bound to the `?` placeholders in the SQL query.
 
  @return `long` value.
+ 
+ @note To use this method from Swift, you must include `FMDatabaseAdditionsVariadic.swift` in your project.
  */
 
 - (long)longForQuery:(NSString*)query, ...;
@@ -49,6 +53,8 @@
  @param ... A list of parameters that will be bound to the `?` placeholders in the SQL query.
 
  @return `BOOL` value.
+ 
+ @note To use this method from Swift, you must include `FMDatabaseAdditionsVariadic.swift` in your project.
  */
 
 - (BOOL)boolForQuery:(NSString*)query, ...;
@@ -59,6 +65,8 @@
  @param ... A list of parameters that will be bound to the `?` placeholders in the SQL query.
 
  @return `double` value.
+ 
+ @note To use this method from Swift, you must include `FMDatabaseAdditionsVariadic.swift` in your project.
  */
 
 - (double)doubleForQuery:(NSString*)query, ...;
@@ -69,6 +77,8 @@
  @param ... A list of parameters that will be bound to the `?` placeholders in the SQL query.
 
  @return `NSString` value.
+ 
+ @note To use this method from Swift, you must include `FMDatabaseAdditionsVariadic.swift` in your project.
  */
 
 - (NSString*)stringForQuery:(NSString*)query, ...;
@@ -79,6 +89,8 @@
  @param ... A list of parameters that will be bound to the `?` placeholders in the SQL query.
 
  @return `NSData` value.
+ 
+ @note To use this method from Swift, you must include `FMDatabaseAdditionsVariadic.swift` in your project.
  */
 
 - (NSData*)dataForQuery:(NSString*)query, ...;
@@ -89,6 +101,8 @@
  @param ... A list of parameters that will be bound to the `?` placeholders in the SQL query.
 
  @return `NSDate` value.
+ 
+ @note To use this method from Swift, you must include `FMDatabaseAdditionsVariadic.swift` in your project.
  */
 
 - (NSDate*)dateForQuery:(NSString*)query, ...;
@@ -122,12 +136,12 @@
  - `rootpage` - The page number of the root b-tree page for tables and indices
  - `sql` - The SQL that created the entity
 
- @return `EMFMResultSet` of schema; `nil` on error.
+ @return `FMResultSet` of schema; `nil` on error.
  
  @see [SQLite File Format](http://www.sqlite.org/fileformat.html)
  */
 
-- (EMFMResultSet*)getSchema;
+- (FMResultSet*)getSchema;
 
 /** The schema of the database.
 
@@ -146,12 +160,12 @@
 
  @param tableName The name of the table for whom the schema will be returned.
  
- @return `EMFMResultSet` of schema; `nil` on error.
+ @return `FMResultSet` of schema; `nil` on error.
  
  @see [table_info](http://www.sqlite.org/pragma.html#pragma_table_info)
  */
 
-- (EMFMResultSet*)getTableSchema:(NSString*)tableName;
+- (FMResultSet*)getTableSchema:(NSString*)tableName;
 
 /** Test to see if particular column exists for particular table in database
  

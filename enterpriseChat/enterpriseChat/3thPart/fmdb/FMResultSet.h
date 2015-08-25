@@ -13,19 +13,19 @@
 #endif
 #endif
 
-@class EMFMDatabase;
-@class EMFMStatement;
+@class FMDatabase;
+@class FMStatement;
 
-/** Represents the results of executing a query on an `<EMFMDatabase>`.
+/** Represents the results of executing a query on an `<FMDatabase>`.
  
  ### See also
  
- - `<EMFMDatabase>`
+ - `<FMDatabase>`
  */
 
-@interface EMFMResultSet : NSObject {
-    EMFMDatabase          *_parentDB;
-    EMFMStatement         *_statement;
+@interface FMResultSet : NSObject {
+    FMDatabase          *_parentDB;
+    FMStatement         *_statement;
     
     NSString            *_query;
     NSMutableDictionary *_columnNameToIndexMap;
@@ -43,30 +43,30 @@
 
 @property (readonly) NSMutableDictionary *columnNameToIndexMap;
 
-/** `EMFMStatement` used by result set. */
+/** `FMStatement` used by result set. */
 
-@property (atomic, retain) EMFMStatement *statement;
+@property (atomic, retain) FMStatement *statement;
 
 ///------------------------------------
 /// @name Creating and closing database
 ///------------------------------------
 
-/** Create result set from `<EMFMStatement>`
+/** Create result set from `<FMStatement>`
  
- @param statement A `<EMFMStatement>` to be performed
+ @param statement A `<FMStatement>` to be performed
  
- @param aDB A `<EMFMDatabase>` to be used
+ @param aDB A `<FMDatabase>` to be used
  
- @return A `EMFMResultSet` on success; `nil` on failure
+ @return A `FMResultSet` on success; `nil` on failure
  */
 
-+ (instancetype)resultSetWithStatement:(EMFMStatement *)statement usingParentDatabase:(EMFMDatabase*)aDB;
++ (instancetype)resultSetWithStatement:(FMStatement *)statement usingParentDatabase:(FMDatabase*)aDB;
 
 /** Close result set */
 
 - (void)close;
 
-- (void)setParentDB:(EMFMDatabase *)newDb;
+- (void)setParentDB:(FMDatabase *)newDb;
 
 ///---------------------------------------
 /// @name Iterating through the result set
@@ -74,7 +74,7 @@
 
 /** Retrieve next row for result set.
  
- You must always invoke `next` before attempting to access the values returned in a query, even if you're only expecting one.
+ You must always invoke `next` or `nextWithError` before attempting to access the values returned in a query, even if you're only expecting one.
 
  @return `YES` if row successfully retrieved; `NO` if end of result set reached
  
@@ -82,6 +82,19 @@
  */
 
 - (BOOL)next;
+
+/** Retrieve next row for result set.
+ 
+  You must always invoke `next` or `nextWithError` before attempting to access the values returned in a query, even if you're only expecting one.
+ 
+ @param outErr A 'NSError' object to receive any error object (if any).
+ 
+ @return 'YES' if row successfully retrieved; 'NO' if end of result set reached
+ 
+ @see hasAnotherRow
+ */
+
+- (BOOL)nextWithError:(NSError **)outErr;
 
 /** Did the last call to `<next>` succeed in retrieving another row?
 

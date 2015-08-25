@@ -27,6 +27,17 @@
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
+    if (![_unreadCountLabel isHidden]) {
+        _unreadCountLabel.backgroundColor = [UIColor redColor];
+    }
+}
+
+
+-(void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated{
+    [super setHighlighted:highlighted animated:animated];
+    if (![_unreadCountLabel isHidden]) {
+        _unreadCountLabel.backgroundColor = [UIColor redColor];
+    }
 }
 
 -(void)layoutSubviews{

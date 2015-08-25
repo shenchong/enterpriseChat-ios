@@ -1,27 +1,25 @@
-#import "EMFMDatabase.h"
+#import "FMDatabase.h"
 #import "unistd.h"
 #import <objc/runtime.h>
 
-#define DB_SECRETKEY @"easemob_db_secret_key"
+@interface FMDatabase ()
 
-@interface EMFMDatabase ()
-
-- (EMFMResultSet *)executeQuery:(NSString *)sql withArgumentsInArray:(NSArray*)arrayArgs orDictionary:(NSDictionary *)dictionaryArgs orVAList:(va_list)args;
+- (FMResultSet *)executeQuery:(NSString *)sql withArgumentsInArray:(NSArray*)arrayArgs orDictionary:(NSDictionary *)dictionaryArgs orVAList:(va_list)args;
 - (BOOL)executeUpdate:(NSString*)sql error:(NSError**)outErr withArgumentsInArray:(NSArray*)arrayArgs orDictionary:(NSDictionary *)dictionaryArgs orVAList:(va_list)args;
 
 @end
 
-@implementation EMFMDatabase
+@implementation FMDatabase
 @synthesize cachedStatements=_cachedStatements;
 @synthesize logsErrors=_logsErrors;
 @synthesize crashOnErrors=_crashOnErrors;
 @synthesize checkedOut=_checkedOut;
 @synthesize traceExecution=_traceExecution;
 
-#pragma mark EMFMDatabase instantiation and deallocation
+#pragma mark FMDatabase instantiation and deallocation
 
 + (instancetype)databaseWithPath:(NSString*)aPath {
-    return EMFMDBReturnAutoreleased([[self alloc] initWithPath:aPath]);
+    return FMDBReturnAutoreleased([[self alloc] initWithPath:aPath]);
 }
 
 - (instancetype)init {
@@ -53,11 +51,11 @@
 
 - (void)dealloc {
     [self close];
-    EMFMDBRelease(_openResultSets);
-    EMFMDBRelease(_cachedStatements);
-    EMFMDBRelease(_dateFormat);
-    EMFMDBRelease(_databasePath);
-    EMFMDBRelease(_openFunctions);
+    FMDBRelease(_openResultSets);
+    FMDBRelease(_cachedStatements);
+    FMDBRelease(_dateFormat);
+    FMDBRelease(_databasePath);
+    FMDBRelease(_openFunctions);
     
 #if ! __has_feature(objc_arc)
     [super dealloc];
@@ -68,22 +66,22 @@
     return _databasePath;
 }
 
-+ (NSString*)EMFMDBUserVersion {
-    return @"2.3";
++ (NSString*)FMDBUserVersion {
+    return @"2.5";
 }
 
-// returns 0x0230 for version 2.3.  This makes it super easy to do things like:
-// /* need to make sure to do X with EMFMDB version 2.3 or later */
-// if ([EMFMDatabase EMFMDBVersion] >= 0x0230) { … }
+// returns 0x0240 for version 2.4.  This makes it super easy to do things like:
+// /* need to make sure to do X with FMDB version 2.4 or later */
+// if ([FMDatabase FMDBVersion] >= 0x0240) { … }
 
-+ (SInt32)EMFMDBVersion {
++ (SInt32)FMDBVersion {
     
     // we go through these hoops so that we only have to change the version number in a single spot.
     static dispatch_once_t once;
-    static SInt32 EMFMDBVersionVal = 0;
+    static SInt32 FMDBVersionVal = 0;
     
     dispatch_once(&once, ^{
-        NSString *prodVersion = [self EMFMDBUserVersion];
+        NSString *prodVersion = [self FMDBUserVersion];
         
         if ([[prodVersion componentsSeparatedByString:@"."] count] < 3) {
             prodVersion = [prodVersion stringByAppendingString:@".0"];
@@ -92,12 +90,12 @@
         NSString *junk = [prodVersion stringByReplacingOccurrencesOfString:@"." withString:@""];
         
         char *e = nil;
-        EMFMDBVersionVal = (int) strtoul([junk UTF8String], &e, 16);
+        FMDBVersionVal = (int) strtoul([junk UTF8String], &e, 16);
         
     });
     
 
-    return EMFMDBVersionVal;
+    return FMDBVersionVal;
 }
 
 #pragma mark SQLite information
@@ -141,10 +139,6 @@
         NSLog(@"error opening!: %d", err);
         return NO;
     }
-//    else if(err == SQLITE_OK)
-//    {
-//        [self setKey:DB_SECRETKEY];
-//    }
     
     if (_maxBusyRetryTimeInterval > 0.0) {
         // set the handler
@@ -157,19 +151,18 @@
 
 #if SQLITE_VERSION_NUMBER >= 3005000
 - (BOOL)openWithFlags:(int)flags {
+    return [self openWithFlags:flags vfs:nil];
+}
+- (BOOL)openWithFlags:(int)flags vfs:(NSString *)vfsName; {
     if (_db) {
         return YES;
     }
 
-    int err = sqlite3_open_v2([self sqlitePath], &_db, flags, NULL /* Name of VFS module to use */);
+    int err = sqlite3_open_v2([self sqlitePath], &_db, flags, [vfsName UTF8String]);
     if(err != SQLITE_OK) {
         NSLog(@"error opening!: %d", err);
         return NO;
     }
-//    else if(err == SQLITE_OK)
-//    {
-//        [self setKey:DB_SECRETKEY];
-//    }
     
     if (_maxBusyRetryTimeInterval > 0.0) {
         // set the handler
@@ -230,8 +223,8 @@
 //       C function causes problems; the rest don't. Anyway, ignoring the .m
 //       files with appledoc will prevent this problem from occurring.
 
-static int EMFMDBDatabaseBusyHandler(void *f, int count) {
-    EMFMDatabase *self = (__bridge EMFMDatabase*)f;
+static int FMDBDatabaseBusyHandler(void *f, int count) {
+    FMDatabase *self = (__bridge FMDatabase*)f;
     
     if (count == 0) {
         self->_startBusyRetryTime = [NSDate timeIntervalSinceReferenceDate];
@@ -241,7 +234,11 @@ static int EMFMDBDatabaseBusyHandler(void *f, int count) {
     NSTimeInterval delta = [NSDate timeIntervalSinceReferenceDate] - (self->_startBusyRetryTime);
     
     if (delta < [self maxBusyRetryTimeInterval]) {
-        sqlite3_sleep(50); // milliseconds
+        int requestedSleepInMillseconds = (int) arc4random_uniform(50) + 50;
+        int actualSleepInMilliseconds = sqlite3_sleep(requestedSleepInMillseconds);
+        if (actualSleepInMilliseconds != requestedSleepInMillseconds) {
+            NSLog(@"WARNING: Requested sleep of %i milliseconds, but SQLite returned %i. Maybe SQLite wasn't built with HAVE_USLEEP=1?", requestedSleepInMillseconds, actualSleepInMilliseconds);
+        }
         return 1;
     }
     
@@ -257,7 +254,7 @@ static int EMFMDBDatabaseBusyHandler(void *f, int count) {
     }
     
     if (timeout > 0) {
-        sqlite3_busy_handler(_db, &EMFMDBDatabaseBusyHandler, (__bridge void *)(self));
+        sqlite3_busy_handler(_db, &FMDBDatabaseBusyHandler, (__bridge void *)(self));
     }
     else {
         // turn it off otherwise
@@ -271,17 +268,17 @@ static int EMFMDBDatabaseBusyHandler(void *f, int count) {
 
 
 // we no longer make busyRetryTimeout public
-// but for folks who don't bother noticing that the interface to EMFMDatabase changed,
+// but for folks who don't bother noticing that the interface to FMDatabase changed,
 // we'll still implement the method so they don't get suprise crashes
 - (int)busyRetryTimeout {
     NSLog(@"%s:%d", __FUNCTION__, __LINE__);
-    NSLog(@"EMFMDB: busyRetryTimeout no longer works, please use maxBusyRetryTimeInterval");
+    NSLog(@"FMDB: busyRetryTimeout no longer works, please use maxBusyRetryTimeInterval");
     return -1;
 }
 
 - (void)setBusyRetryTimeout:(int)i {
     NSLog(@"%s:%d", __FUNCTION__, __LINE__);
-    NSLog(@"EMFMDB: setBusyRetryTimeout does nothing, please use setMaxBusyRetryTimeInterval:");
+    NSLog(@"FMDB: setBusyRetryTimeout does nothing, please use setMaxBusyRetryTimeInterval:");
 }
 
 #pragma mark Result set functions
@@ -293,9 +290,9 @@ static int EMFMDBDatabaseBusyHandler(void *f, int count) {
 - (void)closeOpenResultSets {
     
     //Copy the set so we don't get mutation errors
-    NSSet *openSetCopy = EMFMDBReturnAutoreleased([_openResultSets copy]);
+    NSSet *openSetCopy = FMDBReturnAutoreleased([_openResultSets copy]);
     for (NSValue *rsInWrappedInATastyValueMeal in openSetCopy) {
-        EMFMResultSet *rs = (EMFMResultSet *)[rsInWrappedInATastyValueMeal pointerValue];
+        FMResultSet *rs = (FMResultSet *)[rsInWrappedInATastyValueMeal pointerValue];
         
         [rs setParentDB:nil];
         [rs close];
@@ -304,7 +301,7 @@ static int EMFMDBDatabaseBusyHandler(void *f, int count) {
     }
 }
 
-- (void)resultSetDidClose:(EMFMResultSet *)resultSet {
+- (void)resultSetDidClose:(FMResultSet *)resultSet {
     NSValue *setValue = [NSValue valueWithNonretainedObject:resultSet];
     
     [_openResultSets removeObject:setValue];
@@ -321,11 +318,11 @@ static int EMFMDBDatabaseBusyHandler(void *f, int count) {
     [_cachedStatements removeAllObjects];
 }
 
-- (EMFMStatement*)cachedStatementForQuery:(NSString*)query {
+- (FMStatement*)cachedStatementForQuery:(NSString*)query {
     
     NSMutableSet* statements = [_cachedStatements objectForKey:query];
     
-    return [[statements objectsPassingTest:^BOOL(EMFMStatement* statement, BOOL *stop) {
+    return [[statements objectsPassingTest:^BOOL(FMStatement* statement, BOOL *stop) {
         
         *stop = ![statement inUse];
         return *stop;
@@ -334,7 +331,7 @@ static int EMFMDBDatabaseBusyHandler(void *f, int count) {
 }
 
 
-- (void)setCachedStatement:(EMFMStatement*)statement forQuery:(NSString*)query {
+- (void)setCachedStatement:(FMStatement*)statement forQuery:(NSString*)query {
     
     query = [query copy]; // in case we got handed in a mutable string...
     [statement setQuery:query];
@@ -348,7 +345,7 @@ static int EMFMDBDatabaseBusyHandler(void *f, int count) {
     
     [_cachedStatements setObject:statements forKey:query];
     
-    EMFMDBRelease(query);
+    FMDBRelease(query);
 }
 
 #pragma mark Key routines
@@ -402,10 +399,10 @@ static int EMFMDBDatabaseBusyHandler(void *f, int count) {
 
 + (NSDateFormatter *)storeableDateFormat:(NSString *)format {
     
-    NSDateFormatter *result = EMFMDBReturnAutoreleased([[NSDateFormatter alloc] init]);
+    NSDateFormatter *result = FMDBReturnAutoreleased([[NSDateFormatter alloc] init]);
     result.dateFormat = format;
     result.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:0];
-    result.locale = EMFMDBReturnAutoreleased([[NSLocale alloc] initWithLocaleIdentifier:@"en_US"]);
+    result.locale = FMDBReturnAutoreleased([[NSLocale alloc] initWithLocaleIdentifier:@"en_US"]);
     return result;
 }
 
@@ -415,8 +412,8 @@ static int EMFMDBDatabaseBusyHandler(void *f, int count) {
 }
 
 - (void)setDateFormat:(NSDateFormatter *)format {
-    EMFMDBAutorelease(_dateFormat);
-    _dateFormat = EMFMDBReturnRetained(format);
+    FMDBAutorelease(_dateFormat);
+    _dateFormat = FMDBReturnRetained(format);
 }
 
 - (NSDate *)dateFromString:(NSString *)s {
@@ -435,7 +432,7 @@ static int EMFMDBDatabaseBusyHandler(void *f, int count) {
         return NO;
     }
     
-    EMFMResultSet *rs = [self executeQuery:@"select name from sqlite_master where type='table'"];
+    FMResultSet *rs = [self executeQuery:@"select name from sqlite_master where type='table'"];
     
     if (rs) {
         [rs close];
@@ -446,11 +443,11 @@ static int EMFMDBDatabaseBusyHandler(void *f, int count) {
 }
 
 - (void)warnInUse {
-    NSLog(@"The EMFMDatabase %@ is currently in use.", self);
+    NSLog(@"The FMDatabase %@ is currently in use.", self);
     
 #ifndef NS_BLOCK_ASSERTIONS
     if (_crashOnErrors) {
-        NSAssert(false, @"The EMFMDatabase %@ is currently in use.", self);
+        NSAssert(false, @"The FMDatabase %@ is currently in use.", self);
         abort();
     }
 #endif
@@ -460,11 +457,11 @@ static int EMFMDBDatabaseBusyHandler(void *f, int count) {
     
     if (!_db) {
             
-        NSLog(@"The EMFMDatabase %@ is not open.", self);
+        NSLog(@"The FMDatabase %@ is not open.", self);
         
     #ifndef NS_BLOCK_ASSERTIONS
         if (_crashOnErrors) {
-            NSAssert(false, @"The EMFMDatabase %@ is not open.", self);
+            NSAssert(false, @"The FMDatabase %@ is not open.", self);
             abort();
         }
     #endif
@@ -494,7 +491,7 @@ static int EMFMDBDatabaseBusyHandler(void *f, int count) {
 - (NSError*)errorWithMessage:(NSString*)message {
     NSDictionary* errorMessage = [NSDictionary dictionaryWithObject:message forKey:NSLocalizedDescriptionKey];
     
-    return [NSError errorWithDomain:@"EMFMDatabase" code:sqlite3_errcode(_db) userInfo:errorMessage];    
+    return [NSError errorWithDomain:@"FMDatabase" code:sqlite3_errcode(_db) userInfo:errorMessage];    
 }
 
 - (NSError*)lastError {
@@ -560,10 +557,7 @@ static int EMFMDBDatabaseBusyHandler(void *f, int count) {
     }
     else if ([obj isKindOfClass:[NSNumber class]]) {
         
-        if (strcmp([obj objCType], @encode(BOOL)) == 0) {
-            sqlite3_bind_int(pStmt, idx, ([obj boolValue] ? 1 : 0));
-        }
-        else if (strcmp([obj objCType], @encode(char)) == 0) {
+        if (strcmp([obj objCType], @encode(char)) == 0) {
             sqlite3_bind_int(pStmt, idx, [obj charValue]);
         }
         else if (strcmp([obj objCType], @encode(unsigned char)) == 0) {
@@ -598,6 +592,9 @@ static int EMFMDBDatabaseBusyHandler(void *f, int count) {
         }
         else if (strcmp([obj objCType], @encode(double)) == 0) {
             sqlite3_bind_double(pStmt, idx, [obj doubleValue]);
+        }
+        else if (strcmp([obj objCType], @encode(BOOL)) == 0) {
+            sqlite3_bind_int(pStmt, idx, ([obj boolValue] ? 1 : 0));
         }
         else {
             sqlite3_bind_text(pStmt, idx, [[obj description] UTF8String], -1, SQLITE_STATIC);
@@ -730,11 +727,11 @@ static int EMFMDBDatabaseBusyHandler(void *f, int count) {
 
 #pragma mark Execute queries
 
-- (EMFMResultSet *)executeQuery:(NSString *)sql withParameterDictionary:(NSDictionary *)arguments {
+- (FMResultSet *)executeQuery:(NSString *)sql withParameterDictionary:(NSDictionary *)arguments {
     return [self executeQuery:sql withArgumentsInArray:nil orDictionary:arguments orVAList:nil];
 }
 
-- (EMFMResultSet *)executeQuery:(NSString *)sql withArgumentsInArray:(NSArray*)arrayArgs orDictionary:(NSDictionary *)dictionaryArgs orVAList:(va_list)args {
+- (FMResultSet *)executeQuery:(NSString *)sql withArgumentsInArray:(NSArray*)arrayArgs orDictionary:(NSDictionary *)dictionaryArgs orVAList:(va_list)args {
     
     if (![self databaseExists]) {
         return 0x00;
@@ -749,8 +746,8 @@ static int EMFMDBDatabaseBusyHandler(void *f, int count) {
     
     int rc                  = 0x00;
     sqlite3_stmt *pStmt     = 0x00;
-    EMFMStatement *statement  = 0x00;
-    EMFMResultSet *rs         = 0x00;
+    FMStatement *statement  = 0x00;
+    FMResultSet *rs         = 0x00;
     
     if (_traceExecution && sql) {
         NSLog(@"%@ executeQuery: %@", self, sql);
@@ -795,11 +792,15 @@ static int EMFMDBDatabaseBusyHandler(void *f, int count) {
             
             // Prefix the key with a colon.
             NSString *parameterName = [[NSString alloc] initWithFormat:@":%@", dictionaryKey];
+
+            if (_traceExecution) {
+                NSLog(@"%@ = %@", parameterName, [dictionaryArgs objectForKey:dictionaryKey]);
+            }
             
             // Get the index for the parameter name.
             int namedIdx = sqlite3_bind_parameter_index(pStmt, [parameterName UTF8String]);
             
-            EMFMDBRelease(parameterName);
+            FMDBRelease(parameterName);
             
             if (namedIdx > 0) {
                 // Standard binding from here.
@@ -849,10 +850,10 @@ static int EMFMDBDatabaseBusyHandler(void *f, int count) {
         return nil;
     }
     
-    EMFMDBRetain(statement); // to balance the release below
+    FMDBRetain(statement); // to balance the release below
     
     if (!statement) {
-        statement = [[EMFMStatement alloc] init];
+        statement = [[FMStatement alloc] init];
         [statement setStatement:pStmt];
         
         if (_shouldCacheStatements && sql) {
@@ -861,7 +862,7 @@ static int EMFMDBDatabaseBusyHandler(void *f, int count) {
     }
     
     // the statement gets closed in rs's dealloc or [rs close];
-    rs = [EMFMResultSet resultSetWithStatement:statement usingParentDatabase:self];
+    rs = [FMResultSet resultSetWithStatement:statement usingParentDatabase:self];
     [rs setQuery:sql];
     
     NSValue *openResultSet = [NSValue valueWithNonretainedObject:rs];
@@ -869,14 +870,14 @@ static int EMFMDBDatabaseBusyHandler(void *f, int count) {
     
     [statement setUseCount:[statement useCount] + 1];
     
-    EMFMDBRelease(statement); 
+    FMDBRelease(statement); 
     
     _isExecutingStatement = NO;
     
     return rs;
 }
 
-- (EMFMResultSet *)executeQuery:(NSString*)sql, ... {
+- (FMResultSet *)executeQuery:(NSString*)sql, ... {
     va_list args;
     va_start(args, sql);
     
@@ -886,7 +887,7 @@ static int EMFMDBDatabaseBusyHandler(void *f, int count) {
     return result;
 }
 
-- (EMFMResultSet *)executeQueryWithFormat:(NSString*)format, ... {
+- (FMResultSet *)executeQueryWithFormat:(NSString*)format, ... {
     va_list args;
     va_start(args, format);
     
@@ -899,11 +900,11 @@ static int EMFMDBDatabaseBusyHandler(void *f, int count) {
     return [self executeQuery:sql withArgumentsInArray:arguments];
 }
 
-- (EMFMResultSet *)executeQuery:(NSString *)sql withArgumentsInArray:(NSArray *)arguments {
+- (FMResultSet *)executeQuery:(NSString *)sql withArgumentsInArray:(NSArray *)arguments {
     return [self executeQuery:sql withArgumentsInArray:arguments orDictionary:nil orVAList:nil];
 }
 
-- (EMFMResultSet *)executeQuery:(NSString*)sql withVAList:(va_list)args {
+- (FMResultSet *)executeQuery:(NSString*)sql withVAList:(va_list)args {
     return [self executeQuery:sql withArgumentsInArray:nil orDictionary:nil orVAList:args];
 }
 
@@ -924,7 +925,7 @@ static int EMFMDBDatabaseBusyHandler(void *f, int count) {
     
     int rc                   = 0x00;
     sqlite3_stmt *pStmt      = 0x00;
-    EMFMStatement *cachedStmt  = 0x00;
+    FMStatement *cachedStmt  = 0x00;
     
     if (_traceExecution && sql) {
         NSLog(@"%@ executeUpdate: %@", self, sql);
@@ -974,10 +975,13 @@ static int EMFMDBDatabaseBusyHandler(void *f, int count) {
             // Prefix the key with a colon.
             NSString *parameterName = [[NSString alloc] initWithFormat:@":%@", dictionaryKey];
             
+            if (_traceExecution) {
+                NSLog(@"%@ = %@", parameterName, [dictionaryArgs objectForKey:dictionaryKey]);
+            }
             // Get the index for the parameter name.
             int namedIdx = sqlite3_bind_parameter_index(pStmt, [parameterName UTF8String]);
             
-            EMFMDBRelease(parameterName);
+            FMDBRelease(parameterName);
             
             if (namedIdx > 0) {
                 // Standard binding from here.
@@ -1064,13 +1068,13 @@ static int EMFMDBDatabaseBusyHandler(void *f, int count) {
     }
     
     if (_shouldCacheStatements && !cachedStmt) {
-        cachedStmt = [[EMFMStatement alloc] init];
+        cachedStmt = [[FMStatement alloc] init];
         
         [cachedStmt setStatement:pStmt];
         
         [self setCachedStatement:cachedStmt forQuery:sql];
         
-        EMFMDBRelease(cachedStmt);
+        FMDBRelease(cachedStmt);
     }
     
     int closeErrorCode;
@@ -1135,8 +1139,8 @@ static int EMFMDBDatabaseBusyHandler(void *f, int count) {
 }
 
 
-int EMFMDBExecuteBulkSQLCallback(void *theBlockAsVoid, int columns, char **values, char **names); // shhh clang.
-int EMFMDBExecuteBulkSQLCallback(void *theBlockAsVoid, int columns, char **values, char **names) {
+int FMDBExecuteBulkSQLCallback(void *theBlockAsVoid, int columns, char **values, char **names); // shhh clang.
+int FMDBExecuteBulkSQLCallback(void *theBlockAsVoid, int columns, char **values, char **names) {
     
     if (!theBlockAsVoid) {
         return SQLITE_OK;
@@ -1159,12 +1163,12 @@ int EMFMDBExecuteBulkSQLCallback(void *theBlockAsVoid, int columns, char **value
     return [self executeStatements:sql withResultBlock:nil];
 }
 
-- (BOOL)executeStatements:(NSString *)sql withResultBlock:(EMFMDBExecuteStatementsCallbackBlock)block {
+- (BOOL)executeStatements:(NSString *)sql withResultBlock:(FMDBExecuteStatementsCallbackBlock)block {
     
     int rc;
     char *errmsg = nil;
     
-    rc = sqlite3_exec([self sqliteHandle], [sql UTF8String], block ? EMFMDBExecuteBulkSQLCallback : nil, (__bridge void *)(block), &errmsg);
+    rc = sqlite3_exec([self sqliteHandle], [sql UTF8String], block ? FMDBExecuteBulkSQLCallback : nil, (__bridge void *)(block), &errmsg);
     
     if (errmsg && [self logsErrors]) {
         NSLog(@"Error inserting batch: %s", errmsg);
@@ -1248,7 +1252,7 @@ int EMFMDBExecuteBulkSQLCallback(void *theBlockAsVoid, int columns, char **value
 
 #if SQLITE_VERSION_NUMBER >= 3007000
 
-static NSString *EMFMDBEscapeSavePointName(NSString *savepointName) {
+static NSString *FMDBEscapeSavePointName(NSString *savepointName) {
     return [savepointName stringByReplacingOccurrencesOfString:@"'" withString:@"''"];
 }
 
@@ -1256,7 +1260,7 @@ static NSString *EMFMDBEscapeSavePointName(NSString *savepointName) {
     
     NSParameterAssert(name);
     
-    NSString *sql = [NSString stringWithFormat:@"savepoint '%@';", EMFMDBEscapeSavePointName(name)];
+    NSString *sql = [NSString stringWithFormat:@"savepoint '%@';", FMDBEscapeSavePointName(name)];
     
     if (![self executeUpdate:sql]) {
 
@@ -1274,7 +1278,7 @@ static NSString *EMFMDBEscapeSavePointName(NSString *savepointName) {
     
     NSParameterAssert(name);
     
-    NSString *sql = [NSString stringWithFormat:@"release savepoint '%@';", EMFMDBEscapeSavePointName(name)];
+    NSString *sql = [NSString stringWithFormat:@"release savepoint '%@';", FMDBEscapeSavePointName(name)];
     BOOL worked = [self executeUpdate:sql];
     
     if (!worked && outErr) {
@@ -1288,7 +1292,7 @@ static NSString *EMFMDBEscapeSavePointName(NSString *savepointName) {
     
     NSParameterAssert(name);
     
-    NSString *sql = [NSString stringWithFormat:@"rollback transaction to savepoint '%@';", EMFMDBEscapeSavePointName(name)];
+    NSString *sql = [NSString stringWithFormat:@"rollback transaction to savepoint '%@';", FMDBEscapeSavePointName(name)];
     BOOL worked = [self executeUpdate:sql];
     
     if (!worked && outErr) {
@@ -1311,7 +1315,9 @@ static NSString *EMFMDBEscapeSavePointName(NSString *savepointName) {
         return err;
     }
     
-    block(&shouldRollback);
+    if (block) {
+        block(&shouldRollback);
+    }
     
     if (shouldRollback) {
         // We need to rollback and release this savepoint to remove it
@@ -1345,14 +1351,16 @@ static NSString *EMFMDBEscapeSavePointName(NSString *savepointName) {
 
 #pragma mark Callback function
 
-void EMFMDBBlockSQLiteCallBackFunction(sqlite3_context *context, int argc, sqlite3_value **argv); // -Wmissing-prototypes
-void EMFMDBBlockSQLiteCallBackFunction(sqlite3_context *context, int argc, sqlite3_value **argv) {
+void FMDBBlockSQLiteCallBackFunction(sqlite3_context *context, int argc, sqlite3_value **argv); // -Wmissing-prototypes
+void FMDBBlockSQLiteCallBackFunction(sqlite3_context *context, int argc, sqlite3_value **argv) {
 #if ! __has_feature(objc_arc)
     void (^block)(sqlite3_context *context, int argc, sqlite3_value **argv) = (id)sqlite3_user_data(context);
 #else
     void (^block)(sqlite3_context *context, int argc, sqlite3_value **argv) = (__bridge id)sqlite3_user_data(context);
 #endif
-    block(context, argc, argv);
+    if (block) {
+        block(context, argc, argv);
+    }
 }
 
 
@@ -1362,15 +1370,15 @@ void EMFMDBBlockSQLiteCallBackFunction(sqlite3_context *context, int argc, sqlit
         _openFunctions = [NSMutableSet new];
     }
     
-    id b = EMFMDBReturnAutoreleased([block copy]);
+    id b = FMDBReturnAutoreleased([block copy]);
     
     [_openFunctions addObject:b];
     
     /* I tried adding custom functions to release the block when the connection is destroyed- but they seemed to never be called, so we use _openFunctions to store the values instead. */
 #if ! __has_feature(objc_arc)
-    sqlite3_create_function([self sqliteHandle], [name UTF8String], count, SQLITE_UTF8, (void*)b, &EMFMDBBlockSQLiteCallBackFunction, 0x00, 0x00);
+    sqlite3_create_function([self sqliteHandle], [name UTF8String], count, SQLITE_UTF8, (void*)b, &FMDBBlockSQLiteCallBackFunction, 0x00, 0x00);
 #else
-    sqlite3_create_function([self sqliteHandle], [name UTF8String], count, SQLITE_UTF8, (__bridge void*)b, &EMFMDBBlockSQLiteCallBackFunction, 0x00, 0x00);
+    sqlite3_create_function([self sqliteHandle], [name UTF8String], count, SQLITE_UTF8, (__bridge void*)b, &FMDBBlockSQLiteCallBackFunction, 0x00, 0x00);
 #endif
 }
 
@@ -1378,7 +1386,7 @@ void EMFMDBBlockSQLiteCallBackFunction(sqlite3_context *context, int argc, sqlit
 
 
 
-@implementation EMFMStatement
+@implementation FMStatement
 @synthesize statement=_statement;
 @synthesize query=_query;
 @synthesize useCount=_useCount;
@@ -1391,7 +1399,7 @@ void EMFMDBBlockSQLiteCallBackFunction(sqlite3_context *context, int argc, sqlit
 
 - (void)dealloc {
     [self close];
-    EMFMDBRelease(_query);
+    FMDBRelease(_query);
 #if ! __has_feature(objc_arc)
     [super dealloc];
 #endif

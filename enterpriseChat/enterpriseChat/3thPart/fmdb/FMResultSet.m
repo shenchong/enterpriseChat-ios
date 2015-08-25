@@ -1,19 +1,19 @@
-#import "EMFMResultSet.h"
-#import "EMFMDatabase.h"
+#import "FMResultSet.h"
+#import "FMDatabase.h"
 #import "unistd.h"
 
-@interface EMFMDatabase ()
-- (void)resultSetDidClose:(EMFMResultSet *)resultSet;
+@interface FMDatabase ()
+- (void)resultSetDidClose:(FMResultSet *)resultSet;
 @end
 
 
-@implementation EMFMResultSet
+@implementation FMResultSet
 @synthesize query=_query;
 @synthesize statement=_statement;
 
-+ (instancetype)resultSetWithStatement:(EMFMStatement *)statement usingParentDatabase:(EMFMDatabase*)aDB {
++ (instancetype)resultSetWithStatement:(FMStatement *)statement usingParentDatabase:(FMDatabase*)aDB {
     
-    EMFMResultSet *rs = [[EMFMResultSet alloc] init];
+    FMResultSet *rs = [[FMResultSet alloc] init];
     
     [rs setStatement:statement];
     [rs setParentDB:aDB];
@@ -21,7 +21,7 @@
     NSParameterAssert(![statement inUse]);
     [statement setInUse:YES]; // weak reference
     
-    return EMFMDBReturnAutoreleased(rs);
+    return FMDBReturnAutoreleased(rs);
 }
 
 - (void)finalize {
@@ -32,10 +32,10 @@
 - (void)dealloc {
     [self close];
     
-    EMFMDBRelease(_query);
+    FMDBRelease(_query);
     _query = nil;
     
-    EMFMDBRelease(_columnNameToIndexMap);
+    FMDBRelease(_columnNameToIndexMap);
     _columnNameToIndexMap = nil;
     
 #if ! __has_feature(objc_arc)
@@ -45,7 +45,7 @@
 
 - (void)close {
     [_statement reset];
-    EMFMDBRelease(_statement);
+    FMDBRelease(_statement);
     _statement = nil;
     
     // we don't need this anymore... (i think)
@@ -106,7 +106,7 @@
             [dict setObject:objectValue forKey:columnName];
         }
         
-        return EMFMDBReturnAutoreleased([dict copy]);
+        return FMDBReturnAutoreleased([dict copy]);
     }
     else {
         NSLog(@"Warning: There seem to be no columns in this set.");
@@ -147,26 +147,51 @@
 
 
 - (BOOL)next {
+    return [self nextWithError:nil];
+}
+
+- (BOOL)nextWithError:(NSError **)outErr {
     
     int rc = sqlite3_step([_statement statement]);
     
     if (SQLITE_BUSY == rc || SQLITE_LOCKED == rc) {
         NSLog(@"%s:%d Database busy (%@)", __FUNCTION__, __LINE__, [_parentDB databasePath]);
         NSLog(@"Database busy");
+        if (outErr) {
+            *outErr = [_parentDB lastError];
+        }
     }
     else if (SQLITE_DONE == rc || SQLITE_ROW == rc) {
         // all is well, let's return.
     }
     else if (SQLITE_ERROR == rc) {
         NSLog(@"Error calling sqlite3_step (%d: %s) rs", rc, sqlite3_errmsg([_parentDB sqliteHandle]));
+        if (outErr) {
+            *outErr = [_parentDB lastError];
+        }
     }
     else if (SQLITE_MISUSE == rc) {
         // uh oh.
         NSLog(@"Error calling sqlite3_step (%d: %s) rs", rc, sqlite3_errmsg([_parentDB sqliteHandle]));
+        if (outErr) {
+            if (_parentDB) {
+                *outErr = [_parentDB lastError];
+            }
+            else {
+                // If 'next' or 'nextWithError' is called after the result set is closed,
+                // we need to return the appropriate error.
+                NSDictionary* errorMessage = [NSDictionary dictionaryWithObject:@"parentDB does not exist" forKey:NSLocalizedDescriptionKey];
+                *outErr = [NSError errorWithDomain:@"FMDatabase" code:SQLITE_MISUSE userInfo:errorMessage];
+            }
+            
+        }
     }
     else {
         // wtf?
         NSLog(@"Unknown error calling sqlite3_step (%d: %s) rs", rc, sqlite3_errmsg([_parentDB sqliteHandle]));
+        if (outErr) {
+            *outErr = [_parentDB lastError];
+        }
     }
     
     
@@ -289,13 +314,14 @@
         return nil;
     }
     
+    const char *dataBuffer = sqlite3_column_blob([_statement statement], columnIdx);
     int dataSize = sqlite3_column_bytes([_statement statement], columnIdx);
+
+    if (dataBuffer == NULL) {
+        return nil;
+    }
     
-    NSMutableData *data = [NSMutableData dataWithLength:(NSUInteger)dataSize];
-    
-    memcpy([data mutableBytes], sqlite3_column_blob([_statement statement], columnIdx), dataSize);
-    
-    return data;
+    return [NSData dataWithBytes:(const void *)dataBuffer length:(NSUInteger)dataSize];
 }
 
 
@@ -308,10 +334,11 @@
     if (sqlite3_column_type([_statement statement], columnIdx) == SQLITE_NULL || (columnIdx < 0)) {
         return nil;
     }
-    
+  
+    const char *dataBuffer = sqlite3_column_blob([_statement statement], columnIdx);
     int dataSize = sqlite3_column_bytes([_statement statement], columnIdx);
     
-    NSData *data = [NSData dataWithBytesNoCopy:(void *)sqlite3_column_blob([_statement statement], columnIdx) length:(NSUInteger)dataSize freeWhenDone:NO];
+    NSData *data = [NSData dataWithBytesNoCopy:(void *)dataBuffer length:(NSUInteger)dataSize freeWhenDone:NO];
     
     return data;
 }
@@ -373,7 +400,7 @@
     return [NSString stringWithUTF8String: sqlite3_column_name([_statement statement], columnIdx)];
 }
 
-- (void)setParentDB:(EMFMDatabase *)newDb {
+- (void)setParentDB:(FMDatabase *)newDb {
     _parentDB = newDb;
 }
 

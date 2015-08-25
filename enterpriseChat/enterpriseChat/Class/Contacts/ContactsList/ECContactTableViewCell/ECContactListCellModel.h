@@ -1,5 +1,5 @@
 //
-//  ECFriendListCellModel.h
+//  ECContactListCellModel.h
 //  enterpriseChat
 //
 //  Created by dujiepeng on 15/7/31.
@@ -8,6 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import "ECBaseCellModel.h"
-@interface ECFriendListCellModel : ECBaseCellModel
+@interface ECContactListCellModel : ECBaseCellModel
 
 @end
