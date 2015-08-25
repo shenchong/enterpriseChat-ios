@@ -40,7 +40,10 @@
 
 #pragma mark - rewrite superClass
 -(UIBarButtonItem *)rightBarButtonItem{
-    return [[UIBarButtonItem alloc] initWithTitle:@"test" style:UIBarButtonItemStyleDone target:nil action:nil];
+    return [[UIBarButtonItem alloc] initWithTitle:@"test"
+                                            style:UIBarButtonItemStyleDone
+                                           target:nil
+                                           action:nil];
 }
 
 #pragma mark - UITableViewDataSource,UITableViewDelegate

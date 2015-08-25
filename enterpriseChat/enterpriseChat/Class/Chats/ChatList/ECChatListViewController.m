@@ -26,6 +26,7 @@
         model.eid = [NSString stringWithFormat:@"我是eid %d",i];
         model.time = @"2015-07-30";
         model.msgInfo = @"请问这个鞋子什么时候能到货？发什么快递？请问这个鞋子什么时候能到货？发什么快递？";
+        model.unreadCount = 1000;
         [self.datasource addObject:model];
     }
     [self setupBadgeValue:@"1"];

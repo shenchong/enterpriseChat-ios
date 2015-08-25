@@ -12,6 +12,11 @@
 		9011DFD81B6A3F9900FFFFFB /* ECChatListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9011DFD41B6A3F9900FFFFFB /* ECChatListCell.m */; };
 		9011DFD91B6A3F9900FFFFFB /* ECChatListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9011DFD51B6A3F9900FFFFFB /* ECChatListCell.xib */; };
 		9011DFDA1B6A3F9900FFFFFB /* ECChatListCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9011DFD71B6A3F9900FFFFFB /* ECChatListCellModel.m */; };
+		90127DBB1B8C2018007534A6 /* EMFMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 90127DB11B8C2018007534A6 /* EMFMDatabase.m */; };
+		90127DBC1B8C2018007534A6 /* EMFMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 90127DB31B8C2018007534A6 /* EMFMDatabaseAdditions.m */; };
+		90127DBD1B8C2018007534A6 /* EMFMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 90127DB51B8C2018007534A6 /* EMFMDatabasePool.m */; };
+		90127DBE1B8C2018007534A6 /* EMFMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 90127DB71B8C2018007534A6 /* EMFMDatabaseQueue.m */; };
+		90127DBF1B8C2018007534A6 /* EMFMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 90127DBA1B8C2018007534A6 /* EMFMResultSet.m */; };
 		901D61DB1B86E992004CE921 /* tabbar_chats.png in Resources */ = {isa = PBXBuildFile; fileRef = 901D61C31B86E992004CE921 /* tabbar_chats.png */; };
 		901D61DC1B86E992004CE921 /* tabbar_chats@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 901D61C41B86E992004CE921 /* tabbar_chats@2x.png */; };
 		901D61DD1B86E992004CE921 /* tabbar_chats@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 901D61C51B86E992004CE921 /* tabbar_chats@3x.png */; };
@@ -99,6 +104,17 @@
 		9011DFD51B6A3F9900FFFFFB /* ECChatListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ECChatListCell.xib; sourceTree = "<group>"; };
 		9011DFD61B6A3F9900FFFFFB /* ECChatListCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECChatListCellModel.h; sourceTree = "<group>"; };
 		9011DFD71B6A3F9900FFFFFB /* ECChatListCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECChatListCellModel.m; sourceTree = "<group>"; };
+		90127DB01B8C2018007534A6 /* EMFMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMFMDatabase.h; sourceTree = "<group>"; };
+		90127DB11B8C2018007534A6 /* EMFMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMFMDatabase.m; sourceTree = "<group>"; };
+		90127DB21B8C2018007534A6 /* EMFMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMFMDatabaseAdditions.h; sourceTree = "<group>"; };
+		90127DB31B8C2018007534A6 /* EMFMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMFMDatabaseAdditions.m; sourceTree = "<group>"; };
+		90127DB41B8C2018007534A6 /* EMFMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMFMDatabasePool.h; sourceTree = "<group>"; };
+		90127DB51B8C2018007534A6 /* EMFMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMFMDatabasePool.m; sourceTree = "<group>"; };
+		90127DB61B8C2018007534A6 /* EMFMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMFMDatabaseQueue.h; sourceTree = "<group>"; };
+		90127DB71B8C2018007534A6 /* EMFMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMFMDatabaseQueue.m; sourceTree = "<group>"; };
+		90127DB81B8C2018007534A6 /* EMFMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMFMDB.h; sourceTree = "<group>"; };
+		90127DB91B8C2018007534A6 /* EMFMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMFMResultSet.h; sourceTree = "<group>"; };
+		90127DBA1B8C2018007534A6 /* EMFMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMFMResultSet.m; sourceTree = "<group>"; };
 		901D61C31B86E992004CE921 /* tabbar_chats.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_chats.png; sourceTree = "<group>"; };
 		901D61C41B86E992004CE921 /* tabbar_chats@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_chats@2x.png"; sourceTree = "<group>"; };
 		901D61C51B86E992004CE921 /* tabbar_chats@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_chats@3x.png"; sourceTree = "<group>"; };
@@ -256,6 +272,24 @@
 				9011DFD71B6A3F9900FFFFFB /* ECChatListCellModel.m */,
 			);
 			path = ECChatListCell;
+			sourceTree = "<group>";
+		};
+		90127DAF1B8C2018007534A6 /* fmdb203 */ = {
+			isa = PBXGroup;
+			children = (
+				90127DB01B8C2018007534A6 /* EMFMDatabase.h */,
+				90127DB11B8C2018007534A6 /* EMFMDatabase.m */,
+				90127DB21B8C2018007534A6 /* EMFMDatabaseAdditions.h */,
+				90127DB31B8C2018007534A6 /* EMFMDatabaseAdditions.m */,
+				90127DB41B8C2018007534A6 /* EMFMDatabasePool.h */,
+				90127DB51B8C2018007534A6 /* EMFMDatabasePool.m */,
+				90127DB61B8C2018007534A6 /* EMFMDatabaseQueue.h */,
+				90127DB71B8C2018007534A6 /* EMFMDatabaseQueue.m */,
+				90127DB81B8C2018007534A6 /* EMFMDB.h */,
+				90127DB91B8C2018007534A6 /* EMFMResultSet.h */,
+				90127DBA1B8C2018007534A6 /* EMFMResultSet.m */,
+			);
+			path = fmdb203;
 			sourceTree = "<group>";
 		};
 		901D61C21B86E992004CE921 /* tabbar */ = {
@@ -555,6 +589,7 @@
 		906CAA0D1B6903E300BC6D2F /* 3thPart */ = {
 			isa = PBXGroup;
 			children = (
+				90127DAF1B8C2018007534A6 /* fmdb203 */,
 				906CAA0E1B6903E300BC6D2F /* SDWebImage */,
 			);
 			path = 3thPart;
@@ -718,11 +753,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				906CAA3A1B6903E300BC6D2F /* UIImage+GIF.m in Sources */,
+				90127DBE1B8C2018007534A6 /* EMFMDatabaseQueue.m in Sources */,
 				90519C1C1B665B470048A081 /* ECChatViewController.m in Sources */,
 				90E921D81B68EFDA00FFB4D7 /* UIView+Frame.m in Sources */,
 				906CAA3C1B6903E300BC6D2F /* UIImage+WebP.m in Sources */,
 				906CAA311B6903E300BC6D2F /* NSData+ImageContentType.m in Sources */,
+				90127DBD1B8C2018007534A6 /* EMFMDatabasePool.m in Sources */,
 				904226E91B82F3B900EE8B0E /* DTFolderBar.m in Sources */,
+				90127DBC1B8C2018007534A6 /* EMFMDatabaseAdditions.m in Sources */,
 				90519C2E1B665CFE0048A081 /* ECSettingsListViewController.m in Sources */,
 				904226EB1B82F3B900EE8B0E /* DTNavigationController.m in Sources */,
 				90519C381B6660600048A081 /* ECViewManager.m in Sources */,
@@ -730,6 +768,7 @@
 				90519C281B665CCD0048A081 /* ECFriendListViewController.m in Sources */,
 				9011DFC21B6A3C8700FFFFFB /* ECBaseTableViewController.m in Sources */,
 				906CAA391B6903E300BC6D2F /* UIButton+WebCache.m in Sources */,
+				90127DBF1B8C2018007534A6 /* EMFMResultSet.m in Sources */,
 				906CAA371B6903E300BC6D2F /* SDWebImageManager.m in Sources */,
 				9063A39D1B6B5251007D4ED8 /* EMSearchDisplayController.m in Sources */,
 				90519B921B6657750048A081 /* AppDelegate.m in Sources */,
@@ -744,6 +783,7 @@
 				906CAA351B6903E300BC6D2F /* SDWebImageDownloader.m in Sources */,
 				9063A38F1B6B1EC2007D4ED8 /* ECFriendListCellModel.m in Sources */,
 				906CAA381B6903E300BC6D2F /* SDWebImagePrefetcher.m in Sources */,
+				90127DBB1B8C2018007534A6 /* EMFMDatabase.m in Sources */,
 				9034B3E61B6A1B5F000D0107 /* UIView+Radius.m in Sources */,
 				906CAA321B6903E300BC6D2F /* SDImageCache.m in Sources */,
 				906CAA361B6903E300BC6D2F /* SDWebImageDownloaderOperation.m in Sources */,

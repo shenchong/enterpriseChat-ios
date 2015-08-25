@@ -36,7 +36,7 @@
     }else {
         [self.unreadCountLabel setHidden:NO];
         if (self.unreadCountLabel.text.length == 3) {
-            [self.unreadCountLabel setFont:[UIFont systemFontOfSize:8]];
+            [self.unreadCountLabel setFont:[UIFont systemFontOfSize:9]];
         }else if (self.unreadCountLabel.text.length == 2){
             [self.unreadCountLabel setFont:[UIFont systemFontOfSize:11]];
         }else{

@@ -10,6 +10,6 @@
 
 @interface ECBaseTableViewController : ECBaseViewController
 @property (nonatomic, strong) UITableView *tableView;
-@property (nonatomic, strong) __block NSMutableArray *datasource;
+@property (nonatomic, strong) NSMutableArray *datasource;
 @property (nonatomic) BOOL isNeedSearch;
 @end

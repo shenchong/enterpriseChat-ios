@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8164.2" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8135.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -12,7 +12,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="63"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NMX-cx-Kvl">
@@ -25,7 +25,10 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2015-07-30" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dvc-L7-8Io">
-                        <rect key="frame" x="244" y="10" width="72" height="15"/>
+                        <rect key="frame" x="239" y="10" width="72" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="72" id="e6g-1Z-T1M"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
@@ -51,16 +54,16 @@
                 <constraints>
                     <constraint firstItem="ALH-ci-HYH" firstAttribute="leading" secondItem="NMX-cx-Kvl" secondAttribute="trailing" constant="7" id="8I7-Oc-XRs"/>
                     <constraint firstItem="ALH-ci-HYH" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="65" id="E5Y-LR-15C"/>
-                    <constraint firstItem="Dvc-L7-8Io" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="244" id="FeJ-n2-fdb"/>
+                    <constraint firstItem="Dvc-L7-8Io" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="239" id="FeJ-n2-fdb"/>
                     <constraint firstAttribute="trailingMargin" secondItem="BDO-jl-lOP" secondAttribute="trailing" constant="-39" id="Gcm-Fk-EcY"/>
                     <constraint firstItem="23e-bc-zPZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="47" id="HA6-Ij-Z9E"/>
                     <constraint firstItem="BDO-jl-lOP" firstAttribute="top" secondItem="ALH-ci-HYH" secondAttribute="bottom" constant="5" id="IBu-fw-mzL"/>
-                    <constraint firstItem="ALH-ci-HYH" firstAttribute="trailing" secondItem="Dvc-L7-8Io" secondAttribute="trailing" id="JpB-aO-vJb"/>
+                    <constraint firstItem="ALH-ci-HYH" firstAttribute="trailing" secondItem="Dvc-L7-8Io" secondAttribute="trailing" constant="5" id="JpB-aO-vJb"/>
                     <constraint firstItem="BDO-jl-lOP" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="LEd-8H-RKv"/>
                     <constraint firstItem="qh6-kx-4uR" firstAttribute="leading" secondItem="23e-bc-zPZ" secondAttribute="trailing" constant="1" id="MYv-8o-vYs"/>
                     <constraint firstItem="BDO-jl-lOP" firstAttribute="top" secondItem="NMX-cx-Kvl" secondAttribute="bottom" id="O85-Bh-zS9"/>
                     <constraint firstItem="ALH-ci-HYH" firstAttribute="top" secondItem="Dvc-L7-8Io" secondAttribute="bottom" constant="9" id="Q34-c0-der"/>
-                    <constraint firstItem="Dvc-L7-8Io" firstAttribute="leading" secondItem="qh6-kx-4uR" secondAttribute="trailing" constant="8" symbolic="YES" id="QMX-Wv-cMh"/>
+                    <constraint firstItem="Dvc-L7-8Io" firstAttribute="leading" secondItem="qh6-kx-4uR" secondAttribute="trailing" constant="3" id="QMX-Wv-cMh"/>
                     <constraint firstItem="NMX-cx-Kvl" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="V4Z-cy-ffe"/>
                     <constraint firstItem="Dvc-L7-8Io" firstAttribute="top" secondItem="qh6-kx-4uR" secondAttribute="top" id="VJ5-gf-J7A"/>
                     <constraint firstAttribute="trailingMargin" secondItem="ALH-ci-HYH" secondAttribute="trailing" constant="-4" id="VsO-AR-vv9"/>
