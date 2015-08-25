@@ -1,21 +1,21 @@
 //
-//  ECFriendListViewController.m
+//  ECContactsListViewController.m
 //  enterpriseChat
 //
 //  Created by dujiepeng on 15/7/29.
 //  Copyright (c) 2015年 easemob. All rights reserved.
 //
 
-#import "ECFriendListViewController.h"
+#import "ECContactsListViewController.h"
 #import "ECFriendListCellModel.h"
 #import "ECFriendListCell.h"
 
 #import "ECDepartmentListViewController.h"
 
-@interface ECFriendListViewController () <UITableViewDelegate,UITableViewDataSource>
+@interface ECContactsListViewController () <UITableViewDelegate,UITableViewDataSource>
 @end
 
-@implementation ECFriendListViewController
+@implementation ECContactsListViewController
 
 -(void)viewDidLoad {
     self.isNeedSearch = YES;

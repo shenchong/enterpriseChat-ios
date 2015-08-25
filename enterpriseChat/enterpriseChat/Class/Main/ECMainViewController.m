@@ -8,7 +8,7 @@
 
 #import "ECMainViewController.h"
 #import "ECChatListViewController.h"
-#import "ECFriendListViewController.h"
+#import "ECContactsListViewController.h"
 #import "ECEnterpriseListViewController.h"
 #import "ECSettingsListViewController.h"
 #import "ECNavigationController.h"
@@ -16,7 +16,7 @@
 @interface ECMainViewController () <UITabBarControllerDelegate>
 
 @property (nonatomic, strong) ECChatListViewController *chatList;
-@property (nonatomic, strong) ECFriendListViewController *friendList;
+@property (nonatomic, strong) ECContactsListViewController *friendList;
 @property (nonatomic, strong) ECEnterpriseListViewController *enterprise;
 @property (nonatomic, strong) ECSettingsListViewController *settings;
 
@@ -65,9 +65,9 @@
     return _chatList;
 }
 
--(ECFriendListViewController *)friendList{
+-(ECContactsListViewController *)friendList{
     if (!_friendList) {
-        _friendList = [[ECFriendListViewController alloc] init];
+        _friendList = [[ECContactsListViewController alloc] init];
         [_friendList setupWithTitle:@"联系人"
                   finishedSelectedImage:[UIImage imageNamed:@"tabbar_contacts"]
             withFinishedUnselectedImage:[UIImage imageNamed:@"tabbar_contactsHL"]
