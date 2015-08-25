@@ -7,23 +7,46 @@
 //
 
 #import "ECBaseCellModel.h"
+#import "ECContactModel.h"
+@interface ECBaseCellModel ()
+
+@end
 
 @implementation ECBaseCellModel
 @dynamic showName;
 
 -(NSString *)showName{
-    return _nickname?_nickname:_eid;
+    return self.nickname?self.nickname:self.eid;
 }
 
 -(NSString *)searchKey{
     return self.showName;
 }
 
+-(NSString *)eid{
+    return self.contactModel.eid;
+}
+
+-(NSString *)nickname{
+    return self.contactModel.nickname;
+}
+
+-(NSString *)headerRemotePath{
+    return self.contactModel.headImagePath;
+}
+
+
 +(CGFloat)heightForRowFromModel:(ECBaseCellModel *)model{
     if (model.cellHeight == 0) {
         model.cellHeight = 64;
     }
     return model.cellHeight;
+}
+
++(ECBaseCellModel *)createModelWithContactModel:(ECContactModel *)contactModel{
+    ECBaseCellModel *ret = [[ECBaseCellModel alloc] init];
+    ret.contactModel = contactModel;
+    return ret;
 }
 
 @end

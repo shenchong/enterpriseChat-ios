@@ -8,7 +8,7 @@
 
 #import "ECDepartmentListViewController.h"
 
-@interface ECDepartmentListViewController ()<UITableViewDataSource, UITableViewDelegate>
+@interface ECDepartmentListViewController ()
 
 @end
 

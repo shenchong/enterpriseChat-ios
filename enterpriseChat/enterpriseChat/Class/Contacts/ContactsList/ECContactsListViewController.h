@@ -1,5 +1,5 @@
 //
-//  ECFriendListViewController.h
+//  ECContactsListViewController.h
 //  enterpriseChat
 //
 //  Created by dujiepeng on 15/7/29.
@@ -9,5 +9,5 @@
 #import "ECBaseViewController.h"
 #import "ECBaseTableViewController.h"
 
-@interface ECFriendListViewController : ECBaseTableViewController
+@interface ECContactsListViewController : ECBaseTableViewController
 @end

@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "ECChatListCellModel.h"
-
 @interface ECChatListCell : UITableViewCell
 @property (nonatomic, strong) ECChatListCellModel *cellModel;
 @end

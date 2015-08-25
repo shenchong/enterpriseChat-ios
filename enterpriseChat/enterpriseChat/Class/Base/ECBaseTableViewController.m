@@ -57,6 +57,7 @@
     return 20;
 }
 
+
 #pragma mark - searchBarDelegate
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
     __weak typeof(self) weakSelf = self;

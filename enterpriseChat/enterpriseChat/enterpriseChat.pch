@@ -16,4 +16,5 @@
 #import "UIView+Frame.h"
 #import "UIView+Radius.h"
 #import "UIImageView+WebCache.h"
+#import "ECErrorDefs.h"
 #endif
