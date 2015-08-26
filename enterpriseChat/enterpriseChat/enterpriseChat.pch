@@ -17,4 +17,5 @@
 #import "UIView+Radius.h"
 #import "UIImageView+WebCache.h"
 #import "ECErrorDefs.h"
+#import "EaseMob.h"
 #endif
