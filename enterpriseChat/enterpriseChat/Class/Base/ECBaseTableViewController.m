@@ -9,7 +9,9 @@
 #import "ECBaseTableViewController.h"
 #import "RealtimeSearchUtil.h"
 #import "EMSearchDisplayController.h"
-@interface ECBaseTableViewController ()<UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate>
+#import "UIScrollView+EmptyDataSet.h"
+
+@interface ECBaseTableViewController ()<UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate,DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
 @property (nonatomic, strong) NSMutableArray *tempDatasource;
 @property (nonatomic, strong) UISearchBar *searchBar;
 @property (nonatomic, strong) EMSearchDisplayController *searchController;
@@ -77,6 +79,14 @@
      }];
 }
 
+#pragma mark - DZNEmptyDataSetSource & DZNEmptyDataSetDelegate
+- (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView
+{
+    NSString *imageName = @"initialize";
+    
+    return [UIImage imageNamed:imageName];
+}
+
 #pragma mark - getter
 -(UISearchBar *)searchBar{
     if (!_searchBar) {
@@ -129,6 +139,9 @@
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.tableFooterView = [[UIView alloc] init];
+        _tableView.emptyDataSetSource = self;
+        _tableView.emptyDataSetDelegate = self;
+        _tableView.tableFooterView = [UIView new];
     }
     
     return _tableView;
@@ -142,6 +155,8 @@
     
     return _datasource;
 }
+
+
 
 
 @end

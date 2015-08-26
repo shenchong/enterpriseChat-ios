@@ -6,8 +6,6 @@
 //  Copyright (c) 2015年 easemob. All rights reserved.
 //
 
-#import "ECBaseViewController.h"
-
-@interface ECChatViewController : ECBaseViewController
+@interface ECChatViewController : UIViewController
 
 @end
