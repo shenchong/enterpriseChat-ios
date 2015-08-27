@@ -21,10 +21,10 @@
     [self easemobApplication:application didFinishLaunchingWithOptions:launchOptions];
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = WINDOW_BACKCOLOR;
-//    self.window.rootViewController  = [[ECLoginViewController alloc]
-//                                       initWithNibName:@"ECLoginViewController" bundle:nil];
+    self.window.rootViewController  = [[ECLoginViewController alloc]
+                                       initWithNibName:@"ECLoginViewController" bundle:nil];
     
-        self.window.rootViewController  = [[ECMainViewController alloc] init];
+//  self.window.rootViewController  = [[ECMainViewController alloc] init];
     [self.window makeKeyAndVisible];
     return YES;
 }

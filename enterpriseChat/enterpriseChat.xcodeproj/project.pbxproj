@@ -27,6 +27,8 @@
 		90127DED1B8C2E7C007534A6 /* ECContactModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 90127DEC1B8C2E7C007534A6 /* ECContactModel.m */; };
 		901758131B8DD28F004CD075 /* UIScrollView+EmptyDataSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 901758121B8DD28F004CD075 /* UIScrollView+EmptyDataSet.m */; };
 		901758151B8DD5FE004CD075 /* initialize.png in Resources */ = {isa = PBXBuildFile; fileRef = 901758141B8DD5FE004CD075 /* initialize.png */; };
+		901758181B8DE062004CD075 /* UIViewController+DismissKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 901758171B8DE062004CD075 /* UIViewController+DismissKeyboard.m */; };
+		901A5F531B8EC95F0056B37D /* UITextField+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 901A5F521B8EC95F0056B37D /* UITextField+Category.m */; };
 		901D61DB1B86E992004CE921 /* tabbar_chats.png in Resources */ = {isa = PBXBuildFile; fileRef = 901D61C31B86E992004CE921 /* tabbar_chats.png */; };
 		901D61DC1B86E992004CE921 /* tabbar_chats@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 901D61C41B86E992004CE921 /* tabbar_chats@2x.png */; };
 		901D61DD1B86E992004CE921 /* tabbar_chats@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 901D61C51B86E992004CE921 /* tabbar_chats@3x.png */; };
@@ -158,6 +160,10 @@
 		901758111B8DD28F004CD075 /* UIScrollView+EmptyDataSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+EmptyDataSet.h"; sourceTree = "<group>"; };
 		901758121B8DD28F004CD075 /* UIScrollView+EmptyDataSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+EmptyDataSet.m"; sourceTree = "<group>"; };
 		901758141B8DD5FE004CD075 /* initialize.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = initialize.png; sourceTree = "<group>"; };
+		901758161B8DE062004CD075 /* UIViewController+DismissKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+DismissKeyboard.h"; sourceTree = "<group>"; };
+		901758171B8DE062004CD075 /* UIViewController+DismissKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+DismissKeyboard.m"; sourceTree = "<group>"; };
+		901A5F511B8EC95F0056B37D /* UITextField+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+Category.h"; sourceTree = "<group>"; };
+		901A5F521B8EC95F0056B37D /* UITextField+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+Category.m"; sourceTree = "<group>"; };
 		901D61C31B86E992004CE921 /* tabbar_chats.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_chats.png; sourceTree = "<group>"; };
 		901D61C41B86E992004CE921 /* tabbar_chats@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_chats@2x.png"; sourceTree = "<group>"; };
 		901D61C51B86E992004CE921 /* tabbar_chats@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_chats@3x.png"; sourceTree = "<group>"; };
@@ -1120,12 +1126,16 @@
 		90E921D31B68EFDA00FFB4D7 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				901758161B8DE062004CD075 /* UIViewController+DismissKeyboard.h */,
+				901758171B8DE062004CD075 /* UIViewController+DismissKeyboard.m */,
 				901758111B8DD28F004CD075 /* UIScrollView+EmptyDataSet.h */,
 				901758121B8DD28F004CD075 /* UIScrollView+EmptyDataSet.m */,
 				9034B3E41B6A1B5F000D0107 /* UIView+Radius.h */,
 				9034B3E51B6A1B5F000D0107 /* UIView+Radius.m */,
 				90E921D41B68EFDA00FFB4D7 /* UIView+Frame.h */,
 				90E921D51B68EFDA00FFB4D7 /* UIView+Frame.m */,
+				901A5F511B8EC95F0056B37D /* UITextField+Category.h */,
+				901A5F521B8EC95F0056B37D /* UITextField+Category.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -1245,6 +1255,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				901758181B8DE062004CD075 /* UIViewController+DismissKeyboard.m in Sources */,
 				90127DED1B8C2E7C007534A6 /* ECContactModel.m in Sources */,
 				906CAA3A1B6903E300BC6D2F /* UIImage+GIF.m in Sources */,
 				90519C1C1B665B470048A081 /* ECChatViewController.m in Sources */,
@@ -1277,6 +1288,7 @@
 				90519B8F1B6657750048A081 /* main.m in Sources */,
 				90519C321B665F450048A081 /* ECNavigationController.m in Sources */,
 				906CAA3D1B6903E300BC6D2F /* UIImageView+HighlightedWebCache.m in Sources */,
+				901A5F531B8EC95F0056B37D /* UITextField+Category.m in Sources */,
 				9011DFC31B6A3C8700FFFFFB /* ECBaseViewController.m in Sources */,
 				906CAA351B6903E300BC6D2F /* SDWebImageDownloader.m in Sources */,
 				902B0E7F1B8DBD8F00EBA3FE /* ECLoginViewController.m in Sources */,
