@@ -7,12 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ECContactDelegate.h"
 
-@interface ECContactModel : NSObject
-@property (nonatomic, strong) NSString *eid;
-@property (nonatomic, strong) NSString *nickname;
-@property (nonatomic, strong) NSString *headImagePath;
-@property (nonatomic, strong) NSString *bgImagePath;
-@property (nonatomic, strong) NSString *phoneNumber;
-@property (nonatomic, strong) NSString *department;
+@interface ECContactModel : NSObject <ECContactDelegate>
+@property (nonatomic, strong) NSString *contactEid;
+@property (nonatomic, strong) NSString *contactNickname;
+@property (nonatomic, strong) NSString *contactHeadImagePath;
+@property (nonatomic, strong) NSString *contactBgImagePath;
+@property (nonatomic, strong) NSString *contactPhoneNumber;
+@property (nonatomic, strong) NSString *contactDepartment;
+@property (nonatomic, strong) UIImage *contactPlaceholderImage;
 @end

@@ -32,7 +32,8 @@
 -(void)setCellModel:(ECContactListCellModel *)cellModel{
     _cellModel = cellModel;
     [self.headImageView sd_setImageWithURL:[NSURL URLWithString:_cellModel.headerRemotePath]
-                          placeholderImage:[UIImage imageNamed:@"chatListCellHead"]];
+                          placeholderImage:_cellModel.headerPlaceholderImage?
+     _cellModel.headerPlaceholderImage:[UIImage imageNamed:@"chatListCellHead"]];
     self.showNameLabel.text = _cellModel.showName;
 }
 

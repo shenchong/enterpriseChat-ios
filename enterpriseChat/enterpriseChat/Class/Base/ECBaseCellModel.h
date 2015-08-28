@@ -8,14 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
-@class ECContactModel;
+@protocol ECContactDelegate;
 @interface ECBaseCellModel : NSObject
-@property (nonatomic, strong) NSString *showName;
-@property (nonatomic, strong) NSString *nickname;
-@property (nonatomic, strong) NSString *eid;
-@property (nonatomic, strong) NSString *headerRemotePath;
+@property (nonatomic, strong, readonly) NSString *showName;
+@property (nonatomic, strong, readonly) NSString *nickname;
+@property (nonatomic, strong, readonly) NSString *eid;
+@property (nonatomic, strong, readonly) NSString *headerRemotePath;
+@property (nonatomic, strong, readonly) UIImage *headerPlaceholderImage;
 @property (nonatomic, strong, readonly) NSString *searchKey;
-@property (nonatomic, strong) ECContactModel *contactModel;
+@property (nonatomic) id <ECContactDelegate> contactDelegate;
 @property (nonatomic) CGFloat cellHeight;
 +(CGFloat)heightForRowFromModel:(ECBaseCellModel *)model;
 @end

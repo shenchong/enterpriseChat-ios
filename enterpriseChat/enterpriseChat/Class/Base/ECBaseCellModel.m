@@ -20,19 +20,19 @@
 }
 
 -(NSString *)searchKey{
-    return self.showName;
+    return self.contactDelegate.searchKey;
 }
 
 -(NSString *)eid{
-    return self.contactModel.eid;
+    return self.contactDelegate.eid;
 }
 
 -(NSString *)nickname{
-    return self.contactModel.nickname;
+    return self.contactDelegate.nickname;
 }
 
 -(NSString *)headerRemotePath{
-    return self.contactModel.headImagePath;
+    return self.contactDelegate.headImagePath;
 }
 
 
@@ -45,7 +45,7 @@
 
 +(ECBaseCellModel *)createModelWithContactModel:(ECContactModel *)contactModel{
     ECBaseCellModel *ret = [[ECBaseCellModel alloc] init];
-    ret.contactModel = contactModel;
+    ret.contactDelegate = contactModel;
     return ret;
 }
 
