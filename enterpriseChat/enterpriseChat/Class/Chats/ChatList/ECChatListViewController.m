@@ -25,11 +25,11 @@
     //for test
     for (int i = 0; i < 1000; i++) {
         ECContactModel *contactModel = [[ECContactModel alloc] init];
-//        contactModel.nickname = @"名字很长名字很长名字很长名字很长名字很长名字很长名字很长";
-        contactModel.eid = [NSString stringWithFormat:@"我是eid %d",i];
-        contactModel.headImagePath = @"http://img0.bdstatic.com/img/image/chongwu0727.jpg";
+//        contactModel.contactNickname = @"名字很长名字很长名字很长名字很长名字很长名字很长名字很长";
+        contactModel.contactEid = [NSString stringWithFormat:@"我是eid %d",i];
+        contactModel.contactHeadImagePath = @"http://img0.bdstatic.com/img/image/chongwu0727.jpg";
         ECChatListCellModel *model = [[ECChatListCellModel alloc] init];
-        model.contactModel = contactModel;
+        model.contactDelegate = contactModel;
         model.time = @"2015-07-30";
         model.msgInfo = @"请问这个鞋子什么时候能到货？发什么快递？请问这个鞋子什么时候能到货？发什么快递？";
         model.unreadCount = 1000;

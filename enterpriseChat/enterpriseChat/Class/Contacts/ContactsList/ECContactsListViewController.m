@@ -19,20 +19,28 @@
 -(void)viewDidLoad {
     self.isNeedSearch = YES;
     [super viewDidLoad];
-    ECContactListCellModel *model = [[ECContactListCellModel alloc] init];
-    model.headerRemotePath = @"http://img0.bdstatic.com/img/image/chongwu0727.jpg";
-    model.eid = @"我是eid";
-    model.nickname = @"环信";
-    [self.datasource addObject:@[model]];
+    ECContactListCellModel *easeModel = [[ECContactListCellModel alloc] init];
+    ECContactModel *model = [[ECContactModel alloc] init];
+    model.contactPlaceholderImage = [UIImage imageNamed:@"department"];
+    model.contactNickname = @"环信";
+    easeModel.contactDelegate = model;
+    
+    ECContactListCellModel *departModel = [[ECContactListCellModel alloc] init];
+    model = [[ECContactModel alloc] init];
+    model.contactPlaceholderImage = [UIImage imageNamed:@"department"];
+    model.contactNickname = @"群组";
+    departModel.contactDelegate = model;
+    
+    [self.datasource addObject:@[easeModel,departModel]];
     // for test
     NSMutableArray *testAry = [[NSMutableArray alloc] init];
     for (int i = 0; i < 10; i++) {
         ECContactModel *contactModel = [[ECContactModel alloc] init];
-        contactModel.nickname = @"名字很长名字很长名字很长名字很长名字很长名字很长名字很长";
-        contactModel.eid = [NSString stringWithFormat:@"我是eid %d",i];
-        contactModel.headImagePath = @"http://img0.bdstatic.com/img/image/chongwu0727.jpg";
+        contactModel.contactNickname = @"名字很长名字很长名字很长名字很长名字很长名字很长名字很长";
+        contactModel.contactEid = [NSString stringWithFormat:@"我是eid %d",i];
+        contactModel.contactHeadImagePath = @"http://img0.bdstatic.com/img/image/chongwu0727.jpg";
         ECContactListCellModel *model = [[ECContactListCellModel alloc] init];
-        model.contactModel = contactModel;
+        model.contactDelegate = contactModel;
         [testAry addObject:model];
     }
     
@@ -55,8 +63,8 @@
             [tableView registerNib:[UINib nibWithNibName:@"ECContactListCell" bundle:nil]
             forCellReuseIdentifier:@"ECContactListCell"];
             cell = [tableView dequeueReusableCellWithIdentifier:@"ECContactListCell"];
-            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         }
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         NSArray *cellModels = [self.datasource objectAtIndex:[indexPath section]];
         cell.cellModel = [cellModels objectAtIndex:indexPath.row];
         
