@@ -26,6 +26,7 @@
 
 -(void)viewDidLoad{
     [super viewDidLoad];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
     self.delegate = self;
     [self setupTabbar];
     self.viewControllers = @[[self setupNavWithVC:self.chatList],

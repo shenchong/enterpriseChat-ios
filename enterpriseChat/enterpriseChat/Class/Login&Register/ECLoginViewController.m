@@ -25,7 +25,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     [self setupUI];
     [self setupForDismissKeyboard];
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -84,7 +84,6 @@
         self.view.top = 0;
     }
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

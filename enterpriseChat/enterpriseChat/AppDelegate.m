@@ -10,6 +10,10 @@
 #import "ECMainViewController.h"
 #import "AppDelegate+EaseMob.h"
 #import "ECLoginViewController.h"
+
+#import "ECDBManager.h"
+#import "ECDepartmentModel.h"
+
 @interface AppDelegate ()
 
 @end
@@ -19,12 +23,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [self easemobApplication:application didFinishLaunchingWithOptions:launchOptions];
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = WINDOW_BACKCOLOR;
-//    self.window.rootViewController  = [[ECLoginViewController alloc]
-//                                       initWithNibName:@"ECLoginViewController" bundle:nil];
-    
     self.window.rootViewController  = [[ECMainViewController alloc] init];
     [self.window makeKeyAndVisible];
     return YES;
