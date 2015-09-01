@@ -166,6 +166,22 @@
     return ret;
 }
 
+- (NSArray *)_loadAllDepartments{
+    __block NSMutableArray *ret = nil;
+    [_databaseQueue inDatabase:^(FMDatabase *db) {
+        NSString *queryString = [NSString stringWithFormat:@"SELECT * FROM '%@'", ECDEPARTMENT];
+        FMResultSet *rs = [db executeQuery:queryString];
+        while ([rs next]) {
+            ECDepartmentModel *deparment = [self departmentFromResultSet:rs];
+            [ret addObject:deparment];
+            break;
+        }
+        [rs close];
+    }];
+    return ret;
+
+}
+
 - (ECContactModel *)_loadContactWithID:(NSString *)eid{
     __block ECContactModel *ret = nil;
     [_databaseQueue inDatabase:^(FMDatabase *db) {
@@ -173,6 +189,21 @@
         FMResultSet *rs = [db executeQuery:queryString,eid];
         while ([rs next]) {
             ret = [self contactFromResultSet:rs];
+            break;
+        }
+        [rs close];
+    }];
+    return ret;
+}
+
+- (NSArray *)_loadAllContacts{
+    __block NSMutableArray *ret = nil;
+    [_databaseQueue inDatabase:^(FMDatabase *db) {
+        NSString *queryString = [NSString stringWithFormat:@"SELECT * FROM '%@'", ECCONTACT];
+        FMResultSet *rs = [db executeQuery:queryString];
+        while ([rs next]) {
+            ECContactModel *contactModel = [self contactFromResultSet:rs];
+            [ret addObject:contactModel];
             break;
         }
         [rs close];
@@ -265,12 +296,20 @@
     return ret;
 }
 
+- (NSArray *)loadAllDepartmentsForAccount:(NSString *)account{
+    return nil;
+}
+
 - (ECContactModel *)loadContactWithID:(NSString *)eid loginAccount:(NSString *)account{
     __block ECContactModel *ret = nil;
     if (self.loginAccount == account) {
         ret = [self _loadContactWithID:eid];
     }
     return ret;
+}
+
+- (NSArray *)loadAllContactsForAccount:(NSString *)account{
+    return nil;
 }
 
 #pragma mark - actions
