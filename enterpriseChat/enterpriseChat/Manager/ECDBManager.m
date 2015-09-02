@@ -104,7 +104,7 @@
         NSString *insertStr = [NSString stringWithFormat:@"insert into `%@` (`%@`,`%@`,`%@`,`%@`,`%@`,`%@`,`%@`) VALUES (?,?,?,?,?,?,?)",ECDEPARTMENT, ECDEPARTMENT_ID, ECDEPARTMENT_NAME, ECDEPARTMENT_SUPID, ECDEPARTMENT_MEMBERS, ECDEPARTMENT_SUBIDS,ECDEPARTMENT_IMAGEPATH,ECDEPARTMENT_LEVEL];
         NSString *members = [department.deparementMembers componentsJoinedByString:@"_"];
         NSString *subIds = [department.departmentSubIds componentsJoinedByString:@"_"];
-        ret = [db executeUpdate:insertStr,department.departmentId,department.departmentName,department.departmentSupId,members,subIds,department.departmentImagePath,[NSNumber numberWithInt:department.departmentLevel]];
+        ret = [db executeUpdate:insertStr,department.departmentId,department.departmentName,department.departmentSupId,members,subIds,department.departmentImagePath,department.departmentLevel];
     }
     return ret;
 }
@@ -123,7 +123,7 @@
     NSString *updateStr = [NSString stringWithFormat:@"update `%@` set %@=?,%@=?,%@=?,%@=?,%@=?,%@=? where %@=?",ECDEPARTMENT, ECDEPARTMENT_NAME, ECDEPARTMENT_SUPID, ECDEPARTMENT_MEMBERS, ECDEPARTMENT_SUBIDS,ECDEPARTMENT_IMAGEPATH,ECDEPARTMENT_LEVEL,ECDEPARTMENT_ID];
     NSString *members = [department.deparementMembers componentsJoinedByString:@"_"];
     NSString *subIds = [department.departmentSubIds componentsJoinedByString:@"_"];
-    ret = [db executeUpdate:updateStr,department.departmentName,department.departmentSupId,members,subIds,department.departmentImagePath,[NSNumber numberWithInt:department.departmentLevel],department.departmentId];
+    ret = [db executeUpdate:updateStr,department.departmentName,department.departmentSupId,members,subIds,department.departmentImagePath,department.departmentLevel,department.departmentId];
     return ret;
 }
 

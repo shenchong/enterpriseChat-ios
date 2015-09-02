@@ -9,8 +9,10 @@
 #import <Foundation/Foundation.h>
 
 @interface ECViewManager : NSObject
-+(ECViewManager *)sharedInstance;
++ (ECViewManager *)sharedInstance;
 
--(void)setupStatusBarStyle2LightContent;
--(void)setupStatusBarStyle2Default;
+- (void)setupStatusBarStyle2LightContent;
+- (void)setupStatusBarStyle2Default;
+- (void)setupNavigationBar2Black;
+- (void)setupNavigationBar2White;
 @end

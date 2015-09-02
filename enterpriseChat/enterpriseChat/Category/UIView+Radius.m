@@ -9,7 +9,7 @@
 #import "UIView+Radius.h"
 
 @implementation UIView (Radius)
--(void)radius:(CGFloat)radius
+- (void)radius:(CGFloat)radius
         color:(UIColor *)color
        border:(CGFloat)border{
     [[self layer] setBorderWidth:border];//画线的宽度

@@ -57,7 +57,6 @@
               menuItems:(NSArray *)menuItems;
 
 + (void) dismissMenu;
-
 + (UIColor *) tintColor;
 + (void) setTintColor: (UIColor *) tintColor;
 

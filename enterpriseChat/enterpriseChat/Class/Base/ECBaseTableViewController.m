@@ -33,7 +33,7 @@
 }
 
 #pragma mark - UITableViewDataSource & UITableViewDelegate
--(UITableViewCell *)tableView:(UITableView *)tableView
+- (UITableViewCell *)tableView:(UITableView *)tableView
         cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     if (!cell) {
@@ -43,19 +43,19 @@
     return cell;
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 54;
 }
 
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
 }
 
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return 20;
 }
 
@@ -65,7 +65,6 @@
     __weak typeof(self) weakSelf = self;
     [[RealtimeSearchUtil currentUtil] realtimeSearchWithSource:self.tempDatasource
                                                     searchText:(NSString *)searchText
-                                       collationStringSelector:@selector(searchKey)
                                                    resultBlock:^(NSArray *results)
      {
          if (results) {
@@ -88,7 +87,7 @@
 }
 
 #pragma mark - getter
--(UISearchBar *)searchBar{
+- (UISearchBar *)searchBar{
     if (!_searchBar) {
         _searchBar = [[UISearchBar alloc] init];
         _searchBar.delegate = self;
@@ -97,7 +96,7 @@
     return _searchBar;
 }
 
--(EMSearchDisplayController *)searchDisplayController{
+- (EMSearchDisplayController *)searchDisplayController{
     if (!_searchController) {
         __weak typeof(self) weakSelf = self;
         _searchController = [[EMSearchDisplayController alloc] initWithSearchBar:self.searchBar
@@ -133,7 +132,7 @@
     return _searchController;
 }
 
--(UITableView *)tableView{
+- (UITableView *)tableView{
     if (!_tableView) {
         _tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
         _tableView.delegate = self;
@@ -148,7 +147,7 @@
 }
 
 #pragma mark - getter
--(NSMutableArray *)datasource{
+- (NSMutableArray *)datasource{
     if (!_datasource) {
         _datasource = [[NSMutableArray alloc] initWithCapacity:0];
     }

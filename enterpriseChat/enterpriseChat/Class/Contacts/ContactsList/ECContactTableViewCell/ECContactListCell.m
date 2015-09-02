@@ -21,7 +21,7 @@
     [self.headImageView radius:self.headImageView.width/2 color:nil border:0];
 }
 
--(void)layoutSubviews{
+- (void)layoutSubviews{
     [super layoutSubviews];
 }
 
@@ -29,7 +29,7 @@
     [super setSelected:selected animated:animated];
 }
 
--(void)setCellModel:(ECContactListCellModel *)cellModel{
+- (void)setCellModel:(ECContactListCellModel *)cellModel{
     _cellModel = cellModel;
     [self.headImageView sd_setImageWithURL:[NSURL URLWithString:_cellModel.headerRemotePath]
                           placeholderImage:_cellModel.headerPlaceholderImage?

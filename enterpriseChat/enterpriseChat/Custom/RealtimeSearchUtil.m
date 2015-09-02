@@ -1,24 +1,23 @@
 /************************************************************
-  *  * EaseMob CONFIDENTIAL 
-  * __________________ 
-  * Copyright (C) 2013-2014 EaseMob Technologies. All rights reserved. 
-  *  
-  * NOTICE: All information contained herein is, and remains 
-  * the property of EaseMob Technologies.
-  * Dissemination of this information or reproduction of this material 
-  * is strictly forbidden unless prior written permission is obtained
-  * from EaseMob Technologies.
-  */
+ *  * EaseMob CONFIDENTIAL
+ * __________________
+ * Copyright (C) 2013-2014 EaseMob Technologies. All rights reserved.
+ *
+ * NOTICE: All information contained herein is, and remains
+ * the property of EaseMob Technologies.
+ * Dissemination of this information or reproduction of this material
+ * is strictly forbidden unless prior written permission is obtained
+ * from EaseMob Technologies.
+ */
 
 #import "RealtimeSearchUtil.h"
+#import "ECContactDelegate.h"
 
 static RealtimeSearchUtil *defaultUtil = nil;
 
 @interface RealtimeSearchUtil()
 
 @property (weak, nonatomic) id source;
-
-@property (nonatomic) SEL selector;
 
 @property (copy, nonatomic) RealtimeSearchResultsBlock resultBlock;
 
@@ -36,7 +35,6 @@ static RealtimeSearchUtil *defaultUtil = nil;
 @implementation RealtimeSearchUtil
 
 @synthesize source = _source;
-@synthesize selector = _selector;
 @synthesize resultBlock = _resultBlock;
 
 - (instancetype)init
@@ -89,21 +87,10 @@ static RealtimeSearchUtil *defaultUtil = nil;
         else{
             NSMutableArray *results = [NSMutableArray array];
             NSString *subStr = [string lowercaseString];
-            for (id object in weakSelf.source) {
+            for (id <ECContactDelegate>object in weakSelf.source) {
                 NSString *tmpString = @"";
-                if (weakSelf.selector) {
-                    if([object respondsToSelector:weakSelf.selector])
-                    {
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-                        tmpString = [[object performSelector:weakSelf.selector] lowercaseString];
-#pragma clang diagnostic pop
-                        
-                    }
-                }
-                else if ([object isKindOfClass:[NSString class]])
-                {
-                    tmpString = [object lowercaseString];
+                if ([object respondsToSelector:@selector(searchKey)]) {
+                    tmpString = [[object searchKey] lowercaseString];
                 }
                 else{
                     continue;
@@ -131,7 +118,6 @@ static RealtimeSearchUtil *defaultUtil = nil;
  */
 - (void)realtimeSearchWithSource:(id)source
                       searchText:(NSString *)searchText
-         collationStringSelector:(SEL)selector
                      resultBlock:(RealtimeSearchResultsBlock)resultBlock
 {
     if (!source || !searchText || !resultBlock) {
@@ -142,7 +128,6 @@ static RealtimeSearchUtil *defaultUtil = nil;
     }
     
     _source = source;
-    _selector = selector;
     _resultBlock = resultBlock;
     [self realtimeSearch:searchText];
 }

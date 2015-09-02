@@ -19,7 +19,7 @@
 
 @implementation ECChatListViewController
 
--(void)viewDidLoad{
+- (void)viewDidLoad{
     self.isNeedSearch = YES;
     [super viewDidLoad];
     //for test
@@ -39,7 +39,7 @@
 }
 
 #pragma mark - rewrite superClass
--(UIBarButtonItem *)rightBarButtonItem{
+- (UIBarButtonItem *)rightBarButtonItem{
     UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
                                                                                         target:self
                                                                                         action:@selector(addChat:)];
@@ -76,7 +76,7 @@
 }
 
 #pragma mark - UITableViewDataSource,UITableViewDelegate
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     ECChatListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ECChatListCell"];
     if (!cell) {
         [tableView registerNib:[UINib nibWithNibName:@"ECChatListCell" bundle:nil]
@@ -87,16 +87,16 @@
     return cell;
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return [ECChatListCellModel heightForRowFromModel:[self.datasource objectAtIndex:[indexPath row]]];
 }
 
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.datasource.count;
 }
 
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 

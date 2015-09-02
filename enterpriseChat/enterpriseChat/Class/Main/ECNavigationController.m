@@ -16,9 +16,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [[UINavigationBar appearance] setTitleTextAttributes:
-     [NSDictionary dictionaryWithObjectsAndKeys:NAVTITLE_COLOR, NSForegroundColorAttributeName,
-      [UIFont systemFontOfSize:NAVTITLE_FONT_SIZE], NSFontAttributeName, nil]];
 }
 
 - (void)didReceiveMemoryWarning {

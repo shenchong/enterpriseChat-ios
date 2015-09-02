@@ -118,7 +118,7 @@
 }
 
 
--(void)searchDisplayControllerDidEndSearch:(UISearchDisplayController *)controller{
+- (void)searchDisplayControllerDidEndSearch:(UISearchDisplayController *)controller{
     if (_searchDisplayControllerDidEndSearch) {
         _searchDisplayControllerDidEndSearch(controller);
     }

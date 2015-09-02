@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface UIView (Radius)
--(void)radius:(CGFloat)radius color:(UIColor *)color border:(CGFloat)border;
+- (void)radius:(CGFloat)radius color:(UIColor *)color border:(CGFloat)border;
 @end

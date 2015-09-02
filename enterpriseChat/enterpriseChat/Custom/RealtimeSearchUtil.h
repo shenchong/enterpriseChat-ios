@@ -33,12 +33,10 @@ typedef void (^RealtimeSearchResultsBlock)(NSArray *results);
  *
  *  @param source      要搜索的数据源
  *  @param searchText  要搜索的字符串
- *  @param selector    获取元素中要比较的字段的方法
  *  @param resultBlock 回调方法，返回搜索结果
  */
 - (void)realtimeSearchWithSource:(id)source
                       searchText:(NSString *)searchText
-         collationStringSelector:(SEL)selector
                      resultBlock:(RealtimeSearchResultsBlock)resultBlock;
 
 /**

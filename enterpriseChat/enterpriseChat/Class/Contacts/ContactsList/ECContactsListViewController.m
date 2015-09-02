@@ -16,7 +16,7 @@
 
 @implementation ECContactsListViewController
 
--(void)viewDidLoad {
+- (void)viewDidLoad {
     self.isNeedSearch = YES;
     [super viewDidLoad];
     ECContactListCellModel *easeModel = [[ECContactListCellModel alloc] init];
@@ -48,7 +48,7 @@
 }
 
 #pragma mark - rewrite superClass
--(UIBarButtonItem *)rightBarButtonItem{
+- (UIBarButtonItem *)rightBarButtonItem{
     return [[UIBarButtonItem alloc] initWithTitle:@"test"
                                             style:UIBarButtonItemStyleDone
                                            target:nil
@@ -56,7 +56,7 @@
 }
 
 #pragma mark - UITableViewDataSource,UITableViewDelegate
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0) {
         ECContactListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ECContactListCell"];
         if (!cell) {
@@ -83,7 +83,7 @@
     }
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0) {
         return 64;
     }else {
@@ -92,15 +92,15 @@
     }
 }
 
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return ((NSArray *)[self.datasource objectAtIndex:section]).count;
 }
 
--(NSInteger)numberOfSectionsInTableView:(nonnull UITableView *)tableView{
+- (NSInteger)numberOfSectionsInTableView:(nonnull UITableView *)tableView{
     return self.datasource.count;
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.section == 0) {
         ECDepartmentListViewController *departmentListVC = [[ECDepartmentListViewController alloc] init];
@@ -111,7 +111,7 @@
     }
 }
 
--(CGFloat)tableView:(nonnull UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+- (CGFloat)tableView:(nonnull UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     if (section == 0) {
         return 0;
     }else {

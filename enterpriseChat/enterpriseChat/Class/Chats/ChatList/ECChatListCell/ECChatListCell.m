@@ -33,14 +33,14 @@
 }
 
 
--(void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated{
+- (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated{
     [super setHighlighted:highlighted animated:animated];
     if (![_unreadCountLabel isHidden]) {
         _unreadCountLabel.backgroundColor = [UIColor redColor];
     }
 }
 
--(void)layoutSubviews{
+- (void)layoutSubviews{
     [super layoutSubviews];
     if (_cellModel.unreadCount == 0) {
         [self.unreadCountLabel setHidden:YES];
@@ -56,7 +56,7 @@
     }
 }
 
--(void)setCellModel:(ECChatListCellModel *)cellModel{
+- (void)setCellModel:(ECChatListCellModel *)cellModel{
     _cellModel = cellModel;
     [self.headImageView sd_setImageWithURL:[NSURL URLWithString:_cellModel.headerRemotePath]
                           placeholderImage:[UIImage imageNamed:@"chatListCellHead"]];

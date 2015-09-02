@@ -22,10 +22,19 @@
 
 @implementation ECLoginViewController
 
++ (UINavigationController *)showLoginViewController{
+    ECLoginViewController *loginVC = [[ECLoginViewController alloc]
+                                      initWithNibName:@"ECLoginViewController" bundle:nil];
+    loginVC.title = @"登录";
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:loginVC];
+    [nav setNavigationBarHidden:YES];
+    [nav.navigationBar setBackgroundImage:[UIImage imageNamed:@"chatListCellHead"] forBarMetrics:UIBarMetricsDefault];
+    return nav;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    [[ECViewManager sharedInstance] setupStatusBarStyle2LightContent];
     [self setupUI];
     [self setupForDismissKeyboard];
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -64,6 +73,13 @@
     [_pwdField setClearButtonImage:[UIImage imageNamed:@"tabbar_chatsHL"]];
     [_pwdField setClearButtonMode:UITextFieldViewModeWhileEditing];
     [_pwdField setClearsOnBeginEditing:YES];
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
+                                              initWithTitle:@"确定"
+                                              style:UIBarButtonItemStyleDone
+                                              target:self
+                                              action:@selector(login)];
+    self.navigationItem.rightBarButtonItem.tintColor = [UIColor whiteColor];
 }
 
 - (void)keyboardWillChangeFrame:(NSNotification *)notification
@@ -85,6 +101,10 @@
     }
 }
 
+- (void)doneButton:(id)sender{
+    
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -98,6 +118,16 @@
         }];
     }
     _firstResponderView = textField;
+    return YES;
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    if (string.length > 0) {
+        [self.navigationController setNavigationBarHidden:NO animated:YES];
+    }else {
+        [self.navigationController setNavigationBarHidden:YES animated:YES];
+    }
+    
     return YES;
 }
 
@@ -125,6 +155,19 @@
         [textField resignFirstResponder];
     }
     return YES;
+}
+
+#pragma mark - actions
+- (void)login{
+    if ([self.usernameField.text isEffective] && [self.pwdField.text isEffective]) {
+        [[EaseMob sharedInstance].chatManager asyncLoginWithUsername:self.usernameField.text
+                                                            password:self.pwdField.text
+                                                          completion:^(NSDictionary *loginInfo, EMError *error)
+         {
+             [[NSNotificationCenter defaultCenter] postNotificationName:LOGIN_CHANGE_NOTIFICATION
+                                                                 object:@YES];
+         } onQueue:nil];
+    }
 }
 
 @end

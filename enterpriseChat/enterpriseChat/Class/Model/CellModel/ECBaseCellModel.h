@@ -18,5 +18,5 @@
 @property (nonatomic, strong, readonly) NSString *searchKey;
 @property (nonatomic) id <ECContactDelegate> contactDelegate;
 @property (nonatomic) CGFloat cellHeight;
-+(CGFloat)heightForRowFromModel:(ECBaseCellModel *)model;
++ (CGFloat)heightForRowFromModel:(ECBaseCellModel *)model;
 @end

@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface ECLoginViewController : UIViewController
-
++ (UINavigationController *)showLoginViewController;
 @end

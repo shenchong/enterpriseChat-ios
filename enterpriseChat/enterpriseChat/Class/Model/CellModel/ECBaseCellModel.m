@@ -15,35 +15,35 @@
 @implementation ECBaseCellModel
 @dynamic showName;
 
--(NSString *)showName{
+- (NSString *)showName{
     return self.nickname?self.nickname:self.eid;
 }
 
--(NSString *)searchKey{
+- (NSString *)searchKey{
     return self.contactDelegate.searchKey;
 }
 
--(NSString *)eid{
+- (NSString *)eid{
     return self.contactDelegate.eid;
 }
 
--(NSString *)nickname{
+- (NSString *)nickname{
     return self.contactDelegate.nickname;
 }
 
--(NSString *)headerRemotePath{
+- (NSString *)headerRemotePath{
     return self.contactDelegate.headImagePath;
 }
 
 
-+(CGFloat)heightForRowFromModel:(ECBaseCellModel *)model{
++ (CGFloat)heightForRowFromModel:(ECBaseCellModel *)model{
     if (model.cellHeight == 0) {
         model.cellHeight = 64;
     }
     return model.cellHeight;
 }
 
-+(ECBaseCellModel *)createModelWithContactModel:(ECContactModel *)contactModel{
++ (ECBaseCellModel *)createModelWithContactModel:(ECContactModel *)contactModel{
     ECBaseCellModel *ret = [[ECBaseCellModel alloc] init];
     ret.contactDelegate = contactModel;
     return ret;

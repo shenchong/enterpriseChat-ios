@@ -24,8 +24,9 @@
 
 @implementation ECMainViewController
 
--(void)viewDidLoad{
+- (void)viewDidLoad{
     [super viewDidLoad];
+    [[ECViewManager sharedInstance] setupStatusBarStyle2Default];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
     self.delegate = self;
     [self setupTabbar];
@@ -35,7 +36,7 @@
                              [self setupNavWithVC:self.settings]];
 }
 
--(void)setupTabbar{
+- (void)setupTabbar{
     self.tabBar.tintColor = TABBAR_TINTCOLOR;
     self.tabBar.barTintColor = TABBAR_BARTINTCOLOR;
 }
@@ -54,7 +55,7 @@
 }
 
 #pragma mark - getter
--(ECChatListViewController *)chatList{
+- (ECChatListViewController *)chatList{
     if (!_chatList) {
         _chatList = [[ECChatListViewController alloc] init];
         [_chatList setupWithTitle:@"会话"
@@ -66,7 +67,7 @@
     return _chatList;
 }
 
--(ECContactsListViewController *)friendList{
+- (ECContactsListViewController *)friendList{
     if (!_friendList) {
         _friendList = [[ECContactsListViewController alloc] init];
         [_friendList setupWithTitle:@"联系人"
@@ -78,7 +79,7 @@
     return _friendList;
 }
 
--(ECEnterpriseListViewController *)enterprise{
+- (ECEnterpriseListViewController *)enterprise{
     if (!_enterprise) {
         _enterprise = [[ECEnterpriseListViewController alloc] init];
         [_enterprise setupWithTitle:@"应用"
@@ -90,7 +91,7 @@
     return _enterprise;
 }
 
--(ECSettingsListViewController *)settings{
+- (ECSettingsListViewController *)settings{
     if (!_settings) {
         _settings = [[ECSettingsListViewController alloc] init];
         [_settings setupWithTitle:@"设置"

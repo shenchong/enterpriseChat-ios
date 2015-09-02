@@ -11,15 +11,15 @@
 @implementation ECContactModel
 
 #pragma mark - ECContactDelegate
--(NSString *)eid{
+- (NSString *)eid{
     return _contactEid;
 }
 
--(NSString *)nickname{
+- (NSString *)nickname{
     return _contactNickname;
 }
 
--(NSString *)headImagePath{
+- (NSString *)headImagePath{
     return _contactHeadImagePath;
 }
 
@@ -27,7 +27,7 @@
     return _contactPlaceholderImage;
 }
 
--(NSString *)searchKey{
+- (NSString *)searchKey{
     return self.contactNickname?self.contactNickname:self.contactEid;
 }
 
