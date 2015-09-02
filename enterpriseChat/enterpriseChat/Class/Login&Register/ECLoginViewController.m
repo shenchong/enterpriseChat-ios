@@ -164,6 +164,7 @@
                                                             password:self.pwdField.text
                                                           completion:^(NSDictionary *loginInfo, EMError *error)
          {
+             [[EaseMob sharedInstance].chatManager setIsAutoLoginEnabled:YES];
              [[NSNotificationCenter defaultCenter] postNotificationName:LOGIN_CHANGE_NOTIFICATION
                                                                  object:@YES];
          } onQueue:nil];

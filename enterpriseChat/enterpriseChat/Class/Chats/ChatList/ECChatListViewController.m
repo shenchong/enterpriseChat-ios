@@ -11,6 +11,8 @@
 #import "ECChatListCellModel.h"
 #import "ECContactModel.h"
 #import "KxMenu.h"
+#import "ECChatViewController.h"
+
 #define MENU_POPOVER_FRAME  CGRectMake(8, 0, 140, 188)
 
 @interface ECChatListViewController () <UITableViewDelegate,UITableViewDataSource>
@@ -25,7 +27,7 @@
     //for test
     for (int i = 0; i < 1000; i++) {
         ECContactModel *contactModel = [[ECContactModel alloc] init];
-//        contactModel.contactNickname = @"名字很长名字很长名字很长名字很长名字很长名字很长名字很长";
+        contactModel.contactNickname = @"名字很长名字很长名字很长名字很长名字很长名字很长名字很长";
         contactModel.contactEid = [NSString stringWithFormat:@"我是eid %d",i];
         contactModel.contactHeadImagePath = @"http://img0.bdstatic.com/img/image/chongwu0727.jpg";
         ECChatListCellModel *model = [[ECChatListCellModel alloc] init];
@@ -47,9 +49,6 @@
     return rightBarButtonItem;
 }
 
-#pragma mark - getter
-
-
 #pragma mark - Action
 - (void)addChat:(id)sender{
     [KxMenu setTintColor:[UIColor darkGrayColor]];
@@ -69,6 +68,8 @@
 
 - (void)createSignChat{
     DLog(@"create Sign Chat");
+    ECChatViewController *chatVC = [[ECChatViewController alloc] init];
+    [self.navigationController pushViewController:chatVC animated:YES];
 }
 
 - (void)createGroupChat{

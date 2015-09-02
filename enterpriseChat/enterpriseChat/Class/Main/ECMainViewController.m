@@ -27,7 +27,7 @@
 - (void)viewDidLoad{
     [super viewDidLoad];
     [[ECViewManager sharedInstance] setupStatusBarStyle2Default];
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+    [[ECViewManager sharedInstance] setupNavigationBar2Black];
     self.delegate = self;
     [self setupTabbar];
     self.viewControllers = @[[self setupNavWithVC:self.chatList],
