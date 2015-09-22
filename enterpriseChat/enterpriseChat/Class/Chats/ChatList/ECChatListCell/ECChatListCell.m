@@ -13,7 +13,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *showNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *msgInfoLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
-@property (weak, nonatomic) IBOutlet UIView *lineView;
+@property (strong, nonatomic) UIView *lineView;
 @property (weak, nonatomic) IBOutlet UILabel *unreadCountLabel;
 
 @end
@@ -23,6 +23,9 @@
 - (void)awakeFromNib {
     [self.headImageView radius:self.headImageView.width/2 color:nil border:0];
     [self.unreadCountLabel radius:self.unreadCountLabel.width/2 color:nil border:0];
+    self.lineView = [[UIView alloc] initWithFrame:CGRectMake(0, self.bottom - 0.3, self.width, 0.3)];
+    self.lineView.backgroundColor= [UIColor colorWithWhite:0.667 alpha:0.610];
+    [self addSubview:self.lineView];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

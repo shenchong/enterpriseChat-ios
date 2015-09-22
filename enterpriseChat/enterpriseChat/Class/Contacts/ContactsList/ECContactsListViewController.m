@@ -18,6 +18,7 @@
 
 - (void)viewDidLoad {
     self.isNeedSearch = YES;
+    self.barHiddenWhenSearch = YES;
     [super viewDidLoad];
     ECContactListCellModel *easeModel = [[ECContactListCellModel alloc] init];
     ECContactModel *model = [[ECContactModel alloc] init];
@@ -32,6 +33,7 @@
     departModel.contactDelegate = model;
     
     [self.datasource addObject:@[easeModel,departModel]];
+    
     // for test
     NSMutableArray *testAry = [[NSMutableArray alloc] init];
     for (int i = 0; i < 10; i++) {
@@ -45,6 +47,7 @@
     }
     
     [self.datasource addObject:testAry];
+
 }
 
 #pragma mark - rewrite superClass
@@ -96,6 +99,36 @@
     return ((NSArray *)[self.datasource objectAtIndex:section]).count;
 }
 
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    if (section == 1) {
+        return 30;
+    }
+    return 0;
+}
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    if (section == 1) {
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, 100, 20)];
+        label.textColor = [UIColor colorWithWhite:0.333 alpha:0.790];
+        label.text = @"最近联系";
+        label.font = [UIFont systemFontOfSize:13 weight:2];
+        UIView *header = [[UIView alloc] init];
+        header.frame = CGRectMake(0, 0, tableView.width, 20);
+        header.backgroundColor = [UIColor whiteColor];
+        [header addSubview:label];
+        return header;
+    }
+    return nil;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    if (section == 0) {
+        return 10;
+    }
+    return 0;
+}
+
 - (NSInteger)numberOfSectionsInTableView:(nonnull UITableView *)tableView{
     return self.datasource.count;
 }
@@ -103,19 +136,11 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.section == 0) {
-        ECDepartmentListViewController *departmentListVC = [[ECDepartmentListViewController alloc] init];
+        ECDepartmentListViewController *departmentListVC = [ECDepartmentListViewController departmentListWithDepartment:nil];
         departmentListVC.title = @"环信";
         [self.navigationController pushViewController:departmentListVC animated:YES];
     }else {
-    
-    }
-}
-
-- (CGFloat)tableView:(nonnull UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    if (section == 0) {
-        return 0;
-    }else {
-        return 20;
+        
     }
 }
 

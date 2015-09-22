@@ -8,13 +8,11 @@
 
 #import "ECBaseTableViewController.h"
 #import "RealtimeSearchUtil.h"
-#import "EMSearchDisplayController.h"
 #import "UIScrollView+EmptyDataSet.h"
 
 @interface ECBaseTableViewController ()<UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate,DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
 @property (nonatomic, strong) NSMutableArray *tempDatasource;
 @property (nonatomic, strong) UISearchBar *searchBar;
-@property (nonatomic, strong) EMSearchDisplayController *searchController;
 @end
 
 @implementation ECBaseTableViewController
@@ -24,6 +22,7 @@
     [self.view addSubview:self.tableView];
     if (self.isNeedSearch) {
         self.tableView.tableHeaderView = self.searchController.searchBar;
+        self.searchController.barHiddenWhenSearch = self.barHiddenWhenSearch;
     }
 }
 
@@ -34,7 +33,7 @@
 
 #pragma mark - UITableViewDataSource & UITableViewDelegate
 - (UITableViewCell *)tableView:(UITableView *)tableView
-        cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+         cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
@@ -59,6 +58,17 @@
     return 20;
 }
 
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView
+commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
+forRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+    }
+}
+
 
 #pragma mark - searchBarDelegate
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
@@ -77,6 +87,21 @@
          }
      }];
 }
+
+- (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar{
+    if (!self.barHiddenWhenSearch) {
+        self.tempDatasource = [self.datasource mutableCopy];
+    }
+    return YES;
+}
+
+- (BOOL)searchBarShouldEndEditing:(UISearchBar *)searchBar{
+    if (!self.barHiddenWhenSearch) {
+        self.datasource = [self.tempDatasource mutableCopy];
+    }
+    return YES;
+}
+
 
 #pragma mark - DZNEmptyDataSetSource & DZNEmptyDataSetDelegate
 - (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView
@@ -123,8 +148,7 @@
             weakSelf.tempDatasource = [weakSelf.datasource mutableCopy];
         }];
         
-        [_searchController setSearchDisplayControllerDidEndSearch:^(UISearchDisplayController *searchController)
-         {
+        [_searchController setSearchDisplayControllerDidEndSearch:^(UISearchDisplayController *searchController) {
             weakSelf.datasource = [weakSelf.tempDatasource mutableCopy];
         }];
     }
@@ -134,10 +158,12 @@
 
 - (UITableView *)tableView{
     if (!_tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
+        _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
         _tableView.delegate = self;
         _tableView.dataSource = self;
+        _tableView.separatorStyle = UITableViewCellSelectionStyleNone;
         _tableView.tableFooterView = [[UIView alloc] init];
+        _tableView.layer.borderWidth = 0;
         _tableView.emptyDataSetSource = self;
         _tableView.emptyDataSetDelegate = self;
         _tableView.tableFooterView = [UIView new];

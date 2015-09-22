@@ -6,6 +6,7 @@
 //  Copyright © 2015年 easemob. All rights reserved.
 //
 
-#import "ECBaseTableViewController.h"
-@interface ECDepartmentListViewController : ECBaseTableViewController
+#import "ECDepartmentModel.h"
+@interface ECDepartmentListViewController : UITableViewController
++ (id)departmentListWithDepartment:(ECDepartmentModel *)departmentModel;
 @end

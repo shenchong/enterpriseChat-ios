@@ -122,7 +122,9 @@ static RealtimeSearchUtil *defaultUtil = nil;
 {
     if (!source || !searchText || !resultBlock) {
         if (resultBlock) {
-            _resultBlock(source);
+            if (source) {
+                _resultBlock(source);
+            }
         }
         return;
     }

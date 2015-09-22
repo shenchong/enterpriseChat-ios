@@ -18,8 +18,8 @@
 
 -(instancetype)initWithConversation:(EMConversation *)conversation{
     if (self = [super init]) {
-        self.hidesBottomBarWhenPushed=YES;
         _conversation = conversation;
+        self.hidesBottomBarWhenPushed = YES;
     }
     
     return self;

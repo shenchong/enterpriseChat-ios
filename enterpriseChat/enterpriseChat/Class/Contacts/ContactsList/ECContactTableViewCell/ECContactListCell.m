@@ -11,6 +11,7 @@
 @interface ECContactListCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *headImageView;
 @property (weak, nonatomic) IBOutlet UILabel *showNameLabel;
+@property (strong, nonatomic) UIView *lineView;
 
 @end
 
@@ -19,6 +20,9 @@
 - (void)awakeFromNib {
     // Initialization code
     [self.headImageView radius:self.headImageView.width/2 color:nil border:0];
+    self.lineView = [[UIView alloc] initWithFrame:CGRectMake(0, self.bottom - 0.3, self.width, 0.3)];
+    self.lineView.backgroundColor= [UIColor colorWithWhite:0.667 alpha:0.610];
+    [self addSubview:self.lineView];
 }
 
 - (void)layoutSubviews{

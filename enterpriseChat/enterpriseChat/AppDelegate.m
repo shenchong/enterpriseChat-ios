@@ -26,11 +26,10 @@
                                                object:nil];
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = WINDOW_BACKCOLOR;
-    self.window.rootViewController = [ECLoginViewController showLoginViewController];
+    self.window.rootViewController = [[ECMainViewController alloc] init];//[ECLoginViewController showLoginViewController];
     [self.window makeKeyAndVisible];
     return YES;
 }
-
 
 - (void)showMainView{
 
@@ -39,6 +38,8 @@
 - (void)loginChanged:(NSNotification *)noti{
     if ([noti.object boolValue]) {
         self.window.rootViewController = [[ECMainViewController alloc] init];
+    }else {
+    
     }
 }
 

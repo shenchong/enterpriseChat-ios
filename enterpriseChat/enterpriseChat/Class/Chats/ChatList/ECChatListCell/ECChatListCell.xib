@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
@@ -42,10 +42,6 @@
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BDO-jl-lOP">
-                        <rect key="frame" x="9" y="55" width="349" height="8"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
-                    </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="23e-bc-zPZ">
                         <rect key="frame" x="45" y="2" width="17" height="17"/>
                         <color key="backgroundColor" red="0.98039221759999995" green="0.15686275059999999" blue="0.16862745579999999" alpha="1" colorSpace="deviceRGB"/>
@@ -76,7 +72,6 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="headImageView" destination="NMX-cx-Kvl" id="6wn-I3-tBJ"/>
-                <outlet property="lineView" destination="BDO-jl-lOP" id="tW5-fP-ILC"/>
                 <outlet property="msgInfoLabel" destination="ALH-ci-HYH" id="WMm-kS-avg"/>
                 <outlet property="showNameLabel" destination="qh6-kx-4uR" id="Q2L-Xc-2Vm"/>
                 <outlet property="timeLabel" destination="Dvc-L7-8Io" id="Qn3-mT-3va"/>

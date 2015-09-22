@@ -8,6 +8,7 @@
 
 #import "ECBaseViewController.h"
 #import "ECBaseTableViewController.h"
+#import "ECBaseViewController.h"
 
 @interface ECContactsListViewController : ECBaseTableViewController
 @end

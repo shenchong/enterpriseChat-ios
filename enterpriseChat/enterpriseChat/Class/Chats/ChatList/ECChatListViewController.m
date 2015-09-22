@@ -23,11 +23,12 @@
 
 - (void)viewDidLoad{
     self.isNeedSearch = YES;
+    self.barHiddenWhenSearch = YES;
     [super viewDidLoad];
     //for test
     for (int i = 0; i < 1000; i++) {
         ECContactModel *contactModel = [[ECContactModel alloc] init];
-        contactModel.contactNickname = @"名字很长名字很长名字很长名字很长名字很长名字很长名字很长";
+//        contactModel.contactNickname = @"名字很长名字很长名字很长名字很长名字很长名字很长名字很长";
         contactModel.contactEid = [NSString stringWithFormat:@"我是eid %d",i];
         contactModel.contactHeadImagePath = @"http://img0.bdstatic.com/img/image/chongwu0727.jpg";
         ECChatListCellModel *model = [[ECChatListCellModel alloc] init];
@@ -68,7 +69,7 @@
 
 - (void)createSignChat{
     DLog(@"create Sign Chat");
-    ECChatViewController *chatVC = [[ECChatViewController alloc] init];
+    ECChatViewController *chatVC = [[ECChatViewController alloc] initWithConversation:nil];
     [self.navigationController pushViewController:chatVC animated:YES];
 }
 

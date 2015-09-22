@@ -85,8 +85,8 @@
 - (void)keyboardWillChangeFrame:(NSNotification *)notification
 {
     NSDictionary *userInfo = notification.userInfo;
-    NSValue *beginValue = [userInfo objectForKey:@"UIKeyboardFrameBeginUserInfoKey"];
-    NSValue *endValue = [userInfo objectForKey:@"UIKeyboardFrameEndUserInfoKey"];
+    NSValue *beginValue = [userInfo objectForKey:UIKeyboardFrameBeginUserInfoKey];
+    NSValue *endValue = [userInfo objectForKey:UIKeyboardFrameEndUserInfoKey];
     CGRect beginRect;
     [beginValue getValue:&beginRect];
     CGRect endRect;
