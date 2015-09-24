@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ECChatListCellModel.h"
+#import "ECConverstaionModel.h"
 @interface ECChatListCell : UITableViewCell
-@property (nonatomic, strong) ECChatListCellModel *cellModel;
+@property (nonatomic, strong) ECConverstaionModel *conversationModel;
+@property (weak, nonatomic) IBOutlet UIImageView *headImageView;
+@property (weak, nonatomic) IBOutlet UILabel *showNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *msgInfoLabel;
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+@property (strong, nonatomic) UIView *lineView;
+@property (weak, nonatomic) IBOutlet UILabel *unreadCountLabel;
 @end

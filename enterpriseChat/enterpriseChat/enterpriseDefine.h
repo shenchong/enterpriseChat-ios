@@ -23,6 +23,8 @@ NSLog(@"[%s  line : %d]: " format "\n", __PRETTY_FUNCTION__, __LINE__, ## args);
 #endif
 
 
+#define LOGIN_CHANGE_NOTIFICATION @"loginChange"
+
 // window
 #define WINDOW_BACKCOLOR [UIColor whiteColor]
 
@@ -37,10 +39,7 @@ NSLog(@"[%s  line : %d]: " format "\n", __PRETTY_FUNCTION__, __LINE__, ## args);
 // navbar 背景色
 #define NAVIGATIONBAR_TINTCOLOR [UIColor colorWithRed: 0.1349 green: 0.1517 blue: 0.1623 alpha: 1.0]
 
-// navbar 文字色
-#define NAVTITLE_COLOR [UIColor blackColor]
-
 // navbar 字体大小
-#define NAVTITLE_FONT_SIZE 19
+#define NAVTITLE_FONT_SIZE 16
 
 #endif

@@ -29,6 +29,15 @@
     return self;
 }
 
+- (void)setActive:(BOOL)visible animated:(BOOL)animated
+{
+    if (self.barHiddenWhenSearch) {
+        [super setActive:visible animated:animated];
+    }else {
+        [self.searchContentsController.navigationController setNavigationBarHidden: NO animated: NO];
+    }
+    
+}
 
 #pragma mark - Table view data source
 
@@ -118,7 +127,7 @@
 }
 
 
--(void)searchDisplayControllerDidEndSearch:(UISearchDisplayController *)controller{
+- (void)searchDisplayControllerDidEndSearch:(UISearchDisplayController *)controller{
     if (_searchDisplayControllerDidEndSearch) {
         _searchDisplayControllerDidEndSearch(controller);
     }

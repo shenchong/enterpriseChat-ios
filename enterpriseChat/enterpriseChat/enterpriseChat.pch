@@ -16,6 +16,8 @@
 #import "UIView+Frame.h"
 #import "UIView+Radius.h"
 #import "UIImageView+WebCache.h"
+#import "NSString+Category.h"
 #import "ECErrorDefs.h"
 #import "EaseMob.h"
+#import "ECViewManager.h"
 #endif

@@ -41,15 +41,15 @@ withFinishedUnselectedImage:(UIImage *)unselectedImage
     [self.tabBarItem setTitleTextAttributes:selectedTextAttributes forState:UIControlStateSelected];
 }
 
--(UIBarButtonItem *)rightBarButtonItem{
+- (UIBarButtonItem *)rightBarButtonItem{
     return nil;
 }
 
--(UIBarButtonItem *)leftBarButtonItem{
+- (UIBarButtonItem *)leftBarButtonItem{
     return nil;
 }
 
--(void)setupBadgeValue:(NSString *)badgeValue{
+- (void)setupBadgeValue:(NSString *)badgeValue{
     self.tabBarItem.badgeValue = badgeValue;
 }
 

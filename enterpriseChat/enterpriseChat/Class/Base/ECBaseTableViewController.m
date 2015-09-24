@@ -8,13 +8,11 @@
 
 #import "ECBaseTableViewController.h"
 #import "RealtimeSearchUtil.h"
-#import "EMSearchDisplayController.h"
 #import "UIScrollView+EmptyDataSet.h"
 
 @interface ECBaseTableViewController ()<UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate,DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
 @property (nonatomic, strong) NSMutableArray *tempDatasource;
 @property (nonatomic, strong) UISearchBar *searchBar;
-@property (nonatomic, strong) EMSearchDisplayController *searchController;
 @end
 
 @implementation ECBaseTableViewController
@@ -24,6 +22,7 @@
     [self.view addSubview:self.tableView];
     if (self.isNeedSearch) {
         self.tableView.tableHeaderView = self.searchController.searchBar;
+        self.searchController.barHiddenWhenSearch = self.barHiddenWhenSearch;
     }
 }
 
@@ -33,8 +32,8 @@
 }
 
 #pragma mark - UITableViewDataSource & UITableViewDelegate
--(UITableViewCell *)tableView:(UITableView *)tableView
-        cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+- (UITableViewCell *)tableView:(UITableView *)tableView
+         cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
@@ -43,20 +42,31 @@
     return cell;
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 54;
 }
 
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
 }
 
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return 20;
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView
+commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
+forRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+    }
 }
 
 
@@ -65,7 +75,6 @@
     __weak typeof(self) weakSelf = self;
     [[RealtimeSearchUtil currentUtil] realtimeSearchWithSource:self.tempDatasource
                                                     searchText:(NSString *)searchText
-                                       collationStringSelector:@selector(searchKey)
                                                    resultBlock:^(NSArray *results)
      {
          if (results) {
@@ -79,6 +88,21 @@
      }];
 }
 
+- (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar{
+    if (!self.barHiddenWhenSearch) {
+        self.tempDatasource = [self.datasource mutableCopy];
+    }
+    return YES;
+}
+
+- (BOOL)searchBarShouldEndEditing:(UISearchBar *)searchBar{
+    if (!self.barHiddenWhenSearch) {
+        self.datasource = [self.tempDatasource mutableCopy];
+    }
+    return YES;
+}
+
+
 #pragma mark - DZNEmptyDataSetSource & DZNEmptyDataSetDelegate
 - (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView
 {
@@ -88,7 +112,7 @@
 }
 
 #pragma mark - getter
--(UISearchBar *)searchBar{
+- (UISearchBar *)searchBar{
     if (!_searchBar) {
         _searchBar = [[UISearchBar alloc] init];
         _searchBar.delegate = self;
@@ -97,7 +121,7 @@
     return _searchBar;
 }
 
--(EMSearchDisplayController *)searchDisplayController{
+- (EMSearchDisplayController *)searchDisplayController{
     if (!_searchController) {
         __weak typeof(self) weakSelf = self;
         _searchController = [[EMSearchDisplayController alloc] initWithSearchBar:self.searchBar
@@ -124,8 +148,7 @@
             weakSelf.tempDatasource = [weakSelf.datasource mutableCopy];
         }];
         
-        [_searchController setSearchDisplayControllerDidEndSearch:^(UISearchDisplayController *searchController)
-         {
+        [_searchController setSearchDisplayControllerDidEndSearch:^(UISearchDisplayController *searchController) {
             weakSelf.datasource = [weakSelf.tempDatasource mutableCopy];
         }];
     }
@@ -133,12 +156,14 @@
     return _searchController;
 }
 
--(UITableView *)tableView{
+- (UITableView *)tableView{
     if (!_tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
+        _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
         _tableView.delegate = self;
         _tableView.dataSource = self;
+        _tableView.separatorStyle = UITableViewCellSelectionStyleNone;
         _tableView.tableFooterView = [[UIView alloc] init];
+        _tableView.layer.borderWidth = 0;
         _tableView.emptyDataSetSource = self;
         _tableView.emptyDataSetDelegate = self;
         _tableView.tableFooterView = [UIView new];
@@ -148,7 +173,7 @@
 }
 
 #pragma mark - getter
--(NSMutableArray *)datasource{
+- (NSMutableArray *)datasource{
     if (!_datasource) {
         _datasource = [[NSMutableArray alloc] initWithCapacity:0];
     }

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ECContactListCellModel.h"
+#import "ECContactModel.h"
 @interface ECContactListCell : UITableViewCell
-@property (nonatomic, strong) ECContactListCellModel *cellModel;
+@property (nonatomic, strong) ECContactModel *contactModel;
 @end

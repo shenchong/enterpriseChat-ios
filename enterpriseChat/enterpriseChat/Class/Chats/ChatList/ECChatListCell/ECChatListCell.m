@@ -9,12 +9,6 @@
 #import "ECChatListCell.h"
 
 @interface ECChatListCell ()
-@property (weak, nonatomic) IBOutlet UIImageView *headImageView;
-@property (weak, nonatomic) IBOutlet UILabel *showNameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *msgInfoLabel;
-@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
-@property (weak, nonatomic) IBOutlet UIView *lineView;
-@property (weak, nonatomic) IBOutlet UILabel *unreadCountLabel;
 
 @end
 
@@ -23,6 +17,9 @@
 - (void)awakeFromNib {
     [self.headImageView radius:self.headImageView.width/2 color:nil border:0];
     [self.unreadCountLabel radius:self.unreadCountLabel.width/2 color:nil border:0];
+    self.lineView = [[UIView alloc] initWithFrame:CGRectMake(0, self.bottom - 0.3, self.width, 0.3)];
+    self.lineView.backgroundColor= [UIColor colorWithWhite:0.667 alpha:0.610];
+    [self addSubview:self.lineView];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -33,16 +30,16 @@
 }
 
 
--(void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated{
+- (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated{
     [super setHighlighted:highlighted animated:animated];
     if (![_unreadCountLabel isHidden]) {
         _unreadCountLabel.backgroundColor = [UIColor redColor];
     }
 }
 
--(void)layoutSubviews{
+- (void)layoutSubviews{
     [super layoutSubviews];
-    if (_cellModel.unreadCount == 0) {
+    if (_conversationModel.conversation.unreadMessagesCount == 0) {
         [self.unreadCountLabel setHidden:YES];
     }else {
         [self.unreadCountLabel setHidden:NO];
@@ -56,18 +53,17 @@
     }
 }
 
--(void)setCellModel:(ECChatListCellModel *)cellModel{
-    _cellModel = cellModel;
-    [self.headImageView sd_setImageWithURL:[NSURL URLWithString:_cellModel.headerRemotePath]
+-(void)setConversationModel:(ECConverstaionModel *)conversationModel{
+    _conversationModel = conversationModel;
+    [self.headImageView sd_setImageWithURL:[NSURL URLWithString:_conversationModel.headerRemotePath]
                           placeholderImage:[UIImage imageNamed:@"chatListCellHead"]];
-    self.showNameLabel.text = _cellModel.showName;
-    self.timeLabel.text = _cellModel.time;
-    self.msgInfoLabel.text = _cellModel.msgInfo;
-
-    if (_cellModel.unreadCount > 99) {
+    self.showNameLabel.text = _conversationModel.showName;
+    self.timeLabel.text = _conversationModel.msgTime;
+    self.msgInfoLabel.text = _conversationModel.msgInfo;
+    if (_conversationModel.unreadCount > 99) {
         self.unreadCountLabel.text = @"99+";
     }else {
-        self.unreadCountLabel.text = [NSString stringWithFormat:@"%ld",(long)_cellModel.unreadCount];
+        self.unreadCountLabel.text = [NSString stringWithFormat:@"%ld",(long)_conversationModel.unreadCount];
     }
 }
 

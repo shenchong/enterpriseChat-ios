@@ -11,8 +11,9 @@
 #import "AppDelegate+EaseMob.h"
 #import "ECLoginViewController.h"
 
-#import "ECDBManager.h"
 #import "ECDepartmentModel.h"
+#import "ECContactModel.h"
+#import "ECDBManager.h"
 
 @interface AppDelegate ()
 
@@ -23,34 +24,89 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [self easemobApplication:application didFinishLaunchingWithOptions:launchOptions];
-
+    [[ECViewManager sharedInstance] setupNavigationBar2White];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(loginChanged:)
+                                                 name:LOGIN_CHANGE_NOTIFICATION
+                                               object:nil];
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = WINDOW_BACKCOLOR;
-    self.window.rootViewController  = [[ECMainViewController alloc] init];
+    if ([[EaseMob sharedInstance].chatManager isAutoLoginEnabled]) {
+        [self showMainView];
+    }else {
+        [self showLoginView];
+    }
+    
+    
+    // for test
+    [ECDBManager openEasemobDatabaseWithAccount:@"6001"];
+    
+    ECContactModel *contactModel = [[ECContactModel alloc] init];
+    contactModel.eid = @"test1";
+    contactModel.nickname = @"用户1";
+    [[ECDBManager sharedInstance] insertContact:contactModel loginAccount:@"6001"];
+
+    contactModel = [[ECContactModel alloc] init];
+    contactModel.eid = @"test2";
+    contactModel.nickname = @"用户2";
+    [[ECDBManager sharedInstance] insertContact:contactModel loginAccount:@"6001"];
+    
+    contactModel = [[ECContactModel alloc] init];
+    contactModel.eid = @"test3";
+    contactModel.nickname = @"用户3";
+    [[ECDBManager sharedInstance] insertContact:contactModel loginAccount:@"6001"];
+    
+    
+    ECDepartmentModel *model = [[ECDepartmentModel alloc] init];
+    model.departmentId = @"001";
+    model.departmentName = @"环信";
+    model.departmentLevel = 0;
+    model.deparementMembers = [[NSMutableArray alloc] initWithArray:@[@"test1",@"test2",@"test3"]];
+    model.departmentSubIds = [[NSMutableArray alloc] initWithArray:@[@"002"]];
+    model.departmentSupId = @"000";
+    model.departmentImagePath = @"www.baidu.com";
+    [[ECDBManager sharedInstance] insertDepartment:model loginAccount:@"6001"];
+    
+
+    ECDepartmentModel *model1 = [[ECDepartmentModel alloc] init];
+    model1.departmentId = @"002";
+    model1.departmentName = @"销售部";
+    model1.departmentLevel = 1;
+    model1.deparementMembers = [[NSMutableArray alloc] initWithArray:@[@"test4",@"tes5",@"test6"]];
+    model1.departmentSubIds = [[NSMutableArray alloc] initWithArray:@[@"003",@"004"]];
+    model1.departmentSupId = @"001";
+    model1.departmentImagePath = @"www.baidu.com";
+    [[ECDBManager sharedInstance] insertDepartment:model1 loginAccount:@"6001"];
+
+    
+    ECDepartmentModel *model2 = [[ECDepartmentModel alloc] init];
+    model2.departmentId = @"003";
+    model2.departmentName = @"电话销售部";
+    model2.departmentLevel = 2;
+    model2.deparementMembers = [[NSMutableArray alloc] initWithArray:@[@"test7",@"test8",@"test9"]];
+    model2.departmentSubIds = [[NSMutableArray alloc] initWithArray:@[@"005",@"006"]];
+    model2.departmentSupId = @"002";
+    model2.departmentImagePath = @"www.baidu.com";
+    [[ECDBManager sharedInstance] insertDepartment:model2 loginAccount:@"6001"];
+    
     [self.window makeKeyAndVisible];
     return YES;
 }
 
-- (void)applicationWillResignActive:(UIApplication *)application {
-    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-    // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+- (void)showMainView{
+    self.window.rootViewController = [[ECMainViewController alloc] init];
 }
 
-- (void)applicationDidEnterBackground:(UIApplication *)application {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+- (void)showLoginView{
+    self.window.rootViewController = [ECLoginViewController showLoginViewController];
 }
 
-- (void)applicationWillEnterForeground:(UIApplication *)application {
-    // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-}
-
-- (void)applicationDidBecomeActive:(UIApplication *)application {
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-}
-
-- (void)applicationWillTerminate:(UIApplication *)application {
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+- (void)loginChanged:(NSNotification *)noti{
+    if ([noti.object boolValue]) {
+        [self showMainView];
+    }else {
+        [self showLoginView];
+    }
 }
 
 @end

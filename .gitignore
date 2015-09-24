@@ -4,5 +4,5 @@ UserInterfaceState.xcuserstate
 Breakpoints_v2.xcbkptlist
 **/.xccurrentversion
 .DS_Store
-enterpriseChat/enterpriseChat.xcodeproj/project.xcworkspace/*
+**/project.xcworkspace/*
 *.a

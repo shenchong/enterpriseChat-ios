@@ -7,5 +7,5 @@
 //
 
 @interface ECChatViewController : UIViewController
-
+-(instancetype)initWithConversation:(EMConversation *)conversation;
 @end

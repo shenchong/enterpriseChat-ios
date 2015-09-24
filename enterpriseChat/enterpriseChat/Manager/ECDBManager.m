@@ -101,10 +101,11 @@
 - (BOOL)_insertDepartment:(ECDepartmentModel *)department forDB:(FMDatabase *)db{
     BOOL ret = NO;
     if (department) {
+        DLog(@"department -- %@", department);
         NSString *insertStr = [NSString stringWithFormat:@"insert into `%@` (`%@`,`%@`,`%@`,`%@`,`%@`,`%@`,`%@`) VALUES (?,?,?,?,?,?,?)",ECDEPARTMENT, ECDEPARTMENT_ID, ECDEPARTMENT_NAME, ECDEPARTMENT_SUPID, ECDEPARTMENT_MEMBERS, ECDEPARTMENT_SUBIDS,ECDEPARTMENT_IMAGEPATH,ECDEPARTMENT_LEVEL];
         NSString *members = [department.deparementMembers componentsJoinedByString:@"_"];
         NSString *subIds = [department.departmentSubIds componentsJoinedByString:@"_"];
-        ret = [db executeUpdate:insertStr,department.departmentId,department.departmentName,department.departmentSupId,members,subIds,department.departmentImagePath,[NSNumber numberWithInt:department.departmentLevel]];
+        ret = [db executeUpdate:insertStr,department.departmentId,department.departmentName,department.departmentSupId,members,subIds,department.departmentImagePath,[NSNumber numberWithInteger:department.departmentLevel]];
     }
     return ret;
 }
@@ -113,7 +114,7 @@
     BOOL ret = NO;
     if (contact) {
         NSString *insertStr = [NSString stringWithFormat:@"insert into `%@` (`%@`,`%@`,`%@`,`%@`,`%@`,`%@`) VALUES (?,?,?,?,?,?)",ECCONTACT, ECCONTACT_EID, ECCONTACT_NICKNAME, ECCONTACT_IMAGEPATH, ECCONTACT_PHONE, ECCONTACT_DEPARTMENTID, ECCONTACT_BGIMAGEPATH];
-        ret = [db executeUpdate:insertStr,contact.eid,contact.contactNickname,contact.contactHeadImagePath,contact.contactDepartmentId,contact.contactBgImagePath,contact.contactPhoneNumber];
+        ret = [db executeUpdate:insertStr,contact.eid,contact.nickname,contact.headImagePath,contact.deparementId,contact.bgImagePath,contact.phoneNumber];
     }
     return ret;
 }
@@ -123,14 +124,14 @@
     NSString *updateStr = [NSString stringWithFormat:@"update `%@` set %@=?,%@=?,%@=?,%@=?,%@=?,%@=? where %@=?",ECDEPARTMENT, ECDEPARTMENT_NAME, ECDEPARTMENT_SUPID, ECDEPARTMENT_MEMBERS, ECDEPARTMENT_SUBIDS,ECDEPARTMENT_IMAGEPATH,ECDEPARTMENT_LEVEL,ECDEPARTMENT_ID];
     NSString *members = [department.deparementMembers componentsJoinedByString:@"_"];
     NSString *subIds = [department.departmentSubIds componentsJoinedByString:@"_"];
-    ret = [db executeUpdate:updateStr,department.departmentName,department.departmentSupId,members,subIds,department.departmentImagePath,[NSNumber numberWithInt:department.departmentLevel],department.departmentId];
+    ret = [db executeUpdate:updateStr,department.departmentName,department.departmentSupId,members,subIds,department.departmentImagePath,department.departmentLevel,department.departmentId];
     return ret;
 }
 
 - (BOOL)_updateContact:(ECContactModel *)contact forDB:(FMDatabase *)db{
     BOOL ret = NO;
     NSString *updateStr = [NSString stringWithFormat:@"update `%@` set %@=?,%@=?,%@=?,%@=?,%@=? where %@=?",ECCONTACT, ECCONTACT_NICKNAME, ECCONTACT_IMAGEPATH, ECCONTACT_PHONE, ECCONTACT_DEPARTMENTID,ECCONTACT_BGIMAGEPATH,ECCONTACT_EID];
-    ret = [db executeUpdate:updateStr,contact.contactNickname,contact.contactHeadImagePath,contact.contactPhoneNumber,contact.contactDepartmentId,contact.contactBgImagePath,contact.contactEid];
+    ret = [db executeUpdate:updateStr,contact.nickname,contact.headImagePath,contact.phoneNumber,contact.deparementId,contact.bgImagePath,contact.eid];
     return ret;
 }
 
@@ -152,6 +153,20 @@
     return ret;
 }
 
+- (NSArray *)_loadDepartmentWithLevel:(NSInteger)level{
+    __block NSMutableArray *ret = [[NSMutableArray alloc] init];
+    [_databaseQueue inDatabase:^(FMDatabase *db) {
+        NSString *queryString = [NSString stringWithFormat:@"SELECT * FROM '%@' WHERE %@=?", ECDEPARTMENT, ECDEPARTMENT_LEVEL];
+        FMResultSet *rs = [db executeQuery:queryString,[NSNumber numberWithInteger:level]];
+        while ([rs next]) {
+            [ret addObject:[self departmentFromResultSet:rs]];
+        }
+        [rs close];
+    }];
+
+    return ret;
+}
+
 - (ECDepartmentModel *)_loadDepartmentWithID:(NSString *)departmentId{
     __block ECDepartmentModel *ret = nil;
     [_databaseQueue inDatabase:^(FMDatabase *db) {
@@ -166,6 +181,22 @@
     return ret;
 }
 
+- (NSArray *)_loadAllDepartments{
+    __block NSMutableArray *ret = nil;
+    [_databaseQueue inDatabase:^(FMDatabase *db) {
+        NSString *queryString = [NSString stringWithFormat:@"SELECT * FROM '%@'", ECDEPARTMENT];
+        FMResultSet *rs = [db executeQuery:queryString];
+        while ([rs next]) {
+            ECDepartmentModel *deparment = [self departmentFromResultSet:rs];
+            [ret addObject:deparment];
+            break;
+        }
+        [rs close];
+    }];
+    return ret;
+
+}
+
 - (ECContactModel *)_loadContactWithID:(NSString *)eid{
     __block ECContactModel *ret = nil;
     [_databaseQueue inDatabase:^(FMDatabase *db) {
@@ -173,6 +204,21 @@
         FMResultSet *rs = [db executeQuery:queryString,eid];
         while ([rs next]) {
             ret = [self contactFromResultSet:rs];
+            break;
+        }
+        [rs close];
+    }];
+    return ret;
+}
+
+- (NSArray *)_loadAllContacts{
+    __block NSMutableArray *ret = nil;
+    [_databaseQueue inDatabase:^(FMDatabase *db) {
+        NSString *queryString = [NSString stringWithFormat:@"SELECT * FROM '%@'", ECCONTACT];
+        FMResultSet *rs = [db executeQuery:queryString];
+        while ([rs next]) {
+            ECContactModel *contactModel = [self contactFromResultSet:rs];
+            [ret addObject:contactModel];
             break;
         }
         [rs close];
@@ -193,6 +239,7 @@
 {
     if (db) {
         NSString *createStr = [NSString stringWithFormat:@"create table if not exists `%@` (`%@` varchar primary key not null unique, `%@` varchar,`%@` varchar, `%@` varchar, `%@` varchar, `%@` varchar, `%@` integer)", ECDEPARTMENT, ECDEPARTMENT_ID, ECDEPARTMENT_NAME, ECDEPARTMENT_MEMBERS, ECDEPARTMENT_SUBIDS, ECDEPARTMENT_SUPID,ECDEPARTMENT_IMAGEPATH,ECDEPARTMENT_LEVEL];
+        NSLog(@"-- %@",createStr);
         [db executeUpdate:createStr];
     }
 }
@@ -210,7 +257,7 @@
 
 - (BOOL)updateContact:(ECContactModel *)contact loginAccount:(NSString *)account{
     __block BOOL ret = NO;
-    if (self.loginAccount == account) {
+    if ([self.loginAccount isEqualToString:account]) {
         [_databaseQueue inDatabase:^(FMDatabase *db) {
             ret = [self _updateContact:contact forDB:db];
         }];
@@ -221,7 +268,7 @@
 #pragma mark - insert cell
 - (BOOL)insertDepartment:(ECDepartmentModel *)deparment loginAccount:(NSString *)account{
     __block BOOL ret = NO;
-    if (self.loginAccount == account) {
+    if ([self.loginAccount isEqualToString:account]) {
         [_databaseQueue inDatabase:^(FMDatabase *db) {
             ret = [self _insertDepartment:deparment forDB:db];
         }];
@@ -231,7 +278,7 @@
 
 - (BOOL)insertContact:(ECContactModel *)contact loginAccount:(NSString *)account{
     __block BOOL ret = NO;
-    if (self.loginAccount == account) {
+    if ([self.loginAccount isEqualToString:account]) {
         [_databaseQueue inDatabase:^(FMDatabase *db) {
             ret = [self _insertContact:contact forDB:db];
         }];
@@ -242,7 +289,7 @@
 #pragma mark - delete cell
 - (BOOL)deleteDepartmentWithId:(NSString *)departmentId loginAccountL:(NSString *)account{
     BOOL ret = NO;
-    if (self.loginAccount == account) {
+    if ([self.loginAccount isEqualToString:account]) {
         ret = [self _deleteDepartmentWithId:departmentId];
     }
     return ret;
@@ -250,26 +297,76 @@
 
 - (BOOL)deleteContactWithEid:(NSString *)eid loginAccountL:(NSString *)account{
     BOOL ret = NO;
-    if (self.loginAccount == account) {
+    if ([self.loginAccount isEqualToString:account]) {
         ret = [self _deleteContactWithEid:eid];
     }
     return ret;
 }
 
 #pragma mark - load db
-- (ECDepartmentModel *)loadDepartmentWithID:(NSString *)departmentId loginAccount:(NSString *)account{
+- (NSArray *)loadDepartmentWithLevel:(NSInteger)level loginAccount:(NSString *)account{
+    __block NSArray *ret = nil;
+    if ([self.loginAccount isEqualToString:account]) {
+        ret = [self _loadDepartmentWithLevel:level];
+    }
+    
+    return ret;
+}
+
+
+- (ECDepartmentModel *)loadDepartmentWithId:(NSString *)departmentId loginAccount:(NSString *)account{
     __block ECDepartmentModel *ret = nil;
-    if (self.loginAccount == account) {
+    if ([self.loginAccount isEqualToString:account]) {
         ret = [self _loadDepartmentWithID:departmentId];
     }
     return ret;
 }
 
-- (ECContactModel *)loadContactWithID:(NSString *)eid loginAccount:(NSString *)account{
+- (NSArray *)loadAllDepartmentsForAccount:(NSString *)account{
+    return nil;
+}
+
+- (NSArray *)loadDepartmentsWithIds:(NSArray *)departmentIds
+                       loginAccount:(NSString *)account{
+    NSMutableArray *ret = nil;
+    for (NSString *departmentId in departmentIds) {
+        ECDepartmentModel *department = [self loadDepartmentWithId:departmentId loginAccount:account];
+        if (department) {
+            if (!ret) {
+                ret = [[NSMutableArray alloc] init];
+            }
+            [ret addObject:department];
+        }
+    }
+    
+    return ret;
+}
+
+- (ECContactModel *)loadContactWithId:(NSString *)eid loginAccount:(NSString *)account{
     __block ECContactModel *ret = nil;
-    if (self.loginAccount == account) {
+    if ([self.loginAccount isEqualToString:account]) {
         ret = [self _loadContactWithID:eid];
     }
+    return ret;
+}
+
+- (NSArray *)loadAllContactsForAccount:(NSString *)account{
+    return nil;
+}
+
+- (NSArray *)loadContactsWithIds:(NSArray *)contactIds
+                    loginAccount:(NSString *)account{
+    NSMutableArray *ret = nil;
+    for (NSString *contactId in contactIds) {
+        ECContactModel *contact = [self loadContactWithId:contactId loginAccount:account];
+        if (contact) {
+            if (!ret) {
+                ret = [[NSMutableArray alloc] init];
+            }
+            [ret addObject:contact];
+        }
+    }
+    
     return ret;
 }
 
@@ -292,12 +389,12 @@
 
 - (ECContactModel *)contactFromResultSet:(FMResultSet *)rs{
     ECContactModel *ret = [[ECContactModel alloc] init];
-    ret.contactEid = [rs stringForColumn:ECCONTACT_EID];
-    ret.contactNickname = [rs stringForColumn:ECCONTACT_NICKNAME];
-    ret.contactBgImagePath = [rs stringForColumn:ECCONTACT_BGIMAGEPATH];
-    ret.contactDepartmentId = [rs stringForColumn:ECCONTACT_DEPARTMENTID];
-    ret.contactHeadImagePath = [rs stringForColumn:ECCONTACT_IMAGEPATH];
-    ret.contactPhoneNumber = [rs stringForColumn:ECCONTACT_PHONE];
+    ret.eid = [rs stringForColumn:ECCONTACT_EID];
+    ret.nickname = [rs stringForColumn:ECCONTACT_NICKNAME];
+    ret.bgImagePath = [rs stringForColumn:ECCONTACT_BGIMAGEPATH];
+    ret.deparementId = [rs stringForColumn:ECCONTACT_DEPARTMENTID];
+    ret.headImagePath = [rs stringForColumn:ECCONTACT_IMAGEPATH];
+    ret.phoneNumber = [rs stringForColumn:ECCONTACT_PHONE];
     return ret;
 }
 

@@ -8,9 +8,10 @@
 
 #import "ECChatListViewController.h"
 #import "ECChatListCell.h"
-#import "ECChatListCellModel.h"
 #import "ECContactModel.h"
 #import "KxMenu.h"
+#import "ECChatViewController.h"
+
 #define MENU_POPOVER_FRAME  CGRectMake(8, 0, 140, 188)
 
 @interface ECChatListViewController () <UITableViewDelegate,UITableViewDataSource>
@@ -19,36 +20,34 @@
 
 @implementation ECChatListViewController
 
--(void)viewDidLoad{
+- (void)viewDidLoad{
     self.isNeedSearch = YES;
+    self.barHiddenWhenSearch = YES;
     [super viewDidLoad];
     //for test
-    for (int i = 0; i < 1000; i++) {
-        ECContactModel *contactModel = [[ECContactModel alloc] init];
-//        contactModel.contactNickname = @"名字很长名字很长名字很长名字很长名字很长名字很长名字很长";
-        contactModel.contactEid = [NSString stringWithFormat:@"我是eid %d",i];
-        contactModel.contactHeadImagePath = @"http://img0.bdstatic.com/img/image/chongwu0727.jpg";
-        ECChatListCellModel *model = [[ECChatListCellModel alloc] init];
-        model.contactDelegate = contactModel;
-        model.time = @"2015-07-30";
-        model.msgInfo = @"请问这个鞋子什么时候能到货？发什么快递？请问这个鞋子什么时候能到货？发什么快递？";
-        model.unreadCount = 1000;
-        [self.datasource addObject:model];
-    }
+//    
+//    for (int i = 0; i < 1000; i++) {
+//        ECContactModel *contactModel = [[ECContactModel alloc] init];
+//        contactModel.eid = [NSString stringWithFormat:@"我是eid %d",i];
+//        contactModel.headImagePath = @"http://img0.bdstatic.com/img/image/chongwu0727.jpg";
+//        ECChatListCellModel *model = [[ECChatListCellModel alloc] init];
+//        model.contactDelegate = contactModel;
+//        model.time = @"2015-07-30";
+//        model.msgInfo = @"请问这个鞋子什么时候能到货？发什么快递？请问这个鞋子什么时候能到货？发什么快递？";
+//        model.unreadCount = 1000;
+//        [self.datasource addObject:model];
+//    }
     [self setupBadgeValue:@"1"];
 }
 
 #pragma mark - rewrite superClass
--(UIBarButtonItem *)rightBarButtonItem{
+- (UIBarButtonItem *)rightBarButtonItem{
     UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
                                                                                         target:self
                                                                                         action:@selector(addChat:)];
     rightBarButtonItem.tintColor = [UIColor blackColor];
     return rightBarButtonItem;
 }
-
-#pragma mark - getter
-
 
 #pragma mark - Action
 - (void)addChat:(id)sender{
@@ -69,6 +68,8 @@
 
 - (void)createSignChat{
     DLog(@"create Sign Chat");
+    ECChatViewController *chatVC = [[ECChatViewController alloc] initWithConversation:nil];
+    [self.navigationController pushViewController:chatVC animated:YES];
 }
 
 - (void)createGroupChat{
@@ -76,27 +77,27 @@
 }
 
 #pragma mark - UITableViewDataSource,UITableViewDelegate
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     ECChatListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ECChatListCell"];
     if (!cell) {
         [tableView registerNib:[UINib nibWithNibName:@"ECChatListCell" bundle:nil]
         forCellReuseIdentifier:@"ECChatListCell"];
         cell = [tableView dequeueReusableCellWithIdentifier:@"ECChatListCell"];
     }
-    cell.cellModel = [self.datasource objectAtIndex:[indexPath row]];
+    cell.conversationModel = [self.datasource objectAtIndex:[indexPath row]];
     return cell;
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return [ECChatListCellModel heightForRowFromModel:[self.datasource objectAtIndex:[indexPath row]]];
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 50;
 }
 
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.datasource.count;
 }
 
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 

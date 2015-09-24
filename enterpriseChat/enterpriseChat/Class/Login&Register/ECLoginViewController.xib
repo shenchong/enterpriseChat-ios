@@ -78,7 +78,7 @@
                     </constraints>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                    <textInputTraits key="textInputTraits" keyboardType="namePhonePad" returnKeyType="next"/>
+                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
                     <variation key="default">
                         <mask key="constraints">
                             <exclude reference="DU6-E1-sKc"/>
@@ -100,7 +100,7 @@
                     </constraints>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                    <textInputTraits key="textInputTraits"/>
+                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                     <variation key="default">
                         <mask key="constraints">
                             <exclude reference="yIS-GT-AbX"/>
@@ -148,16 +148,11 @@
                     <exclude reference="FAV-WH-HG3"/>
                 </mask>
                 <mask key="constraints">
-                    <exclude reference="N2W-IB-FsE"/>
-                    <exclude reference="eHd-TJ-h5Z"/>
                     <exclude reference="9HY-Y0-mW2"/>
                     <exclude reference="Kq4-Zo-NRv"/>
                     <exclude reference="SOO-pE-mX7"/>
                     <exclude reference="dlO-Vt-Tfk"/>
                     <exclude reference="u4h-8y-PyI"/>
-                    <exclude reference="0qS-9H-Itm"/>
-                    <exclude reference="1T8-7D-ziN"/>
-                    <exclude reference="cUK-fT-h2k"/>
                     <exclude reference="PuY-Mo-Tlt"/>
                     <exclude reference="UZ3-o1-2gy"/>
                     <exclude reference="ZqU-eW-ZZP"/>
@@ -166,6 +161,11 @@
                     <exclude reference="KUO-iM-hmq"/>
                     <exclude reference="OXT-jk-JZS"/>
                     <exclude reference="eqj-pG-o5b"/>
+                    <exclude reference="0qS-9H-Itm"/>
+                    <exclude reference="1T8-7D-ziN"/>
+                    <exclude reference="cUK-fT-h2k"/>
+                    <exclude reference="N2W-IB-FsE"/>
+                    <exclude reference="eHd-TJ-h5Z"/>
                 </mask>
             </variation>
             <variation key="heightClass=regular-widthClass=compact">
@@ -176,16 +176,11 @@
                     <include reference="FAV-WH-HG3"/>
                 </mask>
                 <mask key="constraints">
-                    <include reference="N2W-IB-FsE"/>
-                    <include reference="eHd-TJ-h5Z"/>
                     <include reference="9HY-Y0-mW2"/>
                     <include reference="Kq4-Zo-NRv"/>
                     <include reference="SOO-pE-mX7"/>
                     <include reference="dlO-Vt-Tfk"/>
                     <include reference="u4h-8y-PyI"/>
-                    <include reference="0qS-9H-Itm"/>
-                    <include reference="1T8-7D-ziN"/>
-                    <include reference="cUK-fT-h2k"/>
                     <include reference="PuY-Mo-Tlt"/>
                     <include reference="UZ3-o1-2gy"/>
                     <include reference="ZqU-eW-ZZP"/>
@@ -194,6 +189,11 @@
                     <include reference="KUO-iM-hmq"/>
                     <include reference="OXT-jk-JZS"/>
                     <include reference="eqj-pG-o5b"/>
+                    <include reference="0qS-9H-Itm"/>
+                    <include reference="1T8-7D-ziN"/>
+                    <include reference="cUK-fT-h2k"/>
+                    <include reference="N2W-IB-FsE"/>
+                    <include reference="eHd-TJ-h5Z"/>
                 </mask>
             </variation>
         </view>

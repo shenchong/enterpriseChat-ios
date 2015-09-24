@@ -8,6 +8,20 @@
 
 #import "ECChatViewController.h"
 
+@interface ECChatViewController ()
+{
+    EMConversation *_conversation;
+}
+@end
+
 @implementation ECChatViewController
 
+-(instancetype)initWithConversation:(EMConversation *)conversation{
+    if (self = [super init]) {
+        _conversation = conversation;
+        self.hidesBottomBarWhenPushed = YES;
+    }
+    
+    return self;
+}
 @end

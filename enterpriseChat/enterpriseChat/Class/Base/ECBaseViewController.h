@@ -15,7 +15,7 @@
 withFinishedUnselectedImage:(UIImage *)unselectedImage
                    tag:(NSInteger)tag;
 
--(UIBarButtonItem *)rightBarButtonItem;
--(UIBarButtonItem *)leftBarButtonItem;
--(void)setupBadgeValue:(NSString *)badgeValue;
+- (UIBarButtonItem *)rightBarButtonItem;
+- (UIBarButtonItem *)leftBarButtonItem;
+- (void)setupBadgeValue:(NSString *)badgeValue;
 @end

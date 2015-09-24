@@ -899,7 +899,7 @@ NSString *dzn_implementationKey(id target, SEL selector)
             [verticalFormat appendFormat:@"[%@]", string];
             
             if (i < subviewStrings.count-1) {
-                [verticalFormat appendFormat:@"-(%.f)-", verticalSpace];
+                [verticalFormat appendFormat:@"- (%.f)-", verticalSpace];
             }
         }
         
