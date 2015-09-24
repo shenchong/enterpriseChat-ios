@@ -1,21 +1,20 @@
 //
-//  ECContactListCell.m
+//  ECDepartmentListCell.m
 //  enterpriseChat
 //
-//  Created by dujiepeng on 15/7/31.
-//  Copyright (c) 2015年 easemob. All rights reserved.
+//  Created by dujiepeng on 15/9/24.
+//  Copyright © 2015年 easemob. All rights reserved.
 //
 
-#import "ECContactListCell.h"
+#import "ECDepartmentListCell.h"
 
-@interface ECContactListCell ()
+@interface ECDepartmentListCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *headImageView;
 @property (weak, nonatomic) IBOutlet UILabel *showNameLabel;
 @property (strong, nonatomic) UIView *lineView;
-
 @end
 
-@implementation ECContactListCell
+@implementation ECDepartmentListCell
 
 - (void)awakeFromNib {
     // Initialization code
@@ -33,12 +32,11 @@
     [super setSelected:selected animated:animated];
 }
 
--(void)setContactModel:(ECContactModel *)contactModel{
-    _contactModel = contactModel;
-    [self.headImageView sd_setImageWithURL:[NSURL URLWithString:_contactModel.headImagePath]
-                          placeholderImage:_contactModel.placeholderImage?
-     _contactModel.placeholderImage:[UIImage imageNamed:@"chatListCellHead"]];
-    self.showNameLabel.text = _contactModel.showName;
+-(void)setDepartmentModel:(ECDepartmentModel *)departmentModel{
+    _departmentModel = departmentModel;
+    [self.headImageView sd_setImageWithURL:[NSURL URLWithString:_departmentModel.departmentImagePath]
+                          placeholderImage:[UIImage imageNamed:@"chatListCellHead"]];
+    self.showNameLabel.text = _departmentModel.departmentName;
 }
 
 @end

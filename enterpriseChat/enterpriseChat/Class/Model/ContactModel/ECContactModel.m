@@ -10,25 +10,12 @@
 
 @implementation ECContactModel
 
-#pragma mark - ECContactDelegate
-- (NSString *)eid{
-    return _contactEid;
-}
-
-- (NSString *)nickname{
-    return _contactNickname;
-}
-
-- (NSString *)headImagePath{
-    return _contactHeadImagePath;
-}
-
-- (UIImage *)headerPlaceholderImage{
-    return _contactPlaceholderImage;
+- (NSString *)showName{
+    return self.nickname?self.nickname:self.eid;
 }
 
 - (NSString *)searchKey{
-    return self.contactNickname?self.contactNickname:self.contactEid;
+    return [self showName];
 }
 
 @end

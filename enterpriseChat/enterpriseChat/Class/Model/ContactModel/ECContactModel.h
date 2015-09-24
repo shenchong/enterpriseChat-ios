@@ -7,14 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ECContactDelegate.h"
 #import <UIKit/UIKit.h>
-@interface ECContactModel : NSObject <ECContactDelegate>
-@property (nonatomic, strong) NSString *contactEid;
-@property (nonatomic, strong) NSString *contactNickname;
-@property (nonatomic, strong) NSString *contactHeadImagePath;
-@property (nonatomic, strong) NSString *contactBgImagePath;
-@property (nonatomic, strong) NSString *contactPhoneNumber;
-@property (nonatomic, strong) NSString *contactDepartmentId;
-@property (nonatomic, strong) UIImage *contactPlaceholderImage;
+#import "RealtimeSearchUtil.h"
+@interface ECContactModel : NSObject<RealtimeSearchUtilDelegate>
+@property (nonatomic, strong) NSString *eid;
+@property (nonatomic, strong) NSString *nickname;
+@property (nonatomic, strong) NSString *headImagePath;
+@property (nonatomic, strong) NSString *bgImagePath;
+@property (nonatomic, strong) NSString *phoneNumber;
+@property (nonatomic, strong) NSString *deparementId;
+@property (nonatomic, strong) NSString *showName;
+@property (nonatomic, strong) UIImage  *placeholderImage;
 @end

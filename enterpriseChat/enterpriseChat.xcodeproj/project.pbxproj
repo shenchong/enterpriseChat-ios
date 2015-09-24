@@ -73,15 +73,16 @@
 		906CAA3D1B6903E300BC6D2F /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 906CAA2B1B6903E300BC6D2F /* UIImageView+HighlightedWebCache.m */; };
 		906CAA3E1B6903E300BC6D2F /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 906CAA2D1B6903E300BC6D2F /* UIImageView+WebCache.m */; };
 		906CAA3F1B6903E300BC6D2F /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 906CAA2F1B6903E300BC6D2F /* UIView+WebCacheOperation.m */; };
-		90858FB21B95C2930088E992 /* ECBaseCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 90858FA71B95C2930088E992 /* ECBaseCellModel.m */; };
-		90858FB31B95C2930088E992 /* ECChatListCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 90858FA91B95C2930088E992 /* ECChatListCellModel.m */; };
-		90858FB41B95C2930088E992 /* ECContactListCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 90858FAB1B95C2930088E992 /* ECContactListCellModel.m */; };
 		90858FB51B95C2930088E992 /* ECContactModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 90858FAE1B95C2930088E992 /* ECContactModel.m */; };
 		90858FB61B95C2930088E992 /* ECDepartmentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 90858FB11B95C2930088E992 /* ECDepartmentModel.m */; };
 		909D95C11B8C70E1002F5160 /* KxMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 909D95C01B8C70E1002F5160 /* KxMenu.m */; };
 		90C918941B96CDD6005F1658 /* NSString+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C918931B96CDD6005F1658 /* NSString+Category.m */; };
 		90D793821BA2C55800F6CA41 /* ECScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90D793811BA2C55800F6CA41 /* ECScrollView.m */; };
 		90E921D81B68EFDA00FFB4D7 /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E921D51B68EFDA00FFB4D7 /* UIView+Frame.m */; };
+		90FCD80C1BB3B33500FFAF10 /* ECConverstaionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 90FCD80B1BB3B33500FFAF10 /* ECConverstaionModel.m */; settings = {ASSET_TAGS = (); }; };
+		90FCD80F1BB3B4A600FFAF10 /* ECGroupModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 90FCD80E1BB3B4A600FFAF10 /* ECGroupModel.m */; settings = {ASSET_TAGS = (); }; };
+		90FCD81B1BB3D43800FFAF10 /* ECDepartmentListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90FCD8191BB3D43800FFAF10 /* ECDepartmentListCell.m */; settings = {ASSET_TAGS = (); }; };
+		90FCD81C1BB3D43800FFAF10 /* ECDepartmentListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90FCD81A1BB3D43800FFAF10 /* ECDepartmentListCell.xib */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -287,16 +288,9 @@
 		906CAA2D1B6903E300BC6D2F /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		906CAA2E1B6903E300BC6D2F /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		906CAA2F1B6903E300BC6D2F /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
-		907237221B90546400F032BA /* ECContactDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECContactDelegate.h; sourceTree = "<group>"; };
 		907AE12D1B959ED500E8B9FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		907AE12E1B959ED500E8B9FC /* enterpriseChat_Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = enterpriseChat_Tests.m; sourceTree = "<group>"; };
 		907AE1361B95A07E00E8B9FC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		90858FA61B95C2930088E992 /* ECBaseCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECBaseCellModel.h; sourceTree = "<group>"; };
-		90858FA71B95C2930088E992 /* ECBaseCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ECBaseCellModel.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		90858FA81B95C2930088E992 /* ECChatListCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECChatListCellModel.h; sourceTree = "<group>"; };
-		90858FA91B95C2930088E992 /* ECChatListCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECChatListCellModel.m; sourceTree = "<group>"; };
-		90858FAA1B95C2930088E992 /* ECContactListCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECContactListCellModel.h; sourceTree = "<group>"; };
-		90858FAB1B95C2930088E992 /* ECContactListCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECContactListCellModel.m; sourceTree = "<group>"; };
 		90858FAD1B95C2930088E992 /* ECContactModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECContactModel.h; sourceTree = "<group>"; };
 		90858FAE1B95C2930088E992 /* ECContactModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ECContactModel.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		90858FB01B95C2930088E992 /* ECDepartmentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECDepartmentModel.h; sourceTree = "<group>"; };
@@ -310,6 +304,13 @@
 		90E921D41B68EFDA00FFB4D7 /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
 		90E921D51B68EFDA00FFB4D7 /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
 		90E921DA1B68F01D00FFB4D7 /* enterpriseChat.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = enterpriseChat.pch; sourceTree = "<group>"; };
+		90FCD80A1BB3B33500FFAF10 /* ECConverstaionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECConverstaionModel.h; sourceTree = "<group>"; };
+		90FCD80B1BB3B33500FFAF10 /* ECConverstaionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECConverstaionModel.m; sourceTree = "<group>"; };
+		90FCD80D1BB3B4A600FFAF10 /* ECGroupModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECGroupModel.h; sourceTree = "<group>"; };
+		90FCD80E1BB3B4A600FFAF10 /* ECGroupModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECGroupModel.m; sourceTree = "<group>"; };
+		90FCD8181BB3D43800FFAF10 /* ECDepartmentListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECDepartmentListCell.h; sourceTree = "<group>"; };
+		90FCD8191BB3D43800FFAF10 /* ECDepartmentListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECDepartmentListCell.m; sourceTree = "<group>"; };
+		90FCD81A1BB3D43800FFAF10 /* ECDepartmentListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ECDepartmentListCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -372,6 +373,9 @@
 				90127DC61B8C2375007534A6 /* ECContactListCell.h */,
 				90127DC71B8C2375007534A6 /* ECContactListCell.m */,
 				90127DC81B8C2375007534A6 /* ECContactListCell.xib */,
+				90FCD8181BB3D43800FFAF10 /* ECDepartmentListCell.h */,
+				90FCD8191BB3D43800FFAF10 /* ECDepartmentListCell.m */,
+				90FCD81A1BB3D43800FFAF10 /* ECDepartmentListCell.xib */,
 			);
 			path = ECContactTableViewCell;
 			sourceTree = "<group>";
@@ -946,7 +950,6 @@
 		9072371F1B90516000F032BA /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
-				907237221B90546400F032BA /* ECContactDelegate.h */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -971,24 +974,10 @@
 		90858FA41B95C2930088E992 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				90858FA51B95C2930088E992 /* CellModel */,
 				90858FAC1B95C2930088E992 /* ContactModel */,
 				90858FAF1B95C2930088E992 /* DepartmentModel */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		90858FA51B95C2930088E992 /* CellModel */ = {
-			isa = PBXGroup;
-			children = (
-				90858FA61B95C2930088E992 /* ECBaseCellModel.h */,
-				90858FA71B95C2930088E992 /* ECBaseCellModel.m */,
-				90858FA81B95C2930088E992 /* ECChatListCellModel.h */,
-				90858FA91B95C2930088E992 /* ECChatListCellModel.m */,
-				90858FAA1B95C2930088E992 /* ECContactListCellModel.h */,
-				90858FAB1B95C2930088E992 /* ECContactListCellModel.m */,
-			);
-			path = CellModel;
 			sourceTree = "<group>";
 		};
 		90858FAC1B95C2930088E992 /* ContactModel */ = {
@@ -996,6 +985,10 @@
 			children = (
 				90858FAD1B95C2930088E992 /* ECContactModel.h */,
 				90858FAE1B95C2930088E992 /* ECContactModel.m */,
+				90FCD80A1BB3B33500FFAF10 /* ECConverstaionModel.h */,
+				90FCD80B1BB3B33500FFAF10 /* ECConverstaionModel.m */,
+				90FCD80D1BB3B4A600FFAF10 /* ECGroupModel.h */,
+				90FCD80E1BB3B4A600FFAF10 /* ECGroupModel.m */,
 			);
 			path = ContactModel;
 			sourceTree = "<group>";
@@ -1111,6 +1104,7 @@
 				902B0E601B8DB13100EBA3FE /* EaseMob.bundle in Resources */,
 				90127DD01B8C2375007534A6 /* ECContactListCell.xib in Resources */,
 				90519B9A1B6657750048A081 /* Images.xcassets in Resources */,
+				90FCD81C1BB3D43800FFAF10 /* ECDepartmentListCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1131,12 +1125,10 @@
 				90127DE51B8C27BB007534A6 /* FMDatabaseAdditions.m in Sources */,
 				90127DE41B8C27BB007534A6 /* FMDatabase.m in Sources */,
 				902B0E711B8DB18F00EBA3FE /* AppDelegate+EaseMob.m in Sources */,
-				90858FB31B95C2930088E992 /* ECChatListCellModel.m in Sources */,
 				902B0E791B8DB52700EBA3FE /* ECRegisterViewController.m in Sources */,
 				90127DE81B8C27BB007534A6 /* FMResultSet.m in Sources */,
 				90519C381B6660600048A081 /* ECViewManager.m in Sources */,
 				906CAA341B6903E300BC6D2F /* SDWebImageDecoder.m in Sources */,
-				90858FB21B95C2930088E992 /* ECBaseCellModel.m in Sources */,
 				9011DFC21B6A3C8700FFFFFB /* ECBaseTableViewController.m in Sources */,
 				906CAA391B6903E300BC6D2F /* UIButton+WebCache.m in Sources */,
 				90127DC21B8C22CC007534A6 /* ECDBManager.m in Sources */,
@@ -1147,6 +1139,8 @@
 				90519B921B6657750048A081 /* AppDelegate.m in Sources */,
 				906CAA3E1B6903E300BC6D2F /* UIImageView+WebCache.m in Sources */,
 				90858FB51B95C2930088E992 /* ECContactModel.m in Sources */,
+				90FCD80C1BB3B33500FFAF10 /* ECConverstaionModel.m in Sources */,
+				90FCD80F1BB3B4A600FFAF10 /* ECGroupModel.m in Sources */,
 				90127DCF1B8C2375007534A6 /* ECContactListCell.m in Sources */,
 				9063A39A1B6B50A5007D4ED8 /* RealtimeSearchUtil.m in Sources */,
 				90127DE61B8C27BB007534A6 /* FMDatabasePool.m in Sources */,
@@ -1157,11 +1151,11 @@
 				906CAA3D1B6903E300BC6D2F /* UIImageView+HighlightedWebCache.m in Sources */,
 				901A5F531B8EC95F0056B37D /* UITextField+Category.m in Sources */,
 				9011DFC31B6A3C8700FFFFFB /* ECBaseViewController.m in Sources */,
-				90858FB41B95C2930088E992 /* ECContactListCellModel.m in Sources */,
 				906CAA351B6903E300BC6D2F /* SDWebImageDownloader.m in Sources */,
 				902B0E7F1B8DBD8F00EBA3FE /* ECLoginViewController.m in Sources */,
 				906CAA381B6903E300BC6D2F /* SDWebImagePrefetcher.m in Sources */,
 				9034B3E61B6A1B5F000D0107 /* UIView+Radius.m in Sources */,
+				90FCD81B1BB3D43800FFAF10 /* ECDepartmentListCell.m in Sources */,
 				906CAA321B6903E300BC6D2F /* SDImageCache.m in Sources */,
 				906CAA361B6903E300BC6D2F /* SDWebImageDownloaderOperation.m in Sources */,
 				906CAA301B6903E300BC6D2F /* MKAnnotationView+WebCache.m in Sources */,

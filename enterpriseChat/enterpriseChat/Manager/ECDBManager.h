@@ -18,6 +18,8 @@
 + (instancetype)sharedInstance;
 
 #pragma mark - update db
+- (NSArray *)loadDepartmentWithLevel:(NSInteger)level
+                        loginAccount:(NSString *)account;
 - (BOOL)updateDepartment:(ECDepartmentModel *)deparment
             loginAccount:(NSString *)account;
 - (BOOL)updateContact:(ECContactModel *)contact
@@ -36,11 +38,18 @@
                loginAccountL:(NSString *)account;
 
 #pragma mark - load db
-- (ECDepartmentModel *)loadDepartmentWithID:(NSString *)departmentId
+- (ECDepartmentModel *)loadDepartmentWithId:(NSString *)departmentId
                                loginAccount:(NSString *)account;
 - (NSArray *)loadAllDepartmentsForAccount:(NSString *)account;
 
-- (ECContactModel *)loadContactWithID:(NSString *)eid
+- (NSArray *)loadDepartmentsWithIds:(NSArray *)departmentIds
+                       loginAccount:(NSString *)account;
+
+- (ECContactModel *)loadContactWithId:(NSString *)eid
                          loginAccount:(NSString *)account;
 - (NSArray *)loadAllContactsForAccount:(NSString *)account;
+
+- (NSArray *)loadContactsWithIds:(NSArray *)contactIds
+                       loginAccount:(NSString *)account;
+
 @end

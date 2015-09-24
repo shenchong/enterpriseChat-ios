@@ -14,6 +14,11 @@
 
 typedef void (^RealtimeSearchResultsBlock)(NSArray *results);
 
+@protocol RealtimeSearchUtilDelegate <NSObject>
+@required
+- (NSString *)searchKey;
+@end
+
 @interface RealtimeSearchUtil : NSObject
 
 /**

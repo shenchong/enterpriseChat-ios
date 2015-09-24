@@ -7,10 +7,11 @@
 //
 
 #import "ECContactsListViewController.h"
-#import "ECContactListCellModel.h"
 #import "ECContactListCell.h"
+#import "ECDepartmentListCell.h"
 #import "ECDepartmentListViewController.h"
 #import "ECContactModel.h"
+#import "ECDBManager.h"
 @interface ECContactsListViewController () <UITableViewDelegate,UITableViewDataSource>
 @end
 
@@ -20,34 +21,26 @@
     self.isNeedSearch = YES;
     self.barHiddenWhenSearch = YES;
     [super viewDidLoad];
-    ECContactListCellModel *easeModel = [[ECContactListCellModel alloc] init];
-    ECContactModel *model = [[ECContactModel alloc] init];
-    model.contactPlaceholderImage = [UIImage imageNamed:@"department"];
-    model.contactNickname = @"环信";
-    easeModel.contactDelegate = model;
-    
-    ECContactListCellModel *departModel = [[ECContactListCellModel alloc] init];
-    model = [[ECContactModel alloc] init];
-    model.contactPlaceholderImage = [UIImage imageNamed:@"department"];
-    model.contactNickname = @"群组";
-    departModel.contactDelegate = model;
-    
-    [self.datasource addObject:@[easeModel,departModel]];
-    
+
     // for test
     NSMutableArray *testAry = [[NSMutableArray alloc] init];
-    for (int i = 0; i < 10; i++) {
-        ECContactModel *contactModel = [[ECContactModel alloc] init];
-        contactModel.contactNickname = @"名字很长名字很长名字很长名字很长名字很长名字很长名字很长";
-        contactModel.contactEid = [NSString stringWithFormat:@"我是eid %d",i];
-        contactModel.contactHeadImagePath = @"http://img0.bdstatic.com/img/image/chongwu0727.jpg";
-        ECContactListCellModel *model = [[ECContactListCellModel alloc] init];
-        model.contactDelegate = contactModel;
-        [testAry addObject:model];
+    NSArray *departments = [[ECDBManager sharedInstance] loadDepartmentWithLevel:0 loginAccount:@"6001"];
+    for (ECDepartmentModel *department in departments) {
+        [testAry addObject:department];
     }
     
     [self.datasource addObject:testAry];
 
+    testAry = [[NSMutableArray alloc] init];
+    for (int i = 0; i < 10; i++) {
+        ECContactModel *contactModel = [[ECContactModel alloc] init];
+        contactModel.nickname = @"名字很长名字很长名字很长名字很长名字很长名字很长名字很长";
+        contactModel.eid = [NSString stringWithFormat:@"我是eid %d",i];
+        contactModel.headImagePath = @"http://img0.bdstatic.com/img/image/chongwu0727.jpg";
+        [testAry addObject:contactModel];
+    }
+    
+    [self.datasource addObject:testAry];
 }
 
 #pragma mark - rewrite superClass
@@ -61,16 +54,15 @@
 #pragma mark - UITableViewDataSource,UITableViewDelegate
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0) {
-        ECContactListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ECContactListCell"];
+        ECDepartmentListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ECDepartmentListCell"];
         if (!cell) {
-            [tableView registerNib:[UINib nibWithNibName:@"ECContactListCell" bundle:nil]
-            forCellReuseIdentifier:@"ECContactListCell"];
-            cell = [tableView dequeueReusableCellWithIdentifier:@"ECContactListCell"];
+            [tableView registerNib:[UINib nibWithNibName:@"ECDepartmentListCell" bundle:nil]
+            forCellReuseIdentifier:@"ECDepartmentListCell"];
+            cell = [tableView dequeueReusableCellWithIdentifier:@"ECDepartmentListCell"];
         }
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         NSArray *cellModels = [self.datasource objectAtIndex:[indexPath section]];
-        cell.cellModel = [cellModels objectAtIndex:indexPath.row];
-        
+        cell.departmentModel = [cellModels objectAtIndex:indexPath.row];
         return cell;
     }else {
         ECContactListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ECContactListCell"];
@@ -80,19 +72,14 @@
             cell = [tableView dequeueReusableCellWithIdentifier:@"ECContactListCell"];
         }
         NSArray *cellModels = [self.datasource objectAtIndex:[indexPath section]];
-        cell.cellModel = [cellModels objectAtIndex:indexPath.row];
+        cell.contactModel = [cellModels objectAtIndex:indexPath.row];
         
         return cell;
     }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.section == 0) {
-        return 64;
-    }else {
-        NSArray *cellModels = [self.datasource objectAtIndex:[indexPath section]];
-        return [ECContactListCellModel heightForRowFromModel:[cellModels objectAtIndex:indexPath.row]];
-    }
+    return 64;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -129,16 +116,16 @@
     return 0;
 }
 
-- (NSInteger)numberOfSectionsInTableView:(nonnull UITableView *)tableView{
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return self.datasource.count;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.section == 0) {
-        ECDepartmentListViewController *departmentListVC = [ECDepartmentListViewController departmentListWithDepartment:nil];
-        departmentListVC.title = @"环信";
-        [self.navigationController pushViewController:departmentListVC animated:YES];
+        ECDepartmentModel *department = [[self.datasource objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+        ECDepartmentListViewController *viewController = [ECDepartmentListViewController departmentListWithDepartment:department];
+        [self.navigationController pushViewController:viewController animated:YES];
     }else {
         
     }

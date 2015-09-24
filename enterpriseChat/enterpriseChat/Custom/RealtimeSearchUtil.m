@@ -11,7 +11,6 @@
  */
 
 #import "RealtimeSearchUtil.h"
-#import "ECContactDelegate.h"
 
 static RealtimeSearchUtil *defaultUtil = nil;
 
@@ -87,7 +86,7 @@ static RealtimeSearchUtil *defaultUtil = nil;
         else{
             NSMutableArray *results = [NSMutableArray array];
             NSString *subStr = [string lowercaseString];
-            for (id <ECContactDelegate>object in weakSelf.source) {
+            for (id <RealtimeSearchUtilDelegate>object in weakSelf.source) {
                 NSString *tmpString = @"";
                 if ([object respondsToSelector:@selector(searchKey)]) {
                     tmpString = [[object searchKey] lowercaseString];

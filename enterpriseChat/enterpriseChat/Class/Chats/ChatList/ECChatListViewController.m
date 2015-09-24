@@ -8,7 +8,6 @@
 
 #import "ECChatListViewController.h"
 #import "ECChatListCell.h"
-#import "ECChatListCellModel.h"
 #import "ECContactModel.h"
 #import "KxMenu.h"
 #import "ECChatViewController.h"
@@ -26,18 +25,18 @@
     self.barHiddenWhenSearch = YES;
     [super viewDidLoad];
     //for test
-    for (int i = 0; i < 1000; i++) {
-        ECContactModel *contactModel = [[ECContactModel alloc] init];
-//        contactModel.contactNickname = @"名字很长名字很长名字很长名字很长名字很长名字很长名字很长";
-        contactModel.contactEid = [NSString stringWithFormat:@"我是eid %d",i];
-        contactModel.contactHeadImagePath = @"http://img0.bdstatic.com/img/image/chongwu0727.jpg";
-        ECChatListCellModel *model = [[ECChatListCellModel alloc] init];
-        model.contactDelegate = contactModel;
-        model.time = @"2015-07-30";
-        model.msgInfo = @"请问这个鞋子什么时候能到货？发什么快递？请问这个鞋子什么时候能到货？发什么快递？";
-        model.unreadCount = 1000;
-        [self.datasource addObject:model];
-    }
+//    
+//    for (int i = 0; i < 1000; i++) {
+//        ECContactModel *contactModel = [[ECContactModel alloc] init];
+//        contactModel.eid = [NSString stringWithFormat:@"我是eid %d",i];
+//        contactModel.headImagePath = @"http://img0.bdstatic.com/img/image/chongwu0727.jpg";
+//        ECChatListCellModel *model = [[ECChatListCellModel alloc] init];
+//        model.contactDelegate = contactModel;
+//        model.time = @"2015-07-30";
+//        model.msgInfo = @"请问这个鞋子什么时候能到货？发什么快递？请问这个鞋子什么时候能到货？发什么快递？";
+//        model.unreadCount = 1000;
+//        [self.datasource addObject:model];
+//    }
     [self setupBadgeValue:@"1"];
 }
 
@@ -85,12 +84,12 @@
         forCellReuseIdentifier:@"ECChatListCell"];
         cell = [tableView dequeueReusableCellWithIdentifier:@"ECChatListCell"];
     }
-    cell.cellModel = [self.datasource objectAtIndex:[indexPath row]];
+    cell.conversationModel = [self.datasource objectAtIndex:[indexPath row]];
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return [ECChatListCellModel heightForRowFromModel:[self.datasource objectAtIndex:[indexPath row]]];
+    return 50;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{

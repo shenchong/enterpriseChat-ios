@@ -10,4 +10,8 @@
 
 @implementation ECDepartmentModel
 
+-(NSString *)description{
+    return [NSString stringWithFormat:@"departmentid -- %@ , departmentName -- %@, departmentSupID -- %@, departmentImagePath -- %@, deparementMembers -- %@, departmentSubIds -- %@, departmentLevel -- %d",self.departmentId,self.departmentName,self.departmentSupId,self.departmentImagePath,self.deparementMembers, self.departmentSubIds,(int)self.departmentLevel];
+}
+
 @end

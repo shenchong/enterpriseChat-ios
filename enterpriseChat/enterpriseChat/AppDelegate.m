@@ -10,6 +10,11 @@
 #import "ECMainViewController.h"
 #import "AppDelegate+EaseMob.h"
 #import "ECLoginViewController.h"
+
+#import "ECDepartmentModel.h"
+#import "ECContactModel.h"
+#import "ECDBManager.h"
+
 @interface AppDelegate ()
 
 @end
@@ -26,22 +31,82 @@
                                                object:nil];
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = WINDOW_BACKCOLOR;
-    self.window.rootViewController = [[ECMainViewController alloc] init];//[ECLoginViewController showLoginViewController];
+    if ([[EaseMob sharedInstance].chatManager isAutoLoginEnabled]) {
+        [self showMainView];
+    }else {
+        [self showLoginView];
+    }
+    
+    
+    // for test
+    [ECDBManager openEasemobDatabaseWithAccount:@"6001"];
+    
+    ECContactModel *contactModel = [[ECContactModel alloc] init];
+    contactModel.eid = @"test1";
+    contactModel.nickname = @"用户1";
+    [[ECDBManager sharedInstance] insertContact:contactModel loginAccount:@"6001"];
+
+    contactModel = [[ECContactModel alloc] init];
+    contactModel.eid = @"test2";
+    contactModel.nickname = @"用户2";
+    [[ECDBManager sharedInstance] insertContact:contactModel loginAccount:@"6001"];
+    
+    contactModel = [[ECContactModel alloc] init];
+    contactModel.eid = @"test3";
+    contactModel.nickname = @"用户3";
+    [[ECDBManager sharedInstance] insertContact:contactModel loginAccount:@"6001"];
+    
+    
+    ECDepartmentModel *model = [[ECDepartmentModel alloc] init];
+    model.departmentId = @"001";
+    model.departmentName = @"环信";
+    model.departmentLevel = 0;
+    model.deparementMembers = [[NSMutableArray alloc] initWithArray:@[@"test1",@"test2",@"test3"]];
+    model.departmentSubIds = [[NSMutableArray alloc] initWithArray:@[@"002"]];
+    model.departmentSupId = @"000";
+    model.departmentImagePath = @"www.baidu.com";
+    [[ECDBManager sharedInstance] insertDepartment:model loginAccount:@"6001"];
+    
+
+    ECDepartmentModel *model1 = [[ECDepartmentModel alloc] init];
+    model1.departmentId = @"002";
+    model1.departmentName = @"销售部";
+    model1.departmentLevel = 1;
+    model1.deparementMembers = [[NSMutableArray alloc] initWithArray:@[@"test4",@"tes5",@"test6"]];
+    model1.departmentSubIds = [[NSMutableArray alloc] initWithArray:@[@"003",@"004"]];
+    model1.departmentSupId = @"001";
+    model1.departmentImagePath = @"www.baidu.com";
+    [[ECDBManager sharedInstance] insertDepartment:model1 loginAccount:@"6001"];
+
+    
+    ECDepartmentModel *model2 = [[ECDepartmentModel alloc] init];
+    model2.departmentId = @"003";
+    model2.departmentName = @"电话销售部";
+    model2.departmentLevel = 2;
+    model2.deparementMembers = [[NSMutableArray alloc] initWithArray:@[@"test7",@"test8",@"test9"]];
+    model2.departmentSubIds = [[NSMutableArray alloc] initWithArray:@[@"005",@"006"]];
+    model2.departmentSupId = @"002";
+    model2.departmentImagePath = @"www.baidu.com";
+    [[ECDBManager sharedInstance] insertDepartment:model2 loginAccount:@"6001"];
+    
     [self.window makeKeyAndVisible];
     return YES;
 }
 
 - (void)showMainView{
+    self.window.rootViewController = [[ECMainViewController alloc] init];
+}
 
+- (void)showLoginView{
+    self.window.rootViewController = [ECLoginViewController showLoginViewController];
 }
 
 - (void)loginChanged:(NSNotification *)noti{
     if ([noti.object boolValue]) {
-        self.window.rootViewController = [[ECMainViewController alloc] init];
+        [self showMainView];
     }else {
-    
+        [self showLoginView];
     }
 }
-
 
 @end
