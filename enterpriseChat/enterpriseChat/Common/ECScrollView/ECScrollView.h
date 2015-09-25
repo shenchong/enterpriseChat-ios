@@ -8,12 +8,22 @@
 
 #import <UIKit/UIKit.h>
 
+
+@class ECScrollView;
+
+@protocol ECScrollViewItemDelegate <NSObject>
+- (NSString *)itemName;
+- (NSString *)itemId;
+@end
+
 @protocol ECScrollViewDelegate <NSObject>
-- (void)didClickedItem:(NSInteger)item;
+- (void)eCSCrollView:(ECScrollView *)scrollVeiw
+     didClickedItem:(NSString *)itemId;
 
 @end
 
 @interface ECScrollView : UIScrollView
+@property (nonatomic, strong) NSMutableArray *items;
 @property (nonatomic) id <ECScrollViewDelegate> ecScrollViewDelegate;
-- (void)addItem:(NSInteger)item;
+- (void)addItem:(id <ECScrollViewItemDelegate>)item;
 @end

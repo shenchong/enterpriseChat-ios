@@ -12,8 +12,10 @@
 #import "ECDepartmentListCell.h"
 #import "ECDBManager.h"
 
-@interface ECDepartmentListViewController () <UITableViewDataSource, UITableViewDelegate,UISearchBarDelegate>
+@interface ECDepartmentListViewController () <UITableViewDataSource, UITableViewDelegate,UISearchBarDelegate, ECScrollViewDelegate>
 @property (nonatomic, strong) ECDepartmentModel *departmentModel;
+@property (nonatomic, strong) ECScrollView *departScrollView;
+@property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *datasource;
 @property (nonatomic, strong) NSMutableArray *departments;
 @property (nonatomic, strong) NSMutableArray *members;
@@ -21,7 +23,8 @@
 
 @implementation ECDepartmentListViewController
 
-+ (id)departmentListWithDepartment:(ECDepartmentModel *)departmentModel{
++ (id)departmentListWithDepartment:(ECDepartmentModel *)departmentModel
+{
     ECDepartmentListViewController *departmentListView = [[ECDepartmentListViewController alloc]
                                                           initWithDepartment:departmentModel];
     return departmentListView;
@@ -52,8 +55,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.view addSubview:self.tableView];
+    self.tableView.top = self.departScrollView.bottom - 30;
     [self setupDatasoure];
-    self.tableView.tableFooterView = [[UIView alloc] init];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -67,6 +71,32 @@
     }
     
     return _datasource;
+}
+
+- (UITableView *)tableView{
+    if (!_tableView) {
+        _tableView = [[UITableView alloc] initWithFrame:self.view.bounds
+                                                  style:UITableViewStyleGrouped];
+
+        _tableView.separatorStyle = UITableViewCellSelectionStyleNone;
+        _tableView.tableFooterView = [[UIView alloc] init];
+        _tableView.layer.borderWidth = 0;
+        _tableView.dataSource = self;
+        _tableView.delegate = self;
+    }
+    
+    return _tableView;
+}
+
+- (ECScrollView *)departScrollView{
+    if (!_departScrollView) {
+        _departScrollView = [[ECScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 40)];
+        _departScrollView.backgroundColor = [UIColor redColor];
+        _departScrollView.ecScrollViewDelegate = self;
+        [_departScrollView addItem:self.departmentModel];
+    }
+    
+    return _departScrollView;
 }
 
 #pragma mark - UITableViewDataSource,UITableViewDelegate
@@ -119,12 +149,34 @@
     }
 }
 
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    if (section == 0) {
+        return self.departScrollView;
+    }
+    
+    return nil;
+}
+
+-(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+    return nil;
+}
+
 - (CGFloat)tableView:(nonnull UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     if (section == 0) {
-        return 0;
-    }else {
-        return 20;
+        return self.departScrollView.height;
     }
+    
+    return 20;
 }
+
+- (CGFloat)tableView:(nonnull UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    return 1;
+}
+
+-(void)dealloc{
+    DLog(@"dealloc");
+}
+
 
 @end

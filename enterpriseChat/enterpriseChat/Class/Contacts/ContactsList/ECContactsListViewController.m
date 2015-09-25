@@ -10,6 +10,7 @@
 #import "ECContactListCell.h"
 #import "ECDepartmentListCell.h"
 #import "ECDepartmentListViewController.h"
+#import "ECDepartmentListManagerViewController.h"
 #import "ECContactModel.h"
 #import "ECDBManager.h"
 @interface ECContactsListViewController () <UITableViewDelegate,UITableViewDataSource>
@@ -111,7 +112,7 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
     if (section == 0) {
-        return 10;
+        return 20;
     }
     return 0;
 }
@@ -123,9 +124,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.section == 0) {
-        ECDepartmentModel *department = [[self.datasource objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
-        ECDepartmentListViewController *viewController = [ECDepartmentListViewController departmentListWithDepartment:department];
-        [self.navigationController pushViewController:viewController animated:YES];
+        ECDepartmentListManagerViewController *departmentManagerVC = [[ECDepartmentListManagerViewController alloc] init];
+          departmentManagerVC.topDepartment = [[self.datasource objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+        [self.navigationController pushViewController:departmentManagerVC animated:YES];
     }else {
         
     }
