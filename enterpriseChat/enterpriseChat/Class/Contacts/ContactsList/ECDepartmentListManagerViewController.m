@@ -27,17 +27,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setupUI];
 
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:self.departmentListVC];
-    nav.delegate = self;
-    [nav setNavigationBarHidden:YES animated:NO];
-    [self addChildViewController:nav];
-    [self.view addSubview:nav.view];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 -(ECDepartmentListViewController *)departmentListVC{
@@ -49,7 +40,12 @@
 }
 
 - (void)setupUI{
-
+    UINavigationController *nav = [[UINavigationController alloc]
+                                   initWithRootViewController:self.departmentListVC];
+    nav.delegate = self;
+    [nav setNavigationBarHidden:YES animated:NO];
+    [self addChildViewController:nav];
+    [self.view addSubview:nav.view];
 }
 
 -(void)dealloc{

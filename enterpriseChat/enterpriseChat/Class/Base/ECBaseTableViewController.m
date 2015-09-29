@@ -166,7 +166,6 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
         _tableView.layer.borderWidth = 0;
         _tableView.emptyDataSetSource = self;
         _tableView.emptyDataSetDelegate = self;
-        _tableView.tableFooterView = [UIView new];
     }
     
     return _tableView;

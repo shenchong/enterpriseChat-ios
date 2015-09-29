@@ -29,6 +29,7 @@
     if (self = [super initWithFrame:frame]) {
         self.showsHorizontalScrollIndicator = NO;
         self.showsVerticalScrollIndicator = NO;
+        
         _contentWidth = 10;
     }
     
@@ -39,27 +40,47 @@
     
 }
 
+-(NSMutableArray *)items{
+    if (!_items) {
+        _items = [[NSMutableArray alloc] init];
+    }
+    
+    return _items;
+}
+
 - (void)addItem:(id <ECScrollViewItemDelegate>)item{
     ECScrollViewButton *button = [ECScrollViewButton buttonWithType:UIButtonTypeCustom];
-    NSString *buttonTitle;
+    NSMutableAttributedString *attributeTitle;
     if (self.items.count == 0) {
-        buttonTitle = [item itemName];
+        attributeTitle = [[NSMutableAttributedString alloc]
+                          initWithString:[NSString stringWithFormat:@"%@",[item itemName]]
+                          attributes:nil];
+        [attributeTitle addAttribute:NSForegroundColorAttributeName
+                               value:self.latestTitleColor
+                               range:NSMakeRange(0,attributeTitle.length)];
     }else {
-        buttonTitle = [NSString stringWithFormat:@"> %@",buttonTitle];
+        attributeTitle = [[NSMutableAttributedString alloc]
+                          initWithString:[NSString stringWithFormat:@"> %@",[item itemName]]
+                          attributes:nil];
+        [attributeTitle addAttribute:NSForegroundColorAttributeName
+                               value:self.latestTitleColor
+                               range:NSMakeRange(1,attributeTitle.length - 1)];
     }
-    [button setTitle:buttonTitle forState:UIControlStateNormal];
+
+    [attributeTitle addAttribute:NSFontAttributeName
+                           value:self.titleFont
+                           range:NSMakeRange(0, attributeTitle.length)];
+    
+    
+    [button setAttributedTitle:attributeTitle forState:UIControlStateNormal];
     [button sizeToFit];
     [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     button.frame = CGRectMake(_contentWidth, 0, button.width + 10, self.height);
     button.left -= button.width;
-//    [button setBackgroundColor:[UIColor colorWithRed:(CGFloat)(1000 * random()%255)/225
-//                                               green:(CGFloat)(1000 * random()%255)/225
-//                                                blue:(CGFloat)(1000 * random()%255)/225
-//                                               alpha:1]];
     button.itemId = [item itemId];
     [button addTarget:self action:@selector(buttonOnClicked:)
      forControlEvents:UIControlEventTouchUpInside];
-    [self.items addObject:button];
+    [self.items addObject:item];
     [self insertSubview:button atIndex:0];
     [UIView animateWithDuration:0.2f animations:^{
         button.left += button.width;
@@ -68,6 +89,44 @@
     self.contentSize = CGSizeMake(_contentWidth, self.height);
     if (_contentWidth > self.width) {
         [self setContentOffset:CGPointMake(_contentWidth - self.width, 0) animated:YES];
+    }
+}
+
+- (void)addItems:(NSArray *)items{
+    for (int i = 0; i < items.count; i++) {
+        id <ECScrollViewItemDelegate> item = [items objectAtIndex:i];
+        ECScrollViewButton *button = [ECScrollViewButton buttonWithType:UIButtonTypeCustom];
+        NSMutableAttributedString *attributeTitle;
+        if (i == 0) {
+            attributeTitle = [[NSMutableAttributedString alloc]
+                              initWithString:[NSString stringWithFormat:@"%@",[item itemName]]
+                              attributes:nil];
+        }else {
+            attributeTitle = [[NSMutableAttributedString alloc]
+                              initWithString:[NSString stringWithFormat:@"> %@",[item itemName]]
+                              attributes:nil];
+        }
+        [attributeTitle addAttribute:NSFontAttributeName
+                               value:self.titleFont
+                               range:NSMakeRange(0, attributeTitle.length)];
+        [button setAttributedTitle:attributeTitle forState:UIControlStateNormal];
+        [button sizeToFit];
+        [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        button.frame = CGRectMake(_contentWidth, 0, button.width + 10, self.height);
+        button.left -= button.width;
+        button.itemId = [item itemId];
+        [button addTarget:self action:@selector(buttonOnClicked:)
+         forControlEvents:UIControlEventTouchUpInside];
+        [self.items addObject:item];
+        [self insertSubview:button atIndex:0];
+        [UIView animateWithDuration:0.2f animations:^{
+            button.left += button.width;
+        }];
+        _contentWidth += button.width;
+        self.contentSize = CGSizeMake(_contentWidth, self.height);
+        if (_contentWidth > self.width) {
+            [self setContentOffset:CGPointMake(_contentWidth - self.width, 0) animated:YES];
+        }
     }
 }
 

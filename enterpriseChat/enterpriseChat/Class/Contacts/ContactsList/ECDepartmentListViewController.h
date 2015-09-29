@@ -9,5 +9,6 @@
 #import "ECBaseViewController.h"
 #import "ECDepartmentModel.h"
 @interface ECDepartmentListViewController : ECBaseViewController
+@property (nonatomic, strong) NSArray *items;
 + (id)departmentListWithDepartment:(ECDepartmentModel *)departmentModel;
 @end

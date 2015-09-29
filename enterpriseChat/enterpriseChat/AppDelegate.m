@@ -76,12 +76,24 @@
     ECDepartmentModel *model2 = [[ECDepartmentModel alloc] init];
     model2.departmentId = @"003";
     model2.departmentName = @"电话销售部";
-    model2.departmentLevel = 2;
+    model2.departmentLevel = 3;
     model2.deparementMembers = [[NSMutableArray alloc] initWithArray:@[@"test7",@"test8",@"test9"]];
-    model2.departmentSubIds = [[NSMutableArray alloc] initWithArray:@[@"005",@"006"]];
+    model2.departmentSubIds = [[NSMutableArray alloc] initWithArray:@[@"004"]];
     model2.departmentSupId = @"002";
     model2.departmentImagePath = @"www.baidu.com";
     [[ECDBManager sharedInstance] insertDepartment:model2 loginAccount:@"6001"];
+    
+    
+    ECDepartmentModel *model3 = [[ECDepartmentModel alloc] init];
+    model3.departmentId = @"004";
+    model3.departmentName = @"客服系统电话销售部";
+    model3.departmentLevel = 4;
+    model3.deparementMembers = [[NSMutableArray alloc] initWithArray:@[@"test7",@"test8",@"test9"]];
+    model3.departmentSubIds = [[NSMutableArray alloc] initWithArray:@[@"005",@"006"]];
+    model3.departmentSupId = @"003";
+    model3.departmentImagePath = @"www.baidu.com";
+    [[ECDBManager sharedInstance] insertDepartment:model3 loginAccount:@"6001"];
+
     
     [self.window makeKeyAndVisible];
     return YES;

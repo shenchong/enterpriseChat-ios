@@ -25,5 +25,9 @@
 @interface ECScrollView : UIScrollView
 @property (nonatomic, strong) NSMutableArray *items;
 @property (nonatomic) id <ECScrollViewDelegate> ecScrollViewDelegate;
+@property (nonatomic, strong) UIColor *latestTitleColor;
+@property (nonatomic, strong) UIFont *titleFont;
+-(instancetype)initWithFrame:(CGRect)frame;
 - (void)addItem:(id <ECScrollViewItemDelegate>)item;
+- (void)addItems:(NSArray *)items;
 @end
