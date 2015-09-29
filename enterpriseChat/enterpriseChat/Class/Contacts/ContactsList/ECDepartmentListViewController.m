@@ -11,6 +11,7 @@
 #import "ECContactListCell.h"
 #import "ECDepartmentListCell.h"
 #import "ECDBManager.h"
+#import "ECSearchBar.h"
 
 @interface ECDepartmentListViewController () <UITableViewDataSource, UITableViewDelegate,UISearchBarDelegate, ECScrollViewDelegate,UISearchBarDelegate>
 @property (nonatomic, strong) ECDepartmentModel *departmentModel;
@@ -19,7 +20,7 @@
 @property (nonatomic, strong) NSMutableArray *datasource;
 @property (nonatomic, strong) NSMutableArray *departments;
 @property (nonatomic, strong) NSMutableArray *members;
-@property (nonatomic, strong) UISearchBar *searchBar;
+@property (nonatomic, strong) ECSearchBar *searchBar;
 @property (nonatomic) NSString *departmentId;
 @end
 
@@ -95,9 +96,9 @@
     return _tableView;
 }
 
--(UISearchBar *)searchBar{
+-(ECSearchBar *)searchBar{
     if (!_searchBar) {
-        _searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 44)];
+        _searchBar = [[ECSearchBar alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 35)];
         _searchBar.delegate = self;
     }
     
@@ -180,7 +181,7 @@
         lineView.height = 0.3;
         lineView.top = self.departScrollView.height;
         lineView.width = self.view.width;
-        lineView.backgroundColor = [UIColor lightGrayColor];
+        lineView.backgroundColor = ECCELL_LINE;
         [scView addSubview:self.departScrollView];
         [scView addSubview:lineView];
         return scView;
@@ -220,12 +221,15 @@
 
 #pragma mark - UISearchBarDelegate
 -(void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
-    [searchBar setShowsCancelButton:NO];
-    [searchBar resignFirstResponder];
+    [UIView animateWithDuration:0.5 animations:^{
+        [searchBar setShowsCancelButton:NO animated:YES];
+    } completion:^(BOOL finished) {
+        [searchBar resignFirstResponder];
+    }];
 }
 
 - (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar{
-    [searchBar setShowsCancelButton:YES];
+    [searchBar setShowsCancelButton:YES animated:YES];
     return YES;
 }
 @end
