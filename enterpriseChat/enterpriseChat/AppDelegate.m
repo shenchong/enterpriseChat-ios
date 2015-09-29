@@ -40,28 +40,22 @@
     
     // for test
     [ECDBManager openEasemobDatabaseWithAccount:@"6001"];
-    
-    ECContactModel *contactModel = [[ECContactModel alloc] init];
-    contactModel.eid = @"test1";
-    contactModel.nickname = @"用户1";
-    [[ECDBManager sharedInstance] insertContact:contactModel loginAccount:@"6001"];
 
-    contactModel = [[ECContactModel alloc] init];
-    contactModel.eid = @"test2";
-    contactModel.nickname = @"用户2";
-    [[ECDBManager sharedInstance] insertContact:contactModel loginAccount:@"6001"];
-    
-    contactModel = [[ECContactModel alloc] init];
-    contactModel.eid = @"test3";
-    contactModel.nickname = @"用户3";
-    [[ECDBManager sharedInstance] insertContact:contactModel loginAccount:@"6001"];
-    
+    NSMutableArray *members = [[NSMutableArray alloc] init];
+    for (int i = 0; i < 100; i ++) {
+        ECContactModel *contactModel = [[ECContactModel alloc] init];
+        contactModel = [[ECContactModel alloc] init];
+        contactModel.eid = [NSString stringWithFormat:@"test%d",i];
+        contactModel.nickname = [NSString stringWithFormat:@"用户%d",i];
+        [members addObject:contactModel.eid];
+        [[ECDBManager sharedInstance] insertContact:contactModel loginAccount:@"6001"];
+    }
     
     ECDepartmentModel *model = [[ECDepartmentModel alloc] init];
     model.departmentId = @"001";
     model.departmentName = @"环信";
     model.departmentLevel = 0;
-    model.deparementMembers = [[NSMutableArray alloc] initWithArray:@[@"test1",@"test2",@"test3"]];
+    model.deparementMembers = [[NSMutableArray alloc] initWithArray:members];
     model.departmentSubIds = [[NSMutableArray alloc] initWithArray:@[@"002"]];
     model.departmentSupId = @"000";
     model.departmentImagePath = @"www.baidu.com";
@@ -82,12 +76,24 @@
     ECDepartmentModel *model2 = [[ECDepartmentModel alloc] init];
     model2.departmentId = @"003";
     model2.departmentName = @"电话销售部";
-    model2.departmentLevel = 2;
+    model2.departmentLevel = 3;
     model2.deparementMembers = [[NSMutableArray alloc] initWithArray:@[@"test7",@"test8",@"test9"]];
-    model2.departmentSubIds = [[NSMutableArray alloc] initWithArray:@[@"005",@"006"]];
+    model2.departmentSubIds = [[NSMutableArray alloc] initWithArray:@[@"004"]];
     model2.departmentSupId = @"002";
     model2.departmentImagePath = @"www.baidu.com";
     [[ECDBManager sharedInstance] insertDepartment:model2 loginAccount:@"6001"];
+    
+    
+    ECDepartmentModel *model3 = [[ECDepartmentModel alloc] init];
+    model3.departmentId = @"004";
+    model3.departmentName = @"客服系统电话销售部";
+    model3.departmentLevel = 4;
+    model3.deparementMembers = [[NSMutableArray alloc] initWithArray:@[@"test7",@"test8",@"test9"]];
+    model3.departmentSubIds = [[NSMutableArray alloc] initWithArray:@[@"005",@"006"]];
+    model3.departmentSupId = @"003";
+    model3.departmentImagePath = @"www.baidu.com";
+    [[ECDBManager sharedInstance] insertDepartment:model3 loginAccount:@"6001"];
+
     
     [self.window makeKeyAndVisible];
     return YES;

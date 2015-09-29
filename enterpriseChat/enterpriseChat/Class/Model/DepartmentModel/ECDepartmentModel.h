@@ -7,8 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-
-@interface ECDepartmentModel : NSObject
+#import "ECScrollView.h"
+@interface ECDepartmentModel : NSObject <ECScrollViewItemDelegate>
 @property (nonatomic, strong) NSString *departmentId;
 @property (nonatomic, strong) NSString *departmentName;
 @property (nonatomic, strong) NSString *departmentImagePath;

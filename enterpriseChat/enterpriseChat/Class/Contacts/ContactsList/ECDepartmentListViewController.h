@@ -6,7 +6,9 @@
 //  Copyright © 2015年 easemob. All rights reserved.
 //
 
+#import "ECBaseViewController.h"
 #import "ECDepartmentModel.h"
-@interface ECDepartmentListViewController : UITableViewController
+@interface ECDepartmentListViewController : ECBaseViewController
+@property (nonatomic, strong) NSArray *items;
 + (id)departmentListWithDepartment:(ECDepartmentModel *)departmentModel;
 @end

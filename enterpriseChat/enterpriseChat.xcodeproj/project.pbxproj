@@ -55,6 +55,7 @@
 		90519C2E1B665CFE0048A081 /* ECSettingsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90519C2D1B665CFE0048A081 /* ECSettingsListViewController.m */; };
 		90519C321B665F450048A081 /* ECNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90519C311B665F450048A081 /* ECNavigationController.m */; };
 		90519C381B6660600048A081 /* ECViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 90519C371B6660600048A081 /* ECViewManager.m */; };
+		905AFAA41BB4EF6C005EA1AC /* ECDepartmentListManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 905AFAA31BB4EF6C005EA1AC /* ECDepartmentListManagerViewController.m */; settings = {ASSET_TAGS = (); }; };
 		9063A39A1B6B50A5007D4ED8 /* RealtimeSearchUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 9063A3991B6B50A5007D4ED8 /* RealtimeSearchUtil.m */; };
 		9063A39D1B6B5251007D4ED8 /* EMSearchDisplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9063A39C1B6B5251007D4ED8 /* EMSearchDisplayController.m */; };
 		906CAA301B6903E300BC6D2F /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 906CAA101B6903E300BC6D2F /* MKAnnotationView+WebCache.m */; };
@@ -251,6 +252,8 @@
 		90519C311B665F450048A081 /* ECNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECNavigationController.m; sourceTree = "<group>"; };
 		90519C361B6660600048A081 /* ECViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECViewManager.h; sourceTree = "<group>"; };
 		90519C371B6660600048A081 /* ECViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ECViewManager.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		905AFAA21BB4EF6C005EA1AC /* ECDepartmentListManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECDepartmentListManagerViewController.h; sourceTree = "<group>"; };
+		905AFAA31BB4EF6C005EA1AC /* ECDepartmentListManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECDepartmentListManagerViewController.m; sourceTree = "<group>"; };
 		9063A3981B6B50A5007D4ED8 /* RealtimeSearchUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RealtimeSearchUtil.h; sourceTree = "<group>"; };
 		9063A3991B6B50A5007D4ED8 /* RealtimeSearchUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RealtimeSearchUtil.m; sourceTree = "<group>"; };
 		9063A39B1B6B5251007D4ED8 /* EMSearchDisplayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMSearchDisplayController.h; sourceTree = "<group>"; };
@@ -363,6 +366,8 @@
 				90127DCC1B8C2375007534A6 /* ECDepartmentListViewController.m */,
 				90127DCD1B8C2375007534A6 /* ECContactsListViewController.h */,
 				90127DCE1B8C2375007534A6 /* ECContactsListViewController.m */,
+				905AFAA21BB4EF6C005EA1AC /* ECDepartmentListManagerViewController.h */,
+				905AFAA31BB4EF6C005EA1AC /* ECDepartmentListManagerViewController.m */,
 			);
 			path = ContactsList;
 			sourceTree = "<group>";
@@ -1127,6 +1132,7 @@
 				902B0E711B8DB18F00EBA3FE /* AppDelegate+EaseMob.m in Sources */,
 				902B0E791B8DB52700EBA3FE /* ECRegisterViewController.m in Sources */,
 				90127DE81B8C27BB007534A6 /* FMResultSet.m in Sources */,
+				905AFAA41BB4EF6C005EA1AC /* ECDepartmentListManagerViewController.m in Sources */,
 				90519C381B6660600048A081 /* ECViewManager.m in Sources */,
 				906CAA341B6903E300BC6D2F /* SDWebImageDecoder.m in Sources */,
 				9011DFC21B6A3C8700FFFFFB /* ECBaseTableViewController.m in Sources */,
