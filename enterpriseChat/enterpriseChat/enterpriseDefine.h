@@ -42,4 +42,8 @@ NSLog(@"[%s  line : %d]: " format "\n", __PRETTY_FUNCTION__, __LINE__, ## args);
 // navbar 字体大小
 #define NAVTITLE_FONT_SIZE 16
 
+// cell
+// cell line color
+#define ECCELL_LINE [UIColor colorWithWhite:0.667 alpha:0.610]
+
 #endif
