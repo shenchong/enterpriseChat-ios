@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "ECMainViewController.h"
 #import "AppDelegate+EaseMob.h"
+#import "AppDelegate+Parse.h"
 #import "ECLoginViewController.h"
 
 #import "ECDepartmentModel.h"
@@ -37,7 +38,7 @@
         [self showLoginView];
     }
     
-    
+    [self setupParse];
     // for test
     [ECDBManager openEasemobDatabaseWithAccount:@"6001"];
 
