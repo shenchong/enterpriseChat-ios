@@ -49,7 +49,7 @@ NSLog(@"[%s  line : %d]: " format "\n", __PRETTY_FUNCTION__, __LINE__, ## args);
 
 // Parse DEPARTMENT
 #define DEPARTMENT              @"DEPARTMENT"
-#define DEPARTMENTID            @"objectId"
+#define DEPARTMENTID            @"departmentId"
 #define DEPARTMENTNAME          @"departmentName"
 #define DEPARTMENTHEADPATH      @"departmentHeadPath"
 #define DEPARTMENTMEMBERS       @"departmentMembers"

@@ -9,5 +9,5 @@
 #import <Foundation/Foundation.h>
 #import <Parse/Parse.h>
 @interface ECParseManager : NSObject
-- (void)updateDepartmentsFromParse;
++ (void)updateDepartmentsFromParse;
 @end

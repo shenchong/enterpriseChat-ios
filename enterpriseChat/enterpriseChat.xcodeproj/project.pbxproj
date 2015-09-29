@@ -34,6 +34,7 @@
 		902B0E801B8DBD8F00EBA3FE /* ECLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 902B0E7E1B8DBD8F00EBA3FE /* ECLoginViewController.xib */; };
 		902F70AD1BBA8F75009D4B7F /* AppDelegate+Parse.m in Sources */ = {isa = PBXBuildFile; fileRef = 902F70AC1BBA8F75009D4B7F /* AppDelegate+Parse.m */; settings = {ASSET_TAGS = (); }; };
 		902F70B01BBA9973009D4B7F /* ECParseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 902F70AF1BBA9973009D4B7F /* ECParseManager.m */; settings = {ASSET_TAGS = (); }; };
+		902F71211BBAAA5E009D4B7F /* NSObject+NotificationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 902F71201BBAAA5E009D4B7F /* NSObject+NotificationCenter.m */; settings = {ASSET_TAGS = (); }; };
 		903113941BA025B200B0E487 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 903113931BA025B200B0E487 /* Accounts.framework */; };
 		903113961BA025BF00B0E487 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 903113951BA025BF00B0E487 /* Social.framework */; };
 		9031139A1BA02F4900B0E487 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 903113991BA02F4900B0E487 /* StoreKit.framework */; };
@@ -112,6 +113,8 @@
 		902F70AC1BBA8F75009D4B7F /* AppDelegate+Parse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+Parse.m"; sourceTree = "<group>"; };
 		902F70AE1BBA9973009D4B7F /* ECParseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECParseManager.h; sourceTree = "<group>"; };
 		902F70AF1BBA9973009D4B7F /* ECParseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECParseManager.m; sourceTree = "<group>"; };
+		902F711F1BBAAA5E009D4B7F /* NSObject+NotificationCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+NotificationCenter.h"; sourceTree = "<group>"; };
+		902F71201BBAAA5E009D4B7F /* NSObject+NotificationCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+NotificationCenter.m"; sourceTree = "<group>"; };
 		903113931BA025B200B0E487 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		903113951BA025BF00B0E487 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		903113971BA025CE00B0E487 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -566,6 +569,8 @@
 				901A5F521B8EC95F0056B37D /* UITextField+Category.m */,
 				90C918921B96CDD6005F1658 /* NSString+Category.h */,
 				90C918931B96CDD6005F1658 /* NSString+Category.m */,
+				902F711F1BBAAA5E009D4B7F /* NSObject+NotificationCenter.h */,
+				902F71201BBAAA5E009D4B7F /* NSObject+NotificationCenter.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -721,6 +726,7 @@
 				9034B3E61B6A1B5F000D0107 /* UIView+Radius.m in Sources */,
 				90FCD81B1BB3D43800FFAF10 /* ECDepartmentListCell.m in Sources */,
 				90C918941B96CDD6005F1658 /* NSString+Category.m in Sources */,
+				902F71211BBAAA5E009D4B7F /* NSObject+NotificationCenter.m in Sources */,
 				90519C2B1B665CE50048A081 /* ECEnterpriseListViewController.m in Sources */,
 				90519C251B665C7D0048A081 /* ECMainViewController.m in Sources */,
 				90858FB61B95C2930088E992 /* ECDepartmentModel.m in Sources */,
