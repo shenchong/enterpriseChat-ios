@@ -28,6 +28,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupUI];
+    self.title = self.topDepartment.departmentName;
 
 }
 
@@ -55,7 +56,8 @@
 - (void)navigationController:(UINavigationController *)navigationController
       willShowViewController:(UIViewController *)viewController
                     animated:(BOOL)animated{
-
+    ECDepartmentListViewController *departmentListVC = (ECDepartmentListViewController *)viewController;
+    self.title = departmentListVC.departmentModel.departmentName;
 }
 
 @end
