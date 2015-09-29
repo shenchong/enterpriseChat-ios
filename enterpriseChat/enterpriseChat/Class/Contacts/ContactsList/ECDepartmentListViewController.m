@@ -14,7 +14,6 @@
 #import "ECSearchBar.h"
 
 @interface ECDepartmentListViewController () <UITableViewDataSource, UITableViewDelegate,UISearchBarDelegate, ECScrollViewDelegate,UISearchBarDelegate>
-@property (nonatomic, strong) ECDepartmentModel *departmentModel;
 @property (nonatomic, strong) ECScrollView *departScrollView;
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *datasource;
