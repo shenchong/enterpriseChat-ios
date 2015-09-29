@@ -1,0 +1,4 @@
+pod 'EaseMobSDK', :git => 'https://github.com/easemob/sdk-ios-cocoapods.git'
+pod 'FMDB', '~> 2.5'
+pod 'SDWebImage', '~> 3.7.3'
+pod 'Parse'

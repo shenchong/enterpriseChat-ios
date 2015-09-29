@@ -5,4 +5,7 @@ Breakpoints_v2.xcbkptlist
 **/.xccurrentversion
 .DS_Store
 **/project.xcworkspace/*
+**/enterpriseChat/Podfile.lock
+**/enterpriseChat/Pods/*
+**/enterpriseChat/enterpriseChat.xcworkspace/*
 *.a
