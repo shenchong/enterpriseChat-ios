@@ -9,6 +9,7 @@
 #import "ECLoginViewController.h"
 #import "UITextField+Category.h"
 #import "UIViewController+DismissKeyboard.h"
+#import "ECRegisterViewController.h"
 
 @interface ECLoginViewController () <UITextFieldDelegate>{
     UIView *_firstResponderView;
@@ -28,7 +29,8 @@
     loginVC.title = @"登录";
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:loginVC];
     [nav setNavigationBarHidden:YES];
-    [nav.navigationBar setBackgroundImage:[UIImage imageNamed:@"chatListCellHead"] forBarMetrics:UIBarMetricsDefault];
+    [nav.navigationBar setBackgroundImage:[UIImage imageNamed:@"titleBar"] forBarMetrics:UIBarMetricsDefault];
+    
     return nav;
 }
 
@@ -80,6 +82,9 @@
                                               target:self
                                               action:@selector(login)];
     self.navigationItem.rightBarButtonItem.tintColor = [UIColor whiteColor];
+    
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"注册" style:UIBarButtonItemStyleDone target:self action:@selector(Register)];
+    self.navigationItem.leftBarButtonItem.tintColor = [UIColor whiteColor];
 }
 
 - (void)keyboardWillChangeFrame:(NSNotification *)notification
@@ -164,11 +169,16 @@
                                                             password:self.pwdField.text
                                                           completion:^(NSDictionary *loginInfo, EMError *error)
          {
-             [[EaseMob sharedInstance].chatManager setIsAutoLoginEnabled:YES];
+             [[EaseMob sharedInstance].chatManager setIsAutoLoginEnabled:NO];
              [[NSNotificationCenter defaultCenter] postNotificationName:LOGIN_CHANGE_NOTIFICATION
                                                                  object:@YES];
          } onQueue:nil];
     }
+}
+
+- (void)Register{
+    ECRegisterViewController *registerVC = [[ECRegisterViewController alloc]initWithNibName:@"ECRegisterViewController" bundle:nil];
+    [self.navigationController pushViewController:registerVC animated:YES];
 }
 
 @end

@@ -14,11 +14,23 @@
 
 #define MENU_POPOVER_FRAME  CGRectMake(8, 0, 140, 188)
 
-@interface ECChatListViewController () <UITableViewDelegate,UITableViewDataSource>
+@interface ECChatListViewController () <UITableViewDelegate,UITableViewDataSource,IChatManagerDelegate>
+
 @property(nonatomic,strong) NSArray *menuItems;
+//@property (strong, nonatomic) NSMutableArray *dataSource;
+
 @end
 
 @implementation ECChatListViewController
+
+//- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+//{
+//    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+//    if (self) {
+//        _datasource = [NSMutableArray array];
+//    }
+//    return self;
+//}
 
 - (void)viewDidLoad{
     self.isNeedSearch = YES;
@@ -38,7 +50,93 @@
 //        [self.datasource addObject:model];
 //    }
     [self setupBadgeValue:@"1"];
+    
+    [[EaseMob sharedInstance].chatManager loadAllConversationsFromDatabaseWithAppend2Chat:NO];
+    [self removeEmptyConversationsFromDB];
+    
+    
+    
 }
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [self refreshDataSource];
+    [self registerNotifications];
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [self unregisterNotifications];
+}
+
+- (void)removeEmptyConversationsFromDB
+{
+    NSArray *conversations = [[EaseMob sharedInstance].chatManager conversations];
+    NSMutableArray *needRemoveConversations;
+    for (EMConversation *conversation in conversations) {
+        if (!conversation.latestMessage || (conversation.conversationType == eConversationTypeChatRoom)) {
+            if (!needRemoveConversations) {
+                needRemoveConversations = [[NSMutableArray alloc] initWithCapacity:0];
+            }
+            
+            [needRemoveConversations addObject:conversation.chatter];
+        }
+    }
+    
+    if (needRemoveConversations && needRemoveConversations.count > 0) {
+        [[EaseMob sharedInstance].chatManager removeConversationsByChatters:needRemoveConversations
+                                                             deleteMessages:YES
+                                                                append2Chat:NO];
+    }
+}
+
+- (void)removeChatroomConversationsFromDB
+{
+    NSArray *conversations = [[EaseMob sharedInstance].chatManager conversations];
+    NSMutableArray *needRemoveConversations;
+    for (EMConversation *conversation in conversations) {
+        if (conversation.conversationType == eConversationTypeChatRoom) {
+            if (!needRemoveConversations) {
+                needRemoveConversations = [[NSMutableArray alloc] initWithCapacity:0];
+            }
+            
+            [needRemoveConversations addObject:conversation.chatter];
+        }
+    }
+    
+    if (needRemoveConversations && needRemoveConversations.count > 0) {
+        [[EaseMob sharedInstance].chatManager removeConversationsByChatters:needRemoveConversations
+                                                             deleteMessages:YES
+                                                                append2Chat:NO];
+    }
+}
+
+
+#pragma mark - private
+
+- (NSMutableArray *)loadDataSource
+{
+    NSMutableArray *ret = nil;
+    NSArray *conversations = [[EaseMob sharedInstance].chatManager conversations];
+    
+    NSArray* sorte = [conversations sortedArrayUsingComparator:
+                      ^(EMConversation *obj1, EMConversation* obj2){
+                          EMMessage *message1 = [obj1 latestMessage];
+                          EMMessage *message2 = [obj2 latestMessage];
+                          if(message1.timestamp > message2.timestamp) {
+                              return(NSComparisonResult)NSOrderedAscending;
+                          }else {
+                              return(NSComparisonResult)NSOrderedDescending;
+                          }
+                      }];
+    
+    ret = [[NSMutableArray alloc] initWithArray:sorte];
+    return ret;
+}
+
 
 #pragma mark - rewrite superClass
 - (UIBarButtonItem *)rightBarButtonItem{
@@ -99,6 +197,50 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+#pragma mark - IChatMangerDelegate
+
+-(void)didUnreadMessagesCountChanged
+{
+    [self refreshDataSource];
+}
+
+- (void)didUpdateGroupList:(NSArray *)allGroups error:(EMError *)error
+{
+    [self refreshDataSource];
+}
+
+- (void)didReceiveOfflineMessages:(NSArray *)offlineMessages
+{
+    [self refreshDataSource];
+}
+
+- (void)didReceiveMessage:(EMMessage *)message{
+    
+}
+
+#pragma mark - registerNotifications
+-(void)registerNotifications{
+    [self unregisterNotifications];
+    [[EaseMob sharedInstance].chatManager addDelegate:self delegateQueue:nil];
+}
+
+-(void)unregisterNotifications{
+    [[EaseMob sharedInstance].chatManager removeDelegate:self];
+}
+
+- (void)dealloc{
+    [self unregisterNotifications];
+}
+
+#pragma mark - public
+
+- (void)refreshDataSource
+{
+    self.datasource = [self loadDataSource];
+    [self.tableView reloadData];
+//    [self hideHud];
 }
 
 @end

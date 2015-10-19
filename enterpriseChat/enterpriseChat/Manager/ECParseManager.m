@@ -30,7 +30,7 @@
 
 - (void)updateDepartmentsFromParse{
     PFQuery *query = [PFQuery queryWithClassName:DEPARTMENT];
-    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+    [query findObjectsInBackgroundWithBlock:^(NSArray *  objects, NSError *  error) {
         if (!error) {
             for (id object in objects) {
                 if ([object isKindOfClass:[PFObject class]]) {

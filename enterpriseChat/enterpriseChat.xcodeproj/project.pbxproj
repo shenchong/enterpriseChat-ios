@@ -32,9 +32,9 @@
 		902B0E791B8DB52700EBA3FE /* ECRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 902B0E781B8DB52700EBA3FE /* ECRegisterViewController.m */; };
 		902B0E7F1B8DBD8F00EBA3FE /* ECLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 902B0E7D1B8DBD8F00EBA3FE /* ECLoginViewController.m */; };
 		902B0E801B8DBD8F00EBA3FE /* ECLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 902B0E7E1B8DBD8F00EBA3FE /* ECLoginViewController.xib */; };
-		902F70AD1BBA8F75009D4B7F /* AppDelegate+Parse.m in Sources */ = {isa = PBXBuildFile; fileRef = 902F70AC1BBA8F75009D4B7F /* AppDelegate+Parse.m */; settings = {ASSET_TAGS = (); }; };
-		902F70B01BBA9973009D4B7F /* ECParseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 902F70AF1BBA9973009D4B7F /* ECParseManager.m */; settings = {ASSET_TAGS = (); }; };
-		902F71211BBAAA5E009D4B7F /* NSObject+NotificationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 902F71201BBAAA5E009D4B7F /* NSObject+NotificationCenter.m */; settings = {ASSET_TAGS = (); }; };
+		902F70AD1BBA8F75009D4B7F /* AppDelegate+Parse.m in Sources */ = {isa = PBXBuildFile; fileRef = 902F70AC1BBA8F75009D4B7F /* AppDelegate+Parse.m */; };
+		902F70B01BBA9973009D4B7F /* ECParseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 902F70AF1BBA9973009D4B7F /* ECParseManager.m */; };
+		902F71211BBAAA5E009D4B7F /* NSObject+NotificationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 902F71201BBAAA5E009D4B7F /* NSObject+NotificationCenter.m */; };
 		903113941BA025B200B0E487 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 903113931BA025B200B0E487 /* Accounts.framework */; };
 		903113961BA025BF00B0E487 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 903113951BA025BF00B0E487 /* Social.framework */; };
 		9031139A1BA02F4900B0E487 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 903113991BA02F4900B0E487 /* StoreKit.framework */; };
@@ -51,8 +51,8 @@
 		90519C2E1B665CFE0048A081 /* ECSettingsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90519C2D1B665CFE0048A081 /* ECSettingsListViewController.m */; };
 		90519C321B665F450048A081 /* ECNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90519C311B665F450048A081 /* ECNavigationController.m */; };
 		90519C381B6660600048A081 /* ECViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 90519C371B6660600048A081 /* ECViewManager.m */; };
-		905AFAA41BB4EF6C005EA1AC /* ECDepartmentListManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 905AFAA31BB4EF6C005EA1AC /* ECDepartmentListManagerViewController.m */; settings = {ASSET_TAGS = (); }; };
-		9061CC9B1BBA4C2E00D58726 /* ECSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 9061CC9A1BBA4C2E00D58726 /* ECSearchBar.m */; settings = {ASSET_TAGS = (); }; };
+		905AFAA41BB4EF6C005EA1AC /* ECDepartmentListManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 905AFAA31BB4EF6C005EA1AC /* ECDepartmentListManagerViewController.m */; };
+		9061CC9B1BBA4C2E00D58726 /* ECSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 9061CC9A1BBA4C2E00D58726 /* ECSearchBar.m */; };
 		9063A39A1B6B50A5007D4ED8 /* RealtimeSearchUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 9063A3991B6B50A5007D4ED8 /* RealtimeSearchUtil.m */; };
 		9063A39D1B6B5251007D4ED8 /* EMSearchDisplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9063A39C1B6B5251007D4ED8 /* EMSearchDisplayController.m */; };
 		90858FB51B95C2930088E992 /* ECContactModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 90858FAE1B95C2930088E992 /* ECContactModel.m */; };
@@ -61,11 +61,101 @@
 		90C918941B96CDD6005F1658 /* NSString+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C918931B96CDD6005F1658 /* NSString+Category.m */; };
 		90D793821BA2C55800F6CA41 /* ECScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90D793811BA2C55800F6CA41 /* ECScrollView.m */; };
 		90E921D81B68EFDA00FFB4D7 /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 90E921D51B68EFDA00FFB4D7 /* UIView+Frame.m */; };
-		90FCD80C1BB3B33500FFAF10 /* ECConverstaionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 90FCD80B1BB3B33500FFAF10 /* ECConverstaionModel.m */; settings = {ASSET_TAGS = (); }; };
-		90FCD80F1BB3B4A600FFAF10 /* ECGroupModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 90FCD80E1BB3B4A600FFAF10 /* ECGroupModel.m */; settings = {ASSET_TAGS = (); }; };
-		90FCD81B1BB3D43800FFAF10 /* ECDepartmentListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90FCD8191BB3D43800FFAF10 /* ECDepartmentListCell.m */; settings = {ASSET_TAGS = (); }; };
-		90FCD81C1BB3D43800FFAF10 /* ECDepartmentListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90FCD81A1BB3D43800FFAF10 /* ECDepartmentListCell.xib */; settings = {ASSET_TAGS = (); }; };
+		90FCD80C1BB3B33500FFAF10 /* ECConverstaionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 90FCD80B1BB3B33500FFAF10 /* ECConverstaionModel.m */; };
+		90FCD80F1BB3B4A600FFAF10 /* ECGroupModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 90FCD80E1BB3B4A600FFAF10 /* ECGroupModel.m */; };
+		90FCD81B1BB3D43800FFAF10 /* ECDepartmentListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90FCD8191BB3D43800FFAF10 /* ECDepartmentListCell.m */; };
+		90FCD81C1BB3D43800FFAF10 /* ECDepartmentListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90FCD81A1BB3D43800FFAF10 /* ECDepartmentListCell.xib */; };
 		A9A950A16D7D6A3E170BD98B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4021916DA3C56D95E1BD0E67 /* libPods.a */; };
+		D20029441BD53E8800075A86 /* +.png in Resources */ = {isa = PBXBuildFile; fileRef = D20028EB1BD53E8800075A86 /* +.png */; };
+		D20029451BD53E8800075A86 /* 会话-选中.png in Resources */ = {isa = PBXBuildFile; fileRef = D20028EC1BD53E8800075A86 /* 会话-选中.png */; };
+		D20029461BD53E8800075A86 /* 会话.png in Resources */ = {isa = PBXBuildFile; fileRef = D20028ED1BD53E8800075A86 /* 会话.png */; };
+		D20029471BD53E8800075A86 /* 会话设置.png in Resources */ = {isa = PBXBuildFile; fileRef = D20028EE1BD53E8800075A86 /* 会话设置.png */; };
+		D20029481BD53E8800075A86 /* 发消息.png in Resources */ = {isa = PBXBuildFile; fileRef = D20028EF1BD53E8800075A86 /* 发消息.png */; };
+		D20029491BD53E8800075A86 /* 发起会话.png in Resources */ = {isa = PBXBuildFile; fileRef = D20028F01BD53E8800075A86 /* 发起会话.png */; };
+		D200294A1BD53E8800075A86 /* 发起群聊.png in Resources */ = {isa = PBXBuildFile; fileRef = D20028F11BD53E8800075A86 /* 发起群聊.png */; };
+		D200294B1BD53E8800075A86 /* 应用-选中.png in Resources */ = {isa = PBXBuildFile; fileRef = D20028F21BD53E8800075A86 /* 应用-选中.png */; };
+		D200294C1BD53E8800075A86 /* 应用.png in Resources */ = {isa = PBXBuildFile; fileRef = D20028F31BD53E8800075A86 /* 应用.png */; };
+		D200294D1BD53E8800075A86 /* 应用1.png in Resources */ = {isa = PBXBuildFile; fileRef = D20028F41BD53E8800075A86 /* 应用1.png */; };
+		D200294E1BD53E8800075A86 /* 应用2.png in Resources */ = {isa = PBXBuildFile; fileRef = D20028F51BD53E8800075A86 /* 应用2.png */; };
+		D200294F1BD53E8800075A86 /* 应用3.png in Resources */ = {isa = PBXBuildFile; fileRef = D20028F61BD53E8800075A86 /* 应用3.png */; };
+		D20029501BD53E8800075A86 /* 应用4.png in Resources */ = {isa = PBXBuildFile; fileRef = D20028F71BD53E8800075A86 /* 应用4.png */; };
+		D20029511BD53E8800075A86 /* 拍摄.png in Resources */ = {isa = PBXBuildFile; fileRef = D20028F81BD53E8800075A86 /* 拍摄.png */; };
+		D20029521BD53E8800075A86 /* 欢迎使用企信.png in Resources */ = {isa = PBXBuildFile; fileRef = D20028F91BD53E8800075A86 /* 欢迎使用企信.png */; };
+		D20029531BD53E8800075A86 /* 欢迎使用企信透明.png in Resources */ = {isa = PBXBuildFile; fileRef = D20028FA1BD53E8800075A86 /* 欢迎使用企信透明.png */; };
+		D20029541BD53E8800075A86 /* 欢迎页.png in Resources */ = {isa = PBXBuildFile; fileRef = D20028FB1BD53E8800075A86 /* 欢迎页.png */; };
+		D20029551BD53E8800075A86 /* 清除.png in Resources */ = {isa = PBXBuildFile; fileRef = D20028FC1BD53E8800075A86 /* 清除.png */; };
+		D20029561BD53E8800075A86 /* 照片.png in Resources */ = {isa = PBXBuildFile; fileRef = D20028FD1BD53E8800075A86 /* 照片.png */; };
+		D20029571BD53E8800075A86 /* 组织架构.png in Resources */ = {isa = PBXBuildFile; fileRef = D20028FE1BD53E8800075A86 /* 组织架构.png */; };
+		D20029581BD53E8800075A86 /* 群消息.png in Resources */ = {isa = PBXBuildFile; fileRef = D20028FF1BD53E8800075A86 /* 群消息.png */; };
+		D20029591BD53E8800075A86 /* 群设置.png in Resources */ = {isa = PBXBuildFile; fileRef = D20029001BD53E8800075A86 /* 群设置.png */; };
+		D200295A1BD53E8800075A86 /* 联系人-选中.png in Resources */ = {isa = PBXBuildFile; fileRef = D20029011BD53E8800075A86 /* 联系人-选中.png */; };
+		D200295B1BD53E8800075A86 /* 联系人.png in Resources */ = {isa = PBXBuildFile; fileRef = D20029021BD53E8800075A86 /* 联系人.png */; };
+		D200295C1BD53E8800075A86 /* 设置-选中.png in Resources */ = {isa = PBXBuildFile; fileRef = D20029031BD53E8800075A86 /* 设置-选中.png */; };
+		D200295D1BD53E8800075A86 /* 设置.png in Resources */ = {isa = PBXBuildFile; fileRef = D20029041BD53E8800075A86 /* 设置.png */; };
+		D200295E1BD53E8800075A86 /* 返回-白.png in Resources */ = {isa = PBXBuildFile; fileRef = D20029051BD53E8800075A86 /* 返回-白.png */; };
+		D200295F1BD53E8800075A86 /* 返回.png in Resources */ = {isa = PBXBuildFile; fileRef = D20029061BD53E8800075A86 /* 返回.png */; };
+		D20029601BD53E8800075A86 /* 默认消息.png in Resources */ = {isa = PBXBuildFile; fileRef = D20029071BD53E8800075A86 /* 默认消息.png */; };
+		D20029611BD53E8800075A86 /* +@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D20029091BD53E8800075A86 /* +@2x.png */; };
+		D20029621BD53E8800075A86 /* 会话-选中@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D200290A1BD53E8800075A86 /* 会话-选中@2x.png */; };
+		D20029631BD53E8800075A86 /* 会话@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D200290B1BD53E8800075A86 /* 会话@2x.png */; };
+		D20029641BD53E8800075A86 /* 会话设置@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D200290C1BD53E8800075A86 /* 会话设置@2x.png */; };
+		D20029651BD53E8800075A86 /* 发消息@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D200290D1BD53E8800075A86 /* 发消息@2x.png */; };
+		D20029661BD53E8800075A86 /* 发起会话@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D200290E1BD53E8800075A86 /* 发起会话@2x.png */; };
+		D20029671BD53E8800075A86 /* 发起群聊@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D200290F1BD53E8800075A86 /* 发起群聊@2x.png */; };
+		D20029681BD53E8800075A86 /* 应用-选中@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D20029101BD53E8800075A86 /* 应用-选中@2x.png */; };
+		D20029691BD53E8800075A86 /* 应用1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D20029111BD53E8800075A86 /* 应用1@2x.png */; };
+		D200296A1BD53E8800075A86 /* 应用2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D20029121BD53E8800075A86 /* 应用2@2x.png */; };
+		D200296B1BD53E8800075A86 /* 应用3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D20029131BD53E8800075A86 /* 应用3@2x.png */; };
+		D200296C1BD53E8800075A86 /* 应用4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D20029141BD53E8800075A86 /* 应用4@2x.png */; };
+		D200296D1BD53E8800075A86 /* 应用@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D20029151BD53E8800075A86 /* 应用@2x.png */; };
+		D200296E1BD53E8800075A86 /* 拍摄@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D20029161BD53E8800075A86 /* 拍摄@2x.png */; };
+		D200296F1BD53E8800075A86 /* 欢迎使用企信@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D20029171BD53E8800075A86 /* 欢迎使用企信@2x.png */; };
+		D20029701BD53E8800075A86 /* 欢迎使用企信透明@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D20029181BD53E8800075A86 /* 欢迎使用企信透明@2x.png */; };
+		D20029711BD53E8800075A86 /* 欢迎页@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D20029191BD53E8800075A86 /* 欢迎页@2x.png */; };
+		D20029721BD53E8800075A86 /* 清除@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D200291A1BD53E8800075A86 /* 清除@2x.png */; };
+		D20029731BD53E8800075A86 /* 照片@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D200291B1BD53E8800075A86 /* 照片@2x.png */; };
+		D20029741BD53E8800075A86 /* 组织架构@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D200291C1BD53E8800075A86 /* 组织架构@2x.png */; };
+		D20029751BD53E8800075A86 /* 群消息@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D200291D1BD53E8800075A86 /* 群消息@2x.png */; };
+		D20029761BD53E8800075A86 /* 群设置@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D200291E1BD53E8800075A86 /* 群设置@2x.png */; };
+		D20029771BD53E8800075A86 /* 联系人-选中@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D200291F1BD53E8800075A86 /* 联系人-选中@2x.png */; };
+		D20029781BD53E8800075A86 /* 联系人@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D20029201BD53E8800075A86 /* 联系人@2x.png */; };
+		D20029791BD53E8800075A86 /* 设置-选中@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D20029211BD53E8800075A86 /* 设置-选中@2x.png */; };
+		D200297A1BD53E8800075A86 /* 设置@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D20029221BD53E8800075A86 /* 设置@2x.png */; };
+		D200297B1BD53E8800075A86 /* 返回-白@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D20029231BD53E8800075A86 /* 返回-白@2x.png */; };
+		D200297C1BD53E8800075A86 /* 返回@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D20029241BD53E8800075A86 /* 返回@2x.png */; };
+		D200297D1BD53E8800075A86 /* 默认消息@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D20029251BD53E8800075A86 /* 默认消息@2x.png */; };
+		D200297E1BD53E8800075A86 /* +@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D20029271BD53E8800075A86 /* +@3x.png */; };
+		D200297F1BD53E8800075A86 /* 会话-选中@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D20029281BD53E8800075A86 /* 会话-选中@3x.png */; };
+		D20029801BD53E8800075A86 /* 会话@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D20029291BD53E8800075A86 /* 会话@3x.png */; };
+		D20029811BD53E8800075A86 /* 会话设置@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D200292A1BD53E8800075A86 /* 会话设置@3x.png */; };
+		D20029821BD53E8800075A86 /* 发消息@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D200292B1BD53E8800075A86 /* 发消息@3x.png */; };
+		D20029831BD53E8800075A86 /* 发起会话@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D200292C1BD53E8800075A86 /* 发起会话@3x.png */; };
+		D20029841BD53E8800075A86 /* 发起群聊@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D200292D1BD53E8800075A86 /* 发起群聊@3x.png */; };
+		D20029851BD53E8800075A86 /* 应用-选中@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D200292E1BD53E8800075A86 /* 应用-选中@3x.png */; };
+		D20029861BD53E8800075A86 /* 应用1@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D200292F1BD53E8800075A86 /* 应用1@3x.png */; };
+		D20029871BD53E8800075A86 /* 应用2@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D20029301BD53E8800075A86 /* 应用2@3x.png */; };
+		D20029881BD53E8800075A86 /* 应用3@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D20029311BD53E8800075A86 /* 应用3@3x.png */; };
+		D20029891BD53E8800075A86 /* 应用4@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D20029321BD53E8800075A86 /* 应用4@3x.png */; };
+		D200298A1BD53E8800075A86 /* 应用@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D20029331BD53E8800075A86 /* 应用@3x.png */; };
+		D200298B1BD53E8800075A86 /* 拍摄@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D20029341BD53E8800075A86 /* 拍摄@3x.png */; };
+		D200298C1BD53E8800075A86 /* 欢迎使用企信@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D20029351BD53E8800075A86 /* 欢迎使用企信@3x.png */; };
+		D200298D1BD53E8800075A86 /* 欢迎使用企信透明@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D20029361BD53E8800075A86 /* 欢迎使用企信透明@3x.png */; };
+		D200298E1BD53E8800075A86 /* 欢迎页@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D20029371BD53E8800075A86 /* 欢迎页@3x.png */; };
+		D200298F1BD53E8800075A86 /* 清除@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D20029381BD53E8800075A86 /* 清除@3x.png */; };
+		D20029901BD53E8800075A86 /* 照片@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D20029391BD53E8800075A86 /* 照片@3x.png */; };
+		D20029911BD53E8800075A86 /* 组织架构@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D200293A1BD53E8800075A86 /* 组织架构@3x.png */; };
+		D20029921BD53E8800075A86 /* 群消息@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D200293B1BD53E8800075A86 /* 群消息@3x.png */; };
+		D20029931BD53E8800075A86 /* 群设置@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D200293C1BD53E8800075A86 /* 群设置@3x.png */; };
+		D20029941BD53E8800075A86 /* 联系人-选中@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D200293D1BD53E8800075A86 /* 联系人-选中@3x.png */; };
+		D20029951BD53E8800075A86 /* 联系人@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D200293E1BD53E8800075A86 /* 联系人@3x.png */; };
+		D20029961BD53E8800075A86 /* 设置-选中@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D200293F1BD53E8800075A86 /* 设置-选中@3x.png */; };
+		D20029971BD53E8800075A86 /* 设置@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D20029401BD53E8800075A86 /* 设置@3x.png */; };
+		D20029981BD53E8800075A86 /* 返回-白@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D20029411BD53E8800075A86 /* 返回-白@3x.png */; };
+		D20029991BD53E8800075A86 /* 返回@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D20029421BD53E8800075A86 /* 返回@3x.png */; };
+		D200299A1BD53E8800075A86 /* 默认消息@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D20029431BD53E8800075A86 /* 默认消息@3x.png */; };
+		D2D4E66B1BD4ABFC00C59801 /* ECRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2D4E66A1BD4ABFC00C59801 /* ECRegisterViewController.xib */; };
+		D2D4E66E1BD4D4A300C59801 /* titleBar.png in Resources */ = {isa = PBXBuildFile; fileRef = D2D4E66C1BD4D4A300C59801 /* titleBar.png */; };
+		D2D4E66F1BD4D4A300C59801 /* titleBar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D2D4E66D1BD4D4A300C59801 /* titleBar@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -175,6 +265,96 @@
 		90FCD81A1BB3D43800FFAF10 /* ECDepartmentListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ECDepartmentListCell.xib; sourceTree = "<group>"; };
 		B1A585732003E48780CD9E6C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		BDD96A69046C3E398D010765 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		D20028EB1BD53E8800075A86 /* +.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "+.png"; sourceTree = "<group>"; };
+		D20028EC1BD53E8800075A86 /* 会话-选中.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "会话-选中.png"; sourceTree = "<group>"; };
+		D20028ED1BD53E8800075A86 /* 会话.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "会话.png"; sourceTree = "<group>"; };
+		D20028EE1BD53E8800075A86 /* 会话设置.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "会话设置.png"; sourceTree = "<group>"; };
+		D20028EF1BD53E8800075A86 /* 发消息.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "发消息.png"; sourceTree = "<group>"; };
+		D20028F01BD53E8800075A86 /* 发起会话.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "发起会话.png"; sourceTree = "<group>"; };
+		D20028F11BD53E8800075A86 /* 发起群聊.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "发起群聊.png"; sourceTree = "<group>"; };
+		D20028F21BD53E8800075A86 /* 应用-选中.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "应用-选中.png"; sourceTree = "<group>"; };
+		D20028F31BD53E8800075A86 /* 应用.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "应用.png"; sourceTree = "<group>"; };
+		D20028F41BD53E8800075A86 /* 应用1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "应用1.png"; sourceTree = "<group>"; };
+		D20028F51BD53E8800075A86 /* 应用2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "应用2.png"; sourceTree = "<group>"; };
+		D20028F61BD53E8800075A86 /* 应用3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "应用3.png"; sourceTree = "<group>"; };
+		D20028F71BD53E8800075A86 /* 应用4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "应用4.png"; sourceTree = "<group>"; };
+		D20028F81BD53E8800075A86 /* 拍摄.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "拍摄.png"; sourceTree = "<group>"; };
+		D20028F91BD53E8800075A86 /* 欢迎使用企信.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "欢迎使用企信.png"; sourceTree = "<group>"; };
+		D20028FA1BD53E8800075A86 /* 欢迎使用企信透明.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "欢迎使用企信透明.png"; sourceTree = "<group>"; };
+		D20028FB1BD53E8800075A86 /* 欢迎页.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "欢迎页.png"; sourceTree = "<group>"; };
+		D20028FC1BD53E8800075A86 /* 清除.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "清除.png"; sourceTree = "<group>"; };
+		D20028FD1BD53E8800075A86 /* 照片.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "照片.png"; sourceTree = "<group>"; };
+		D20028FE1BD53E8800075A86 /* 组织架构.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "组织架构.png"; sourceTree = "<group>"; };
+		D20028FF1BD53E8800075A86 /* 群消息.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "群消息.png"; sourceTree = "<group>"; };
+		D20029001BD53E8800075A86 /* 群设置.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "群设置.png"; sourceTree = "<group>"; };
+		D20029011BD53E8800075A86 /* 联系人-选中.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "联系人-选中.png"; sourceTree = "<group>"; };
+		D20029021BD53E8800075A86 /* 联系人.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "联系人.png"; sourceTree = "<group>"; };
+		D20029031BD53E8800075A86 /* 设置-选中.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "设置-选中.png"; sourceTree = "<group>"; };
+		D20029041BD53E8800075A86 /* 设置.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "设置.png"; sourceTree = "<group>"; };
+		D20029051BD53E8800075A86 /* 返回-白.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "返回-白.png"; sourceTree = "<group>"; };
+		D20029061BD53E8800075A86 /* 返回.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "返回.png"; sourceTree = "<group>"; };
+		D20029071BD53E8800075A86 /* 默认消息.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "默认消息.png"; sourceTree = "<group>"; };
+		D20029091BD53E8800075A86 /* +@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "+@2x.png"; sourceTree = "<group>"; };
+		D200290A1BD53E8800075A86 /* 会话-选中@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "会话-选中@2x.png"; sourceTree = "<group>"; };
+		D200290B1BD53E8800075A86 /* 会话@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "会话@2x.png"; sourceTree = "<group>"; };
+		D200290C1BD53E8800075A86 /* 会话设置@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "会话设置@2x.png"; sourceTree = "<group>"; };
+		D200290D1BD53E8800075A86 /* 发消息@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "发消息@2x.png"; sourceTree = "<group>"; };
+		D200290E1BD53E8800075A86 /* 发起会话@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "发起会话@2x.png"; sourceTree = "<group>"; };
+		D200290F1BD53E8800075A86 /* 发起群聊@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "发起群聊@2x.png"; sourceTree = "<group>"; };
+		D20029101BD53E8800075A86 /* 应用-选中@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "应用-选中@2x.png"; sourceTree = "<group>"; };
+		D20029111BD53E8800075A86 /* 应用1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "应用1@2x.png"; sourceTree = "<group>"; };
+		D20029121BD53E8800075A86 /* 应用2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "应用2@2x.png"; sourceTree = "<group>"; };
+		D20029131BD53E8800075A86 /* 应用3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "应用3@2x.png"; sourceTree = "<group>"; };
+		D20029141BD53E8800075A86 /* 应用4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "应用4@2x.png"; sourceTree = "<group>"; };
+		D20029151BD53E8800075A86 /* 应用@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "应用@2x.png"; sourceTree = "<group>"; };
+		D20029161BD53E8800075A86 /* 拍摄@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "拍摄@2x.png"; sourceTree = "<group>"; };
+		D20029171BD53E8800075A86 /* 欢迎使用企信@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "欢迎使用企信@2x.png"; sourceTree = "<group>"; };
+		D20029181BD53E8800075A86 /* 欢迎使用企信透明@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "欢迎使用企信透明@2x.png"; sourceTree = "<group>"; };
+		D20029191BD53E8800075A86 /* 欢迎页@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "欢迎页@2x.png"; sourceTree = "<group>"; };
+		D200291A1BD53E8800075A86 /* 清除@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "清除@2x.png"; sourceTree = "<group>"; };
+		D200291B1BD53E8800075A86 /* 照片@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "照片@2x.png"; sourceTree = "<group>"; };
+		D200291C1BD53E8800075A86 /* 组织架构@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "组织架构@2x.png"; sourceTree = "<group>"; };
+		D200291D1BD53E8800075A86 /* 群消息@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "群消息@2x.png"; sourceTree = "<group>"; };
+		D200291E1BD53E8800075A86 /* 群设置@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "群设置@2x.png"; sourceTree = "<group>"; };
+		D200291F1BD53E8800075A86 /* 联系人-选中@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "联系人-选中@2x.png"; sourceTree = "<group>"; };
+		D20029201BD53E8800075A86 /* 联系人@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "联系人@2x.png"; sourceTree = "<group>"; };
+		D20029211BD53E8800075A86 /* 设置-选中@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "设置-选中@2x.png"; sourceTree = "<group>"; };
+		D20029221BD53E8800075A86 /* 设置@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "设置@2x.png"; sourceTree = "<group>"; };
+		D20029231BD53E8800075A86 /* 返回-白@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "返回-白@2x.png"; sourceTree = "<group>"; };
+		D20029241BD53E8800075A86 /* 返回@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "返回@2x.png"; sourceTree = "<group>"; };
+		D20029251BD53E8800075A86 /* 默认消息@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "默认消息@2x.png"; sourceTree = "<group>"; };
+		D20029271BD53E8800075A86 /* +@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "+@3x.png"; sourceTree = "<group>"; };
+		D20029281BD53E8800075A86 /* 会话-选中@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "会话-选中@3x.png"; sourceTree = "<group>"; };
+		D20029291BD53E8800075A86 /* 会话@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "会话@3x.png"; sourceTree = "<group>"; };
+		D200292A1BD53E8800075A86 /* 会话设置@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "会话设置@3x.png"; sourceTree = "<group>"; };
+		D200292B1BD53E8800075A86 /* 发消息@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "发消息@3x.png"; sourceTree = "<group>"; };
+		D200292C1BD53E8800075A86 /* 发起会话@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "发起会话@3x.png"; sourceTree = "<group>"; };
+		D200292D1BD53E8800075A86 /* 发起群聊@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "发起群聊@3x.png"; sourceTree = "<group>"; };
+		D200292E1BD53E8800075A86 /* 应用-选中@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "应用-选中@3x.png"; sourceTree = "<group>"; };
+		D200292F1BD53E8800075A86 /* 应用1@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "应用1@3x.png"; sourceTree = "<group>"; };
+		D20029301BD53E8800075A86 /* 应用2@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "应用2@3x.png"; sourceTree = "<group>"; };
+		D20029311BD53E8800075A86 /* 应用3@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "应用3@3x.png"; sourceTree = "<group>"; };
+		D20029321BD53E8800075A86 /* 应用4@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "应用4@3x.png"; sourceTree = "<group>"; };
+		D20029331BD53E8800075A86 /* 应用@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "应用@3x.png"; sourceTree = "<group>"; };
+		D20029341BD53E8800075A86 /* 拍摄@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "拍摄@3x.png"; sourceTree = "<group>"; };
+		D20029351BD53E8800075A86 /* 欢迎使用企信@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "欢迎使用企信@3x.png"; sourceTree = "<group>"; };
+		D20029361BD53E8800075A86 /* 欢迎使用企信透明@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "欢迎使用企信透明@3x.png"; sourceTree = "<group>"; };
+		D20029371BD53E8800075A86 /* 欢迎页@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "欢迎页@3x.png"; sourceTree = "<group>"; };
+		D20029381BD53E8800075A86 /* 清除@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "清除@3x.png"; sourceTree = "<group>"; };
+		D20029391BD53E8800075A86 /* 照片@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "照片@3x.png"; sourceTree = "<group>"; };
+		D200293A1BD53E8800075A86 /* 组织架构@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "组织架构@3x.png"; sourceTree = "<group>"; };
+		D200293B1BD53E8800075A86 /* 群消息@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "群消息@3x.png"; sourceTree = "<group>"; };
+		D200293C1BD53E8800075A86 /* 群设置@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "群设置@3x.png"; sourceTree = "<group>"; };
+		D200293D1BD53E8800075A86 /* 联系人-选中@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "联系人-选中@3x.png"; sourceTree = "<group>"; };
+		D200293E1BD53E8800075A86 /* 联系人@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "联系人@3x.png"; sourceTree = "<group>"; };
+		D200293F1BD53E8800075A86 /* 设置-选中@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "设置-选中@3x.png"; sourceTree = "<group>"; };
+		D20029401BD53E8800075A86 /* 设置@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "设置@3x.png"; sourceTree = "<group>"; };
+		D20029411BD53E8800075A86 /* 返回-白@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "返回-白@3x.png"; sourceTree = "<group>"; };
+		D20029421BD53E8800075A86 /* 返回@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "返回@3x.png"; sourceTree = "<group>"; };
+		D20029431BD53E8800075A86 /* 默认消息@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "默认消息@3x.png"; sourceTree = "<group>"; };
+		D2D4E66A1BD4ABFC00C59801 /* ECRegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ECRegisterViewController.xib; sourceTree = "<group>"; };
+		D2D4E66C1BD4D4A300C59801 /* titleBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = titleBar.png; sourceTree = "<group>"; };
+		D2D4E66D1BD4D4A300C59801 /* titleBar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "titleBar@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -286,6 +466,7 @@
 			children = (
 				902B0E771B8DB52700EBA3FE /* ECRegisterViewController.h */,
 				902B0E781B8DB52700EBA3FE /* ECRegisterViewController.m */,
+				D2D4E66A1BD4ABFC00C59801 /* ECRegisterViewController.xib */,
 				902B0E7C1B8DBD8F00EBA3FE /* ECLoginViewController.h */,
 				902B0E7D1B8DBD8F00EBA3FE /* ECLoginViewController.m */,
 				902B0E7E1B8DBD8F00EBA3FE /* ECLoginViewController.xib */,
@@ -305,6 +486,9 @@
 		903EA8E31B67388A000AF5B3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D20028E91BD53E8800075A86 /* 切图 */,
+				D2D4E66C1BD4D4A300C59801 /* titleBar.png */,
+				D2D4E66D1BD4D4A300C59801 /* titleBar@2x.png */,
 				901758141B8DD5FE004CD075 /* initialize.png */,
 				9034B3BE1B6A1932000D0107 /* chatList */,
 			);
@@ -584,6 +768,124 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		D20028E91BD53E8800075A86 /* 切图 */ = {
+			isa = PBXGroup;
+			children = (
+				D20028EA1BD53E8800075A86 /* @1x */,
+				D20029081BD53E8800075A86 /* @2x */,
+				D20029261BD53E8800075A86 /* @3x */,
+			);
+			path = "切图";
+			sourceTree = "<group>";
+		};
+		D20028EA1BD53E8800075A86 /* @1x */ = {
+			isa = PBXGroup;
+			children = (
+				D20028EB1BD53E8800075A86 /* +.png */,
+				D20028EC1BD53E8800075A86 /* 会话-选中.png */,
+				D20028ED1BD53E8800075A86 /* 会话.png */,
+				D20028EE1BD53E8800075A86 /* 会话设置.png */,
+				D20028EF1BD53E8800075A86 /* 发消息.png */,
+				D20028F01BD53E8800075A86 /* 发起会话.png */,
+				D20028F11BD53E8800075A86 /* 发起群聊.png */,
+				D20028F21BD53E8800075A86 /* 应用-选中.png */,
+				D20028F31BD53E8800075A86 /* 应用.png */,
+				D20028F41BD53E8800075A86 /* 应用1.png */,
+				D20028F51BD53E8800075A86 /* 应用2.png */,
+				D20028F61BD53E8800075A86 /* 应用3.png */,
+				D20028F71BD53E8800075A86 /* 应用4.png */,
+				D20028F81BD53E8800075A86 /* 拍摄.png */,
+				D20028F91BD53E8800075A86 /* 欢迎使用企信.png */,
+				D20028FA1BD53E8800075A86 /* 欢迎使用企信透明.png */,
+				D20028FB1BD53E8800075A86 /* 欢迎页.png */,
+				D20028FC1BD53E8800075A86 /* 清除.png */,
+				D20028FD1BD53E8800075A86 /* 照片.png */,
+				D20028FE1BD53E8800075A86 /* 组织架构.png */,
+				D20028FF1BD53E8800075A86 /* 群消息.png */,
+				D20029001BD53E8800075A86 /* 群设置.png */,
+				D20029011BD53E8800075A86 /* 联系人-选中.png */,
+				D20029021BD53E8800075A86 /* 联系人.png */,
+				D20029031BD53E8800075A86 /* 设置-选中.png */,
+				D20029041BD53E8800075A86 /* 设置.png */,
+				D20029051BD53E8800075A86 /* 返回-白.png */,
+				D20029061BD53E8800075A86 /* 返回.png */,
+				D20029071BD53E8800075A86 /* 默认消息.png */,
+			);
+			path = "@1x";
+			sourceTree = "<group>";
+		};
+		D20029081BD53E8800075A86 /* @2x */ = {
+			isa = PBXGroup;
+			children = (
+				D20029091BD53E8800075A86 /* +@2x.png */,
+				D200290A1BD53E8800075A86 /* 会话-选中@2x.png */,
+				D200290B1BD53E8800075A86 /* 会话@2x.png */,
+				D200290C1BD53E8800075A86 /* 会话设置@2x.png */,
+				D200290D1BD53E8800075A86 /* 发消息@2x.png */,
+				D200290E1BD53E8800075A86 /* 发起会话@2x.png */,
+				D200290F1BD53E8800075A86 /* 发起群聊@2x.png */,
+				D20029101BD53E8800075A86 /* 应用-选中@2x.png */,
+				D20029111BD53E8800075A86 /* 应用1@2x.png */,
+				D20029121BD53E8800075A86 /* 应用2@2x.png */,
+				D20029131BD53E8800075A86 /* 应用3@2x.png */,
+				D20029141BD53E8800075A86 /* 应用4@2x.png */,
+				D20029151BD53E8800075A86 /* 应用@2x.png */,
+				D20029161BD53E8800075A86 /* 拍摄@2x.png */,
+				D20029171BD53E8800075A86 /* 欢迎使用企信@2x.png */,
+				D20029181BD53E8800075A86 /* 欢迎使用企信透明@2x.png */,
+				D20029191BD53E8800075A86 /* 欢迎页@2x.png */,
+				D200291A1BD53E8800075A86 /* 清除@2x.png */,
+				D200291B1BD53E8800075A86 /* 照片@2x.png */,
+				D200291C1BD53E8800075A86 /* 组织架构@2x.png */,
+				D200291D1BD53E8800075A86 /* 群消息@2x.png */,
+				D200291E1BD53E8800075A86 /* 群设置@2x.png */,
+				D200291F1BD53E8800075A86 /* 联系人-选中@2x.png */,
+				D20029201BD53E8800075A86 /* 联系人@2x.png */,
+				D20029211BD53E8800075A86 /* 设置-选中@2x.png */,
+				D20029221BD53E8800075A86 /* 设置@2x.png */,
+				D20029231BD53E8800075A86 /* 返回-白@2x.png */,
+				D20029241BD53E8800075A86 /* 返回@2x.png */,
+				D20029251BD53E8800075A86 /* 默认消息@2x.png */,
+			);
+			path = "@2x";
+			sourceTree = "<group>";
+		};
+		D20029261BD53E8800075A86 /* @3x */ = {
+			isa = PBXGroup;
+			children = (
+				D20029271BD53E8800075A86 /* +@3x.png */,
+				D20029281BD53E8800075A86 /* 会话-选中@3x.png */,
+				D20029291BD53E8800075A86 /* 会话@3x.png */,
+				D200292A1BD53E8800075A86 /* 会话设置@3x.png */,
+				D200292B1BD53E8800075A86 /* 发消息@3x.png */,
+				D200292C1BD53E8800075A86 /* 发起会话@3x.png */,
+				D200292D1BD53E8800075A86 /* 发起群聊@3x.png */,
+				D200292E1BD53E8800075A86 /* 应用-选中@3x.png */,
+				D200292F1BD53E8800075A86 /* 应用1@3x.png */,
+				D20029301BD53E8800075A86 /* 应用2@3x.png */,
+				D20029311BD53E8800075A86 /* 应用3@3x.png */,
+				D20029321BD53E8800075A86 /* 应用4@3x.png */,
+				D20029331BD53E8800075A86 /* 应用@3x.png */,
+				D20029341BD53E8800075A86 /* 拍摄@3x.png */,
+				D20029351BD53E8800075A86 /* 欢迎使用企信@3x.png */,
+				D20029361BD53E8800075A86 /* 欢迎使用企信透明@3x.png */,
+				D20029371BD53E8800075A86 /* 欢迎页@3x.png */,
+				D20029381BD53E8800075A86 /* 清除@3x.png */,
+				D20029391BD53E8800075A86 /* 照片@3x.png */,
+				D200293A1BD53E8800075A86 /* 组织架构@3x.png */,
+				D200293B1BD53E8800075A86 /* 群消息@3x.png */,
+				D200293C1BD53E8800075A86 /* 群设置@3x.png */,
+				D200293D1BD53E8800075A86 /* 联系人-选中@3x.png */,
+				D200293E1BD53E8800075A86 /* 联系人@3x.png */,
+				D200293F1BD53E8800075A86 /* 设置-选中@3x.png */,
+				D20029401BD53E8800075A86 /* 设置@3x.png */,
+				D20029411BD53E8800075A86 /* 返回-白@3x.png */,
+				D20029421BD53E8800075A86 /* 返回@3x.png */,
+				D20029431BD53E8800075A86 /* 默认消息@3x.png */,
+			);
+			path = "@3x";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -643,14 +945,104 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D200296B1BD53E8800075A86 /* 应用3@2x.png in Resources */,
+				D200296F1BD53E8800075A86 /* 欢迎使用企信@2x.png in Resources */,
+				D2D4E66B1BD4ABFC00C59801 /* ECRegisterViewController.xib in Resources */,
+				D200298B1BD53E8800075A86 /* 拍摄@3x.png in Resources */,
+				D200294A1BD53E8800075A86 /* 发起群聊.png in Resources */,
+				D20029651BD53E8800075A86 /* 发消息@2x.png in Resources */,
+				D200294B1BD53E8800075A86 /* 应用-选中.png in Resources */,
 				902B0E801B8DBD8F00EBA3FE /* ECLoginViewController.xib in Resources */,
+				D200297F1BD53E8800075A86 /* 会话-选中@3x.png in Resources */,
+				D200296A1BD53E8800075A86 /* 应用2@2x.png in Resources */,
+				D20029481BD53E8800075A86 /* 发消息.png in Resources */,
+				D20029741BD53E8800075A86 /* 组织架构@2x.png in Resources */,
+				D200299A1BD53E8800075A86 /* 默认消息@3x.png in Resources */,
+				D200298A1BD53E8800075A86 /* 应用@3x.png in Resources */,
+				D20029811BD53E8800075A86 /* 会话设置@3x.png in Resources */,
+				D20029561BD53E8800075A86 /* 照片.png in Resources */,
+				D20029911BD53E8800075A86 /* 组织架构@3x.png in Resources */,
+				D20029511BD53E8800075A86 /* 拍摄.png in Resources */,
+				D200295C1BD53E8800075A86 /* 设置-选中.png in Resources */,
+				D200294F1BD53E8800075A86 /* 应用3.png in Resources */,
+				D20029541BD53E8800075A86 /* 欢迎页.png in Resources */,
+				D200294C1BD53E8800075A86 /* 应用.png in Resources */,
+				D20029631BD53E8800075A86 /* 会话@2x.png in Resources */,
+				D200294E1BD53E8800075A86 /* 应用2.png in Resources */,
 				9034B3D21B6A1932000D0107 /* chatListCellHead.png in Resources */,
+				D200295F1BD53E8800075A86 /* 返回.png in Resources */,
+				D20029551BD53E8800075A86 /* 清除.png in Resources */,
+				D20029711BD53E8800075A86 /* 欢迎页@2x.png in Resources */,
+				D20029451BD53E8800075A86 /* 会话-选中.png in Resources */,
+				D20029571BD53E8800075A86 /* 组织架构.png in Resources */,
+				D20029731BD53E8800075A86 /* 照片@2x.png in Resources */,
+				D200295A1BD53E8800075A86 /* 联系人-选中.png in Resources */,
+				D20029641BD53E8800075A86 /* 会话设置@2x.png in Resources */,
+				D200298E1BD53E8800075A86 /* 欢迎页@3x.png in Resources */,
+				D20029791BD53E8800075A86 /* 设置-选中@2x.png in Resources */,
+				D20029441BD53E8800075A86 /* +.png in Resources */,
+				D20029801BD53E8800075A86 /* 会话@3x.png in Resources */,
+				D20029821BD53E8800075A86 /* 发消息@3x.png in Resources */,
+				D20029981BD53E8800075A86 /* 返回-白@3x.png in Resources */,
+				D20029771BD53E8800075A86 /* 联系人-选中@2x.png in Resources */,
+				D20029521BD53E8800075A86 /* 欢迎使用企信.png in Resources */,
+				D20029701BD53E8800075A86 /* 欢迎使用企信透明@2x.png in Resources */,
+				D2D4E66F1BD4D4A300C59801 /* titleBar@2x.png in Resources */,
+				D20029861BD53E8800075A86 /* 应用1@3x.png in Resources */,
+				D20029681BD53E8800075A86 /* 应用-选中@2x.png in Resources */,
+				D200297A1BD53E8800075A86 /* 设置@2x.png in Resources */,
+				D20029611BD53E8800075A86 /* +@2x.png in Resources */,
 				901758151B8DD5FE004CD075 /* initialize.png in Resources */,
+				D20029991BD53E8800075A86 /* 返回@3x.png in Resources */,
+				D200296E1BD53E8800075A86 /* 拍摄@2x.png in Resources */,
+				D200295D1BD53E8800075A86 /* 设置.png in Resources */,
+				D2D4E66E1BD4D4A300C59801 /* titleBar.png in Resources */,
+				D200297B1BD53E8800075A86 /* 返回-白@2x.png in Resources */,
+				D200295B1BD53E8800075A86 /* 联系人.png in Resources */,
+				D20029941BD53E8800075A86 /* 联系人-选中@3x.png in Resources */,
+				D200294D1BD53E8800075A86 /* 应用1.png in Resources */,
+				D20029581BD53E8800075A86 /* 群消息.png in Resources */,
+				D200297C1BD53E8800075A86 /* 返回@2x.png in Resources */,
+				D200298F1BD53E8800075A86 /* 清除@3x.png in Resources */,
+				D20029531BD53E8800075A86 /* 欢迎使用企信透明.png in Resources */,
+				D200296C1BD53E8800075A86 /* 应用4@2x.png in Resources */,
+				D20029461BD53E8800075A86 /* 会话.png in Resources */,
+				D20029851BD53E8800075A86 /* 应用-选中@3x.png in Resources */,
+				D20029831BD53E8800075A86 /* 发起会话@3x.png in Resources */,
+				D20029881BD53E8800075A86 /* 应用3@3x.png in Resources */,
+				D200297D1BD53E8800075A86 /* 默认消息@2x.png in Resources */,
+				D20029961BD53E8800075A86 /* 设置-选中@3x.png in Resources */,
+				D20029671BD53E8800075A86 /* 发起群聊@2x.png in Resources */,
+				D20029971BD53E8800075A86 /* 设置@3x.png in Resources */,
+				D20029591BD53E8800075A86 /* 群设置.png in Resources */,
+				D20029871BD53E8800075A86 /* 应用2@3x.png in Resources */,
 				9011DFD91B6A3F9900FFFFFB /* ECChatListCell.xib in Resources */,
+				D20029891BD53E8800075A86 /* 应用4@3x.png in Resources */,
 				9034B3D31B6A1932000D0107 /* chatListCellHead@2x.png in Resources */,
+				D20029781BD53E8800075A86 /* 联系人@2x.png in Resources */,
+				D20029501BD53E8800075A86 /* 应用4.png in Resources */,
+				D20029491BD53E8800075A86 /* 发起会话.png in Resources */,
+				D200298C1BD53E8800075A86 /* 欢迎使用企信@3x.png in Resources */,
+				D200295E1BD53E8800075A86 /* 返回-白.png in Resources */,
+				D20029921BD53E8800075A86 /* 群消息@3x.png in Resources */,
+				D20029951BD53E8800075A86 /* 联系人@3x.png in Resources */,
+				D200297E1BD53E8800075A86 /* +@3x.png in Resources */,
+				D20029471BD53E8800075A86 /* 会话设置.png in Resources */,
+				D20029931BD53E8800075A86 /* 群设置@3x.png in Resources */,
 				90127DD01B8C2375007534A6 /* ECContactListCell.xib in Resources */,
+				D20029661BD53E8800075A86 /* 发起会话@2x.png in Resources */,
+				D20029691BD53E8800075A86 /* 应用1@2x.png in Resources */,
+				D20029901BD53E8800075A86 /* 照片@3x.png in Resources */,
 				90519B9A1B6657750048A081 /* Images.xcassets in Resources */,
+				D200296D1BD53E8800075A86 /* 应用@2x.png in Resources */,
+				D200298D1BD53E8800075A86 /* 欢迎使用企信透明@3x.png in Resources */,
+				D20029601BD53E8800075A86 /* 默认消息.png in Resources */,
+				D20029721BD53E8800075A86 /* 清除@2x.png in Resources */,
+				D20029841BD53E8800075A86 /* 发起群聊@3x.png in Resources */,
+				D20029751BD53E8800075A86 /* 群消息@2x.png in Resources */,
+				D20029761BD53E8800075A86 /* 群设置@2x.png in Resources */,
 				90FCD81C1BB3D43800FFAF10 /* ECDepartmentListCell.xib in Resources */,
+				D20029621BD53E8800075A86 /* 会话-选中@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

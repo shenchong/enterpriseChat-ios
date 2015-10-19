@@ -106,7 +106,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
 #pragma mark - DZNEmptyDataSetSource & DZNEmptyDataSetDelegate
 - (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView
 {
-    NSString *imageName = @"initialize";
+    NSString *imageName = @"欢迎使用企信透明";
     
     return [UIImage imageNamed:imageName];
 }
