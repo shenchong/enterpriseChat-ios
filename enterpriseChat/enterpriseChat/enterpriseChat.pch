@@ -22,4 +22,8 @@
 #import "ECViewManager.h"
 #import "NSObject+NotificationCenter.h"
 
+#import "ChatDemoUIDefine.h"
+#import "EMAlertView.h"
+#import "UIViewController+HUD.h"
+
 #endif
