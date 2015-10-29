@@ -58,8 +58,12 @@
     [[EaseMob sharedInstance].chatManager loadAllConversationsFromDatabaseWithAppend2Chat:NO];
     [self removeEmptyConversationsFromDB];
     
-    
-    
+//    NSArray *conversations = [[EaseMob sharedInstance].chatManager conversations];
+//    for (EMConversation *conversation in conversations) {
+//        ECConverstaionModel *model = [[ECConverstaionModel alloc]initWithConversation:conversation];
+//        [self.datasource addObject:model];
+//    }
+//    
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -136,6 +140,7 @@
 //                              return(NSComparisonResult)NSOrderedDescending;
 //                          }
 //                      }];
+    self.datasource = nil;
     
     for (EMConversation *conversation in conversations) {
         ECConverstaionModel *model = [[ECConverstaionModel alloc]initWithConversation:conversation];
@@ -226,7 +231,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    EMConversation *conversation = [self.datasource objectAtIndex:indexPath.row];
+    EMConversation *conversation = [[[EaseMob sharedInstance].chatManager conversations] objectAtIndex:indexPath.row];
+    
 
     ChatViewController *chatController;
     NSString *title = conversation.chatter;

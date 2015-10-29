@@ -100,7 +100,7 @@
                                                                     conversationType:type];
         [_conversation markAllMessagesAsRead:YES];
         
-        
+        self.hidesBottomBarWhenPushed = YES;
         
 //        NSLog(@"===========%@", [_conversation loadAllMessages]);
         
